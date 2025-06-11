@@ -1,6 +1,21 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router';
+import { Link, type MetaFunction } from 'react-router';
 import logo from '~/components/images/Cara logo-01.png'
+
+// meta for home page
+export const meta: MetaFunction = () => {
+    return [
+        { title: "Cara | Home" },
+        { name: "description", content: "Cara is a platform that connects families with caregivers and provides a range of services to support families in caring for their loved ones." },
+        { name: "keywords", content: "Cara, Care, Africa, Caregivers, Caregiving, Care Economy" },
+        { name: "author", content: "Cara" },
+        { name: "robots", content: "index, follow" },
+        { name: "viewport", content: "width=device-width, initial-scale=1.0" },
+        { name: "og:title", content: "Cara | Home" },
+        { name: "og:description", content: "Cara is a platform that connects families with caregivers and provides a range of services to support families in caring for their loved ones." },
+        { name: "og:image", content: logo }
+    ];
+};
 
 const Home = () => {
     useEffect(() => {
@@ -35,7 +50,6 @@ const Home = () => {
 
                 {/* Content */}
                 <div className="relative z-10  text-white px-4 sm:px-6  max-w-6xl mx-auto">
-
 
                     {/* Main Tagline */}
                     <div className="mb-8 animate-fade-in-up flex flex-col gap-2 animation-delay-200">

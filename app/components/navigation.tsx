@@ -5,10 +5,10 @@ import logo from "~/components/images/Cara logo-01.png";
 
 const navigation = [
     { name: "Home", to: "/", isExternal: true },
-    { name: "About Cara", to: "/about", isExternal: true },
-    { name: "Our Work", to: "/about", isExternal: true },
-    { name: "Our Impact Goals", to: "/about", isExternal: true },
-   
+    { name: "About CARA", to: "/about", isExternal: true },
+    { name: "Our Work", to: "#", isExternal: false },
+    { name: "Our Impact", to: "#", isExternal: false },
+    { name: "Get Involved", to: "#bePartOfTheSolution", isExternal: false },
 ];
 
 export default function Navigation() {
@@ -34,14 +34,14 @@ export default function Navigation() {
     };
 
     return (
-        <header className="border border-black/10 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0 z-50 transition-all duration-300">
+        <header className="border border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/90 sticky top-0 z-50 transition-all duration-300 shadow-sm">
             <div className="container mx-auto px-4 py-4">
                 <div className="flex items-center justify-between">
                     <Link 
                         to="/" 
                         className="flex items-center space-x-2 transform hover:scale-105 transition-transform duration-200"
                     >
-                       <img className="w-[5vw] h-[5vh]" src={logo} alt="logo" />
+                       <img className="w-[120px] h-[40px] object-contain" src={logo} alt="CARA Logo" />
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -51,29 +51,37 @@ export default function Navigation() {
                                 <Link
                                     key={item.name}
                                     to={item.to}
-                                    className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 relative group"
+                                    className="text-gray-700 hover:text-cara-teal font-medium transition-colors duration-200 relative group"
                                 >
                                     {item.name}
-                                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                                    <span className="absolute bottom-0 left-0 w-0 h-0.5 cara-bg-orange transition-all duration-300 group-hover:w-full"></span>
                                 </Link>
                             ) : (
                                 <a
                                     key={item.name}
                                     href={item.to}
-                                    className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 relative group"
+                                    className="text-gray-700 hover:text-cara-teal font-medium transition-colors duration-200 relative group"
                                     onClick={(e) => handleSmoothScroll(e, item.to, item.isExternal)}
                                 >
                                     {item.name}
-                                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                                    <span className="absolute bottom-0 left-0 w-0 h-0.5 cara-bg-orange transition-all duration-300 group-hover:w-full"></span>
                                 </a>
                             )
                         ))}
-                      
+                        
+                        {/* CTA Button */}
+                        <Link 
+                            to="#bePartOfTheSolution" 
+                            className="cara-btn-primary font-heading px-6 py-2 text-sm"
+                            onClick={(e) => handleSmoothScroll(e, "#bePartOfTheSolution", false)}
+                        >
+                            Join the Movement
+                        </Link>
                     </nav>
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="lg:hidden p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200"
+                        className="lg:hidden p-2 rounded-md text-gray-600 hover:text-cara-teal hover:bg-gray-100 transition-colors duration-200"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         aria-label="Toggle mobile menu"
                     >
@@ -94,7 +102,7 @@ export default function Navigation() {
                                     <Link 
                                         key={item.name}
                                         to={item.to} 
-                                        className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 py-2"
+                                        className="text-gray-700 hover:text-cara-teal font-medium transition-colors duration-200 py-2"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
                                         {item.name}
@@ -103,7 +111,7 @@ export default function Navigation() {
                                     <a
                                         key={item.name}
                                         href={item.to}
-                                        className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 py-2"
+                                        className="text-gray-700 hover:text-cara-teal font-medium transition-colors duration-200 py-2"
                                         onClick={(e) => handleSmoothScroll(e, item.to, item.isExternal)}
                                     >
                                         {item.name}
@@ -111,7 +119,17 @@ export default function Navigation() {
                                 )
                             ))}
                             
-                          
+                            {/* Mobile CTA */}
+                            <Link 
+                                to="#bePartOfTheSolution" 
+                                className="cara-btn-primary font-heading px-6 py-3 text-center mt-4"
+                                onClick={(e) => {
+                                    handleSmoothScroll(e, "#bePartOfTheSolution", false);
+                                    setMobileMenuOpen(false);
+                                }}
+                            >
+                                Join the Movement
+                            </Link>
                         </div>
                     </nav>
                 )}

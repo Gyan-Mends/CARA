@@ -55,7 +55,7 @@ export default function AppLayout() {
 
                             {/* Get Involved */}
                             <div>
-                                <h4 className="font-heading text-lg font-semibold mb-6 cara-text-teal">Get Involved</h4>
+                                <h4 className="font-heading text-lg font-semibold mb-6 cara-text-orange">Get Involved</h4>
                                 <ul className="space-y-3">
                                     <li><a href="#volunteer" className="text-gray-300 hover:text-white transition-colors">Volunteer</a></li>
                                     <li><a href="#partner" className="text-gray-300 hover:text-white transition-colors">Partner With Us</a></li>
@@ -91,7 +91,7 @@ export default function AppLayout() {
                                 </div>
 
                                 <div>
-                                    <h4 className="font-heading text-lg font-semibold mb-4 cara-text-teal">Newsletter</h4>
+                                    <h4 className="font-heading text-lg font-semibold mb-4 cara-text-orange">Newsletter</h4>
                                     <p className="text-gray-300 text-sm mb-4">
                                         Stay updated on our progress and latest initiatives
                                     </p>
