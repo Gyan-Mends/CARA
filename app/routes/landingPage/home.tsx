@@ -1,6 +1,16 @@
 import React, { useEffect } from 'react';
 import { Link, type MetaFunction } from 'react-router';
 import logo from '~/components/images/Cara logo-01.png'
+import image1 from '~/components/images/gallery1.avif'
+import image2 from '~/components/images/gallery1.avif'
+import image3 from '~/components/images/gallery1.avif'
+import image4 from '~/components/images/gallery1.avif'
+import image5 from '~/components/images/gallery1.avif'
+import image6 from '~/components/images/gallery1.avif'
+
+import Splide from '@splidejs/splide';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+import '@splidejs/splide/css';
 
 // meta for home page
 export const meta: MetaFunction = () => {
@@ -19,6 +29,58 @@ export const meta: MetaFunction = () => {
 
 const Home = () => {
     useEffect(() => {
+        // First Gallery - Forward direction
+        const splideElement1 = document.querySelector('#splide-gallery-1');
+        if (splideElement1) {
+            const splide1 = new Splide('#splide-gallery-1', {
+                type: 'loop',
+                drag: 'free',
+                focus: 'center',
+                perPage: 3,
+                perMove: 1,
+                gap: '1.5rem',
+                autoScroll: {
+                    speed: 0.5,
+                },
+                breakpoints: {
+                    1024: {
+                        perPage: 2,
+                    },
+                    640: {
+                        perPage: 1,
+                    },
+                },
+            });
+            
+            splide1.mount({ AutoScroll });
+        }
+
+        // Second Gallery - Reverse direction
+        const splideElement2 = document.querySelector('#splide-gallery-2');
+        if (splideElement2) {
+            const splide2 = new Splide('#splide-gallery-2', {
+                type: 'loop',
+                drag: 'free',
+                focus: 'center',
+                perPage: 4,
+                perMove: 1,
+                gap: '1rem',
+                autoScroll: {
+                    speed: -0.3, // Negative speed for reverse direction
+                },
+                breakpoints: {
+                    1024: {
+                        perPage: 3,
+                    },
+                    640: {
+                        perPage: 2,
+                    },
+                },
+            });
+            
+            splide2.mount({ AutoScroll });
+        }
+
         // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
@@ -457,6 +519,212 @@ const Home = () => {
                                         Learn More
                                     </button>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Gallery Section */}
+            <section className="py-20 lg:py-32 bg-white animate-on-scroll">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    {/* Section Header */}
+                    <div className="text-center mb-16 animate-on-scroll">
+                        <h2 className="font-heading text-4xl lg:text-5xl font-bold cara-text-teal mb-6">
+                            Our Impact in Action
+                        </h2>
+                        <div className="w-24 h-1 cara-bg-orange mx-auto rounded-full mb-6"></div>
+                        <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
+                            Witness the transformation as we build sustainable care systems across African communities
+                        </p>
+                    </div>
+
+                    {/* First Gallery - Forward Direction */}
+                    <div className="mb-8">
+                        <div id="splide-gallery-1" className="splide" aria-label="CARA Impact Gallery 1">
+                            <div className="splide__track">
+                                <ul className="splide__list">
+                                    <li className="splide__slide">
+                                        <div className="relative rounded-2xl overflow-hidden shadow-lg hover-lift mx-2 h-64">
+                                            <img src={image1} alt="Community Care Networks" className="w-full h-full object-cover" />
+                                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                                                <h3 className="font-heading text-lg font-semibold text-white mb-1">
+                                                    Community Care Networks
+                                                </h3>
+                                                <p className="text-gray-200 text-sm">
+                                                    Building connected support systems
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="splide__slide">
+                                        <div className="relative rounded-2xl overflow-hidden shadow-lg hover-lift mx-2 h-64">
+                                            <img src={image2} alt="Professional Training" className="w-full h-full object-cover" />
+                                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                                                <h3 className="font-heading text-lg font-semibold text-white mb-1">
+                                                    Professional Training
+                                                </h3>
+                                                <p className="text-gray-200 text-sm">
+                                                    Empowering caregivers with skills
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="splide__slide">
+                                        <div className="relative rounded-2xl overflow-hidden shadow-lg hover-lift mx-2 h-64">
+                                            <img src={image3} alt="Postpartum Support" className="w-full h-full object-cover" />
+                                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                                                <h3 className="font-heading text-lg font-semibold text-white mb-1">
+                                                    Postpartum Support
+                                                </h3>
+                                                <p className="text-gray-200 text-sm">
+                                                    Supporting mothers and newborns
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="splide__slide">
+                                        <div className="relative rounded-2xl overflow-hidden shadow-lg hover-lift mx-2 h-64">
+                                            <img src={image4} alt="Elder Care" className="w-full h-full object-cover" />
+                                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                                                <h3 className="font-heading text-lg font-semibold text-white mb-1">
+                                                    Dignified Elder Care
+                                                </h3>
+                                                <p className="text-gray-200 text-sm">
+                                                    Quality care for aging populations
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="splide__slide">
+                                        <div className="relative rounded-2xl overflow-hidden shadow-lg hover-lift mx-2 h-64">
+                                            <img src={image5} alt="Digital Innovation" className="w-full h-full object-cover" />
+                                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                                                <h3 className="font-heading text-lg font-semibold text-white mb-1">
+                                                    Digital Innovation
+                                                </h3>
+                                                <p className="text-gray-200 text-sm">
+                                                    Technology-driven solutions
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="splide__slide">
+                                        <div className="relative rounded-2xl overflow-hidden shadow-lg hover-lift mx-2 h-64">
+                                            <img src={image6} alt="Inclusive Care" className="w-full h-full object-cover" />
+                                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                                                <h3 className="font-heading text-lg font-semibold text-white mb-1">
+                                                    Inclusive Care
+                                                </h3>
+                                                <p className="text-gray-200 text-sm">
+                                                    Support for persons with disabilities
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Second Gallery - Reverse Direction */}
+                    <div className="mb-8">
+                        <div id="splide-gallery-2" className="splide" aria-label="CARA Impact Gallery 2">
+                            <div className="splide__track">
+                                <ul className="splide__list">
+                                    <li className="splide__slide">
+                                        <div className="relative rounded-xl overflow-hidden shadow-md hover-lift mx-2 h-48">
+                                            <img src={image6} alt="Policy Transformation" className="w-full h-full object-cover" />
+                                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                                                <h4 className="font-heading text-sm font-semibold text-white">
+                                                    Policy Transformation
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="splide__slide">
+                                        <div className="relative rounded-xl overflow-hidden shadow-md hover-lift mx-2 h-48">
+                                            <img src={image5} alt="Youth Empowerment" className="w-full h-full object-cover" />
+                                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                                                <h4 className="font-heading text-sm font-semibold text-white">
+                                                    Youth Empowerment
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="splide__slide">
+                                        <div className="relative rounded-xl overflow-hidden shadow-md hover-lift mx-2 h-48">
+                                            <img src={image4} alt="Community Health" className="w-full h-full object-cover" />
+                                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                                                <h4 className="font-heading text-sm font-semibold text-white">
+                                                    Community Health
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="splide__slide">
+                                        <div className="relative rounded-xl overflow-hidden shadow-md hover-lift mx-2 h-48">
+                                            <img src={image3} alt="Family Support" className="w-full h-full object-cover" />
+                                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                                                <h4 className="font-heading text-sm font-semibold text-white">
+                                                    Family Support
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="splide__slide">
+                                        <div className="relative rounded-xl overflow-hidden shadow-md hover-lift mx-2 h-48">
+                                            <img src={image2} alt="Caregiver Networks" className="w-full h-full object-cover" />
+                                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                                                <h4 className="font-heading text-sm font-semibold text-white">
+                                                    Caregiver Networks
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="splide__slide">
+                                        <div className="relative rounded-xl overflow-hidden shadow-md hover-lift mx-2 h-48">
+                                            <img src={image1} alt="Rural Outreach" className="w-full h-full object-cover" />
+                                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                                                <h4 className="font-heading text-sm font-semibold text-white">
+                                                    Rural Outreach
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="splide__slide">
+                                        <div className="relative rounded-xl overflow-hidden shadow-md hover-lift mx-2 h-48">
+                                            <img src={image6} alt="System Building" className="w-full h-full object-cover" />
+                                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                                                <h4 className="font-heading text-sm font-semibold text-white">
+                                                    System Building
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Stats Section */}
+                    <div className="mt-20 animate-on-scroll">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                            <div className="text-center">
+                                <div className="text-4xl font-bold cara-text-teal mb-2">50+</div>
+                                <div className="text-gray-600">Communities Reached</div>
+                            </div>
+                            <div className="text-center">
+                                <div className="text-4xl font-bold cara-text-orange mb-2">1000+</div>
+                                <div className="text-gray-600">Caregivers Trained</div>
+                            </div>
+                            <div className="text-center">
+                                <div className="text-4xl font-bold cara-text-teal mb-2">15</div>
+                                <div className="text-gray-600">Countries Engaged</div>
+                            </div>
+                            <div className="text-center">
+                                <div className="text-4xl font-bold cara-text-orange mb-2">100k+</div>
+                                <div className="text-gray-600">Lives Impacted</div>
                             </div>
                         </div>
                     </div>
