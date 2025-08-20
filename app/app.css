@@ -161,6 +161,9 @@ html {
     rgba(252, 179, 57, 0.85) 100%
   );
 }
+.bg{
+  background-color:var(--color-cara-teal) 
+}
 
 @keyframes cara-float {
   0%, 100% {

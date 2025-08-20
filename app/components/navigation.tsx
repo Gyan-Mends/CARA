@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { Users, Menu, X } from "lucide-react";
+import { Users, Menu, X, Facebook, Twitter, Search } from "lucide-react";
 import { Link } from "react-router";
-import logo from "~/components/images/Cara logo-01.png";
 
 const navigation = [
     { name: "Home", to: "/", isExternal: true },
-    { name: "About Cara", to: "/about", isExternal: true },
-    { name: "Our Work", to: "/about", isExternal: true },
-    { name: "Our Impact Goals", to: "/about", isExternal: true },
-   
+    { name: "Services", to: "/services", isExternal: true },
+    { name: "About", to: "/about", isExternal: true },
+    { name: "Portfolio", to: "/portfolio", isExternal: true },
+    { name: "Blog", to: "/blog", isExternal: true },
+    { name: "Contact", to: "/contact", isExternal: true },
 ];
 
 export default function Navigation() {
@@ -34,87 +34,108 @@ export default function Navigation() {
     };
 
     return (
-        <header className="border border-black/10 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0 z-50 transition-all duration-300">
-            <div className="container mx-auto px-4 py-4">
-                <div className="flex items-center justify-between">
-                    <Link 
-                        to="/" 
-                        className="flex items-center space-x-2 transform hover:scale-105 transition-transform duration-200"
-                    >
-                       <img className="w-[5vw] h-[5vh]" src={logo} alt="logo" />
-                    </Link>
+        <header className="sticky top-0 z-50 transition-all duration-300 p-4">
+            <div className="container mx-auto">
+                <div className="bg rounded-full shadow-lg px-6 py-3">
+                    <div className="flex items-center justify-between">
+                        <Link 
+                            to="/" 
+                            className="flex items-center space-x-2 transform hover:scale-105 transition-transform duration-200"
+                        >
+                            <img 
+                                src="/app/components/images/Cara logo-01.png" 
+                                alt="CARA Logo" 
+                                className="h-8 w-auto"
+                            />
+                            <div className="text-white">
+                                <span className="font-bold text-xl">CARA</span>
+                                <span className="text-teal-200 text-sm ml-2">Care Access for Resilient Africa</span>
+                            </div>
+                        </Link>
 
-                    {/* Desktop Navigation */}
-                    <nav className="hidden lg:flex items-center space-x-8">
-                        {navigation.map((item) => (
-                            item.isExternal ? (
-                                <Link
-                                    key={item.name}
-                                    to={item.to}
-                                    className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 relative group"
-                                >
-                                    {item.name}
-                                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                                </Link>
-                            ) : (
-                                <a
-                                    key={item.name}
-                                    href={item.to}
-                                    className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 relative group"
-                                    onClick={(e) => handleSmoothScroll(e, item.to, item.isExternal)}
-                                >
-                                    {item.name}
-                                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                                </a>
-                            )
-                        ))}
-                      
-                    </nav>
-
-                    {/* Mobile Menu Button */}
-                    <button
-                        className="lg:hidden p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200"
-                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        aria-label="Toggle mobile menu"
-                    >
-                        {mobileMenuOpen ? (
-                            <X className="w-6 h-6" />
-                        ) : (
-                            <Menu className="w-6 h-6" />
-                        )}
-                    </button>
-                </div>
-
-                {/* Mobile Navigation */}
-                {mobileMenuOpen && (
-                    <nav className="lg:hidden mt-4 pb-4 border-t pt-4 animate-fade-in">
-                        <div className="flex flex-col space-y-4">
+                        {/* Desktop Navigation */}
+                        <nav className="hidden lg:flex items-center space-x-8">
                             {navigation.map((item) => (
                                 item.isExternal ? (
-                                    <Link 
+                                    <Link
                                         key={item.name}
-                                        to={item.to} 
-                                        className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 py-2"
-                                        onClick={() => setMobileMenuOpen(false)}
+                                        to={item.to}
+                                        className="text-white hover:text-orange-200 font-medium transition-colors duration-200 relative group"
                                     >
                                         {item.name}
+                                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                                     </Link>
                                 ) : (
                                     <a
                                         key={item.name}
                                         href={item.to}
-                                        className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 py-2"
+                                        className="text-white hover:text-orange-200 font-medium transition-colors duration-200 relative group"
                                         onClick={(e) => handleSmoothScroll(e, item.to, item.isExternal)}
                                     >
                                         {item.name}
+                                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                                     </a>
                                 )
                             ))}
-                            
-                          
+                        </nav>
+
+                        {/* Social Media Icons */}
+                        <div className="hidden lg:flex items-center space-x-4">
+                            <a href="#" className="text-white hover:text-orange-200 transition-colors duration-200">
+                                <Facebook className="w-5 h-5" />
+                            </a>
+                            <a href="#" className="text-white hover:text-orange-200 transition-colors duration-200">
+                                <Twitter className="w-5 h-5" />
+                            </a>
+                            <div className="w-px h-6 bg-teal-300 mx-2"></div>
+                            <a href="#" className="text-white hover:text-orange-200 transition-colors duration-200">
+                                <Search className="w-5 h-5" />
+                            </a>
                         </div>
-                    </nav>
-                )}
+
+                        {/* Mobile Menu Button */}
+                        <button
+                            className="lg:hidden p-2 rounded-md text-white hover:text-orange-200 hover:bg-teal-800/50 transition-colors duration-200"
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            aria-label="Toggle mobile menu"
+                        >
+                            {mobileMenuOpen ? (
+                                <X className="w-6 h-6" />
+                            ) : (
+                                <Menu className="w-6 h-6" />
+                            )}
+                        </button>
+                    </div>
+
+                    {/* Mobile Navigation */}
+                    {mobileMenuOpen && (
+                        <nav className="lg:hidden mt-4 pb-4 border-t border-teal-400 pt-4 animate-fade-in">
+                            <div className="flex flex-col space-y-4">
+                                {navigation.map((item) => (
+                                    item.isExternal ? (
+                                        <Link 
+                                            key={item.name}
+                                            to={item.to} 
+                                            className="text-white hover:text-orange-200 font-medium transition-colors duration-200 py-2"
+                                            onClick={() => setMobileMenuOpen(false)}
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    ) : (
+                                        <a
+                                            key={item.name}
+                                            href={item.to}
+                                            className="text-white hover:text-orange-200 font-medium transition-colors duration-200 py-2"
+                                            onClick={(e) => handleSmoothScroll(e, item.to, item.isExternal)}
+                                        >
+                                            {item.name}
+                                        </a>
+                                    )
+                                ))}
+                            </div>
+                        </nav>
+                    )}
+                </div>
             </div>
         </header>
     );
