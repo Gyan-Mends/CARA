@@ -9,40 +9,30 @@ export default function Home(){
                     {/* Left Content */}
                     <div className="space-y-8">
                         <div className="space-y-6">
-                            <p className="text-teal-500 text-sm font-medium tracking-wider uppercase">
-                                17 YEARS OF EXPERIENCE
-                            </p>
-                            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                                We Are a<br />
-                                Web Design <span className="text-teal-500">Agency</span>
+                            <h1 className="text-5xl font-heading lg:text-6xl font-bold text-gray-900 leading-tight">
+                                Care for Those Who Care.<br />
+                                <span className="text-teal-500">Dignity for All.</span>
                             </h1>
                             <div className="w-12 h-1 bg-teal-500"></div>
                             <p className="text-gray-600 text-lg leading-relaxed max-w-lg">
-                                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, 
-                                there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the 
-                                Semantics, a large language ocean Separated they live in Bookmarksgrove.
+                                CARA is a nonprofit organization providing care access for vulnerable populations through 
+                                caregiver training, advocacy, and community-based support. We equip families and communities 
+                                to care with dignity.
                             </p>
                         </div>
                         
-                        <button className="bg-gray-800 text-white px-8 py-4 rounded-full hover:bg-gray-700 transition-colors duration-300 font-medium">
-                            READ MORE
-                        </button>
-                        
-                        {/* Social Media Links */}
-                        <div className="flex items-center space-x-6 pt-8">
-                            <a href="#" className="text-gray-600 hover:text-teal-500 transition-colors duration-200">
-                                Facebook
-                            </a>
-                            <a href="#" className="text-gray-600 hover:text-teal-500 transition-colors duration-200">
-                                Instagram
-                            </a>
-                            <a href="#" className="text-gray-600 hover:text-teal-500 transition-colors duration-200">
-                                Twitter
-                            </a>
-                            <a href="#" className="text-gray-600 hover:text-teal-500 transition-colors duration-200">
-                                YouTube
-                            </a>
+                        <div className="flex flex-col sm:flex-row gap-4">
+                            <button className="bg-teal-500 text-white px-8 py-4 rounded-full hover:bg-teal-600 transition-colors duration-300 font-medium">
+                                BECOME A CAREGIVER
+                            </button>
+                            <button className="bg-gray-800 text-white px-8 py-4 rounded-full hover:bg-gray-700 transition-colors duration-300 font-medium">
+                                PARTNER WITH US
+                            </button>
+                            <button className="border-2 border-gray-800 text-gray-800 px-8 py-4 rounded-full hover:bg-gray-800 hover:text-white transition-colors duration-300 font-medium">
+                                LEARN MORE
+                            </button>
                         </div>
+                        
                     </div>
                     
                     {/* Right Content - Circular Image Container */}
