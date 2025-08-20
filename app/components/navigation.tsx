@@ -36,7 +36,7 @@ export default function Navigation() {
     return (
         <header className="sticky top-0 z-50 transition-all duration-300 p-4">
             <div className="container mx-auto">
-                <div className={`bg shadow-lg px-6 py-3 transition-all duration-300 ${mobileMenuOpen ? 'rounded-2xl lg:rounded-full' : 'rounded-full'}`}>
+                <div className={`bg shadow-sm px-6 py-3 transition-all duration-300 ${mobileMenuOpen ? 'rounded-2xl lg:rounded-full' : 'rounded-full'}`}>
                     <div className="flex items-center justify-between">
                         <Link 
                             to="/" 
