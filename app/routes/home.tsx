@@ -4,7 +4,7 @@ export default function Home(){
     return(
         <div className="min-h-screen ">
             {/* Hero Section */}
-            <section className="container mx-auto px-6 pb-10">
+            <section id="hero" className="container mx-auto px-6 pb-10">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left Content */}
                     <div className="space-y-8">
@@ -64,7 +64,7 @@ export default function Home(){
             </section>
 
             {/* About Section */}
-            <section className="py-20 bg-gray-50">
+            <section id="about" className="py-20 bg-gray-50">
                 <div className="container mx-auto px-6">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                          {/* Right Content - Image with Feature Cards */}
@@ -158,7 +158,7 @@ export default function Home(){
             </section>
 
             {/* Services Section */}
-            <section className="py-20 bg-white">
+            <section id="services" className="py-20 bg-white">
                 <div className="container mx-auto px-6">
                     {/* Section Header */}
                     <div className="text-center mb-16">
@@ -230,6 +230,116 @@ export default function Home(){
                             </div>
                         </div>
 
+                    </div>
+                </div>
+            </section>
+
+            {/* Get Involved Section */}
+            <section id="get-involved" className="py-20 bg-gray-50">
+                <div className="container mx-auto px-6">
+                    {/* Section Header */}
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl lg:text-5xl font-heading font-bold text-gray-900 leading-tight mb-4">
+                            Get Involved
+                        </h2>
+                        <div className="w-12 h-1 bg-teal-500 mx-auto mb-6"></div>
+                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                            Join us to build systems of care that leave no one behind.
+                        </p>
+                    </div>
+
+                    <div className="grid lg:grid-cols-2 gap-16 items-start">
+                        {/* Left Content - Ways to Engage */}
+                        <div className="space-y-8">
+                            <div>
+                                <h3 className="text-2xl font-bold text-gray-900 mb-6">Ways to Engage:</h3>
+                                
+                                <div className="space-y-6">
+                                    <div className="flex items-start space-x-4">
+                                        <div className="flex-shrink-0 w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center mt-1">
+                                            <span className="text-white text-sm font-bold">1</span>
+                                        </div>
+                                        <div>
+                                            <h4 className="font-semibold text-gray-900 mb-2">Volunteer as a caregiver or community trainer</h4>
+                                            <p className="text-gray-600">Share your skills and make a direct impact in your community by training others in essential caregiving practices.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start space-x-4">
+                                        <div className="flex-shrink-0 w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center mt-1">
+                                            <span className="text-white text-sm font-bold">2</span>
+                                        </div>
+                                        <div>
+                                            <h4 className="font-semibold text-gray-900 mb-2">Sponsor caregiver training in underserved communities</h4>
+                                            <p className="text-gray-600">Support our mission by funding training programs that reach the most vulnerable populations.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start space-x-4">
+                                        <div className="flex-shrink-0 w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center mt-1">
+                                            <span className="text-white text-sm font-bold">3</span>
+                                        </div>
+                                        <div>
+                                            <h4 className="font-semibold text-gray-900 mb-2">Collaborate with us as a school, clinic, or district partner</h4>
+                                            <p className="text-gray-600">Partner with CARA to implement inclusive care programs and strengthen your community's support systems.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Right Content - Contact Form */}
+                        <div className="bg-white p-8 rounded-lg shadow-lg">
+                            <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Us</h3>
+                            
+                            <form className="space-y-6">
+                                <div>
+                                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                                        Name
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors"
+                                        placeholder="Your full name"
+                                    />
+                                </div>
+
+                                <div>
+                                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                                        Email
+                                    </label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors"
+                                        placeholder="your.email@example.com"
+                                    />
+                                </div>
+
+                                <div>
+                                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                                        Message
+                                    </label>
+                                    <textarea
+                                        id="message"
+                                        name="message"
+                                        rows={5}
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors resize-vertical"
+                                        placeholder="Tell us how you'd like to get involved..."
+                                    ></textarea>
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    className="w-full bg-teal-500 text-white py-3 px-6 rounded-lg hover:bg-teal-600 transition-colors duration-300 font-medium"
+                                >
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </section>

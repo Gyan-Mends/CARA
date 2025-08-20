@@ -3,12 +3,10 @@ import { Users, Menu, X, Facebook, Twitter, Search } from "lucide-react";
 import { Link } from "react-router";
 
 const navigation = [
-    { name: "Home", to: "/", isExternal: true },
-    { name: "Services", to: "/services", isExternal: true },
-    { name: "About", to: "/about", isExternal: true },
-    { name: "Portfolio", to: "/portfolio", isExternal: true },
-    { name: "Blog", to: "/blog", isExternal: true },
-    { name: "Contact", to: "/contact", isExternal: true },
+    { name: "Home", to: "#hero", isExternal: false },
+    { name: "About", to: "#about", isExternal: false },
+    { name: "Services", to: "#services", isExternal: false },
+    { name: "Get Involved", to: "#get-involved", isExternal: false },
 ];
 
 export default function Navigation() {
@@ -36,7 +34,7 @@ export default function Navigation() {
     return (
         <header className="sticky top-0 z-50 transition-all duration-300 p-4">
             <div className="container mx-auto">
-                <div className={`bg shadow-sm px-6 py-3 transition-all duration-300 ${mobileMenuOpen ? 'rounded-2xl lg:rounded-full' : 'rounded-full'}`}>
+                <div className={`bg-gradient-to-r from-white via-[#00A5B8]  to-[#00A5B8]  shadow-lg px-6 py-3 transition-all duration-300 ${mobileMenuOpen ? 'rounded-2xl lg:rounded-full' : 'rounded-full'}`}>
                     <div className="flex items-center justify-between">
                         <Link 
                             to="/" 
@@ -76,18 +74,11 @@ export default function Navigation() {
                             ))}
                         </nav>
 
-                        {/* Social Media Icons */}
-                        <div className="hidden lg:flex items-center space-x-4">
-                            <a href="#" className="text-white hover:text-orange-200 transition-colors duration-200">
-                                <Facebook className="w-5 h-5" />
-                            </a>
-                            <a href="#" className="text-white hover:text-orange-200 transition-colors duration-200">
-                                <Twitter className="w-5 h-5" />
-                            </a>
-                            <div className="w-px h-6 bg-teal-300 mx-2"></div>
-                            <a href="#" className="text-white hover:text-orange-200 transition-colors duration-200">
-                                <Search className="w-5 h-5" />
-                            </a>
+                        {/* Donate Button */}
+                        <div className="hidden lg:flex items-center">
+                            <button className="bg-[#FCB339] text-white px-6 py-2 rounded-full hover:bg-orange-100 transition-colors duration-300 font-medium">
+                                DONATE
+                            </button>
                         </div>
 
                         {/* Mobile Menu Button */}
