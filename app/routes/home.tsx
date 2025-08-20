@@ -4,7 +4,7 @@ export default function Home(){
     return(
         <div className="min-h-screen ">
             {/* Hero Section */}
-            <section className="container mx-auto px-6 py-20">
+            <section className="container mx-auto px-6 ">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left Content */}
                     <div className="space-y-8">
@@ -47,13 +47,18 @@ export default function Home(){
                     
                     {/* Right Content - Circular Image Container */}
                     <div className="relative">
-                        <div className="relative w-full max-w-lg mx-auto">
+                        <div className="relative w-full  mx-auto">
                             {/* Background Circles */}
-                            <div className="absolute inset-0 bg-gray-200 rounded-full opacity-50"></div>
-                            <div className="absolute top-4 left-4 right-4 bottom-4 bg-gray-300 rounded-full opacity-30"></div>
+                            <div className="absolute inset-0  rounded-full"></div>
+                            <div className="absolute top-4 left-4 right-4 bottom-4  rounded-full "></div>
+                            
+                            {/* Left side oval decorative elements */}
+                          
+                            <div className="absolute -left-16 top-32 w-40 h-10 bg-gray-400 rounded-full opacity-30"></div>
+                            <div className="absolute -left-6 top-48 w-20 h-10 bg-gray-300 rounded-full opacity-35"></div>
                             
                             {/* Main Image Container */}
-                            <div className="relative bg-white rounded-full p-8 shadow-2xl">
+                            <div className="relative bg-gray-100 rounded-full p-8 ">
                                 <div className="aspect-square rounded-full overflow-hidden">
                                     <img 
                                         src="https://img.freepik.com/free-photo/nurse-taking-care-elderly-patient_23-2150780370.jpg?t=st=1755725298~exp=1755728898~hmac=e5aee9201e23a12af8750c2962a49c1963e17824a79fd1016bfe425476e49a1d&w=1060" 
@@ -62,7 +67,6 @@ export default function Home(){
                                     />
                                 </div>
                             </div>
-
                         </div>
 
                     </div>
