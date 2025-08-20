@@ -25,16 +25,16 @@ export default function AppLayout() {
                                     Supporting families, uplifting caregivers, and strengthening communities.
                                 </p>
                                 <div className="flex space-x-4">
-                                    <a href="#" className="w-10 h-10 cara-bg-teal rounded-full flex items-center justify-center hover:opacity-80 transition-opacity">
+                                    <a href="#" className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity">
                                         <span className="text-white text-lg">📧</span>
                                     </a>
-                                    <a href="#" className="w-10 h-10 cara-bg-orange rounded-full flex items-center justify-center hover:opacity-80 transition-opacity">
+                                    <a href="#" className="w-10 h-10 bg-[#FCB339] rounded-full flex items-center justify-center hover:opacity-80 transition-opacity">
                                         <span className="text-white text-lg">🐦</span>
                                     </a>
-                                    <a href="#" className="w-10 h-10 cara-bg-teal rounded-full flex items-center justify-center hover:opacity-80 transition-opacity">
+                                    <a href="#" className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity">
                                         <span className="text-white text-lg">📘</span>
                                     </a>
-                                    <a href="#" className="w-10 h-10 cara-bg-orange rounded-full flex items-center justify-center hover:opacity-80 transition-opacity">
+                                    <a href="#" className="w-10 h-10 bg-[#FCB339] rounded-full flex items-center justify-center hover:opacity-80 transition-opacity">
                                         <span className="text-white text-lg">📱</span>
                                     </a>
                                 </div>
@@ -42,27 +42,25 @@ export default function AppLayout() {
 
                             {/* Quick Links */}
                             <div>
-                                <h4 className="font-heading text-lg font-semibold mb-6 cara-text-orange">Quick Links</h4>
+                                <h4 className="font-heading text-lg font-semibold mb-6 text-[#FCB339]">Quick Links</h4>
                                 <ul className="space-y-3">
+                                    <li><a href="#hero" className="text-gray-300 hover:text-white transition-colors">Home</a></li>
                                     <li><a href="#about" className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
-                                    <li><a href="#impact" className="text-gray-300 hover:text-white transition-colors">Our Impact</a></li>
-                                    <li><a href="#programs" className="text-gray-300 hover:text-white transition-colors">Programs</a></li>
-                                    <li><a href="#resources" className="text-gray-300 hover:text-white transition-colors">Resources</a></li>
-                                    <li><a href="#news" className="text-gray-300 hover:text-white transition-colors">News & Updates</a></li>
-                                    <li><a href="#careers" className="text-gray-300 hover:text-white transition-colors">Careers</a></li>
+                                    <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">Services</a></li>
+                                    <li><a href="#get-involved" className="text-gray-300 hover:text-white transition-colors">Get Involved</a></li>
+                                    <li><a href="#contact" className="text-gray-300 hover:text-white transition-colors">Contact</a></li>
                                 </ul>
                             </div>
 
                             {/* Get Involved */}
                             <div>
-                                <h4 className="font-heading text-lg font-semibold mb-6 cara-text-teal">Get Involved</h4>
+                                <h4 className="font-heading text-lg font-semibold mb-6 text-teal-500">Get Involved</h4>
                                 <ul className="space-y-3">
-                                    <li><a href="#volunteer" className="text-gray-300 hover:text-white transition-colors">Volunteer</a></li>
+                                    <li><a href="#volunteer" className="text-gray-300 hover:text-white transition-colors">Volunteer as Caregiver</a></li>
+                                    <li><a href="#sponsor" className="text-gray-300 hover:text-white transition-colors">Sponsor Training</a></li>
                                     <li><a href="#partner" className="text-gray-300 hover:text-white transition-colors">Partner With Us</a></li>
-                                    <li><a href="#donate" className="text-gray-300 hover:text-white transition-colors">Support Our Work</a></li>
+                                    <li><a href="#donate" className="text-gray-300 hover:text-white transition-colors">Donate</a></li>
                                     <li><a href="#training" className="text-gray-300 hover:text-white transition-colors">Training Programs</a></li>
-                                    <li><a href="#advocacy" className="text-gray-300 hover:text-white transition-colors">Advocacy</a></li>
-                                    <li><a href="#community" className="text-gray-300 hover:text-white transition-colors">Join Community</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -71,27 +69,27 @@ export default function AppLayout() {
                         <div className="mt-12 pt-8 border-t border-gray-700">
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 <div>
-                                    <h4 className="font-heading text-lg font-semibold mb-4 cara-text-orange">Contact Us</h4>
+                                    <h4 className="font-heading text-lg font-semibold mb-4 text-[#FCB339]">Contact Us</h4>
                                     <div className="space-y-2 text-gray-300">
                                         <p className="flex items-center gap-2">
-                                            <span className="cara-text-teal">📍</span>
+                                            <span className="text-teal-500">📍</span>
                                             <span>Accra, Ghana | Nairobi, Kenya</span>
                                         </p>
                                         <p className="flex items-center gap-2">
-                                            <span className="cara-text-orange">📧</span>
+                                            <span className="text-[#FCB339]">📧</span>
                                             <a href="mailto:info@cara-africa.org" className="hover:text-white transition-colors">
                                                 info@cara-africa.org
                                             </a>
                                         </p>
                                         <p className="flex items-center gap-2">
-                                            <span className="cara-text-teal">📞</span>
+                                            <span className="text-teal-500">📞</span>
                                             <span>+233 XXX XXX XXX</span>
                                         </p>
                                     </div>
                                 </div>
 
                                 <div>
-                                    <h4 className="font-heading text-lg font-semibold mb-4 cara-text-teal">Newsletter</h4>
+                                    <h4 className="font-heading text-lg font-semibold mb-4 text-teal-500">Newsletter</h4>
                                     <p className="text-gray-300 text-sm mb-4">
                                         Stay updated on our progress and latest initiatives
                                     </p>
@@ -99,21 +97,21 @@ export default function AppLayout() {
                                         <input
                                             type="email"
                                             placeholder="Your email address"
-                                            className="flex-1 px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cara-teal"
+                                            className="flex-1 px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-teal-500"
                                         />
-                                        <button className="cara-bg-orange hover:opacity-80 px-4 py-2 rounded-lg font-semibold transition-opacity">
+                                        <button className="bg-[#FCB339] hover:opacity-80 px-4 py-2 rounded-lg font-semibold transition-opacity text-white">
                                             Subscribe
                                         </button>
                                     </div>
                                 </div>
 
                                 <div>
-                                    <h4 className="font-heading text-lg font-semibold mb-4 cara-text-orange">Our Focus Areas</h4>
+                                    <h4 className="font-heading text-lg font-semibold mb-4 text-[#FCB339]">Our Focus Areas</h4>
                                     <div className="flex flex-wrap gap-2">
-                                        <span className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">Postpartum Care</span>
-                                        <span className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">Early Childhood</span>
-                                        <span className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">Disability Care</span>
-                                        <span className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">Elder Care</span>
+                                        <span className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">Caregiver Training</span>
+                                        <span className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">Community Support</span>
+                                        <span className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">Inclusive Education</span>
+                                        <span className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">Advocacy</span>
                                         <span className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs">Community Health</span>
                                     </div>
                                 </div>
