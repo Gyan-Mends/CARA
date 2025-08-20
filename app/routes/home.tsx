@@ -70,7 +70,7 @@ export default function Home(){
                          {/* Right Content - Image with Feature Cards */}
                          <div className="relative">
                             {/* Background Image */}
-                            <div className="relative h-96 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-lg overflow-hidden">
+                            <div className="relative h-full bg-gradient-to-br from-teal-400 to-cyan-500 rounded-lg overflow-hidden">
                                 <img 
                                     src="https://img.freepik.com/free-photo/businesswoman-using-tablet-analysis_1150-18909.jpg" 
                                     alt="Professional woman working" 
@@ -124,21 +124,32 @@ export default function Home(){
                         {/* Left Content */}
                         <div className="space-y-8">
                             <div className="space-y-6">
-                                <div className="inline-block bg-teal-500 text-white px-4 py-2 text-sm font-medium tracking-wide">
-                                    ABOUT
-                                </div>
+                                
                                 <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                                     Who We Are
                                 </h2>
                                 <div className="w-12 h-1 bg-gray-300"></div>
-                                <p className="text-gray-600 text-lg leading-relaxed">
+                                <p className="text-gray-600 text-lg leading-relaxed mb-6">
                                     CARA (Care Access for Resilient Africa) is a nonprofit advancing care access and community health by equipping caregivers, supporting families, and strengthening local systems of support. We support vulnerable populations, especially postpartum mothers, children with special needs, and the elderly, by training caregivers and creating inclusive support systems in schools, homes, and communities.
                                 </p>
+                                <div className="text-gray-600 leading-relaxed">
+                                    <p className="font-semibold mb-3">We provide community health by:</p>
+                                    <ul className="space-y-2 pl-6">
+                                        <li className="flex items-start">
+                                            <span className="text-teal-500 mr-3 mt-1">•</span>
+                                            Empowering local people, including family members, teachers, and volunteers, with practical caregiving knowledge and skills.
+                                        </li>
+                                        <li className="flex items-start">
+                                            <span className="text-teal-500 mr-3 mt-1">•</span>
+                                            Strengthening informal care systems by training, supporting, and connecting caregivers who already provide essential support within homes and communities.
+                                        </li>
+                                        <li className="flex items-start">
+                                            <span className="text-teal-500 mr-3 mt-1">•</span>
+                                            Bridging the gap between vulnerable households and formal health and social services through outreach, referral, and system linkages.
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            
-                            <button className="bg-gradient-to-r from-teal-400 to-cyan-500 text-white px-8 py-4 rounded-full hover:from-teal-500 hover:to-cyan-600 transition-all duration-300 font-medium">
-                                READ MORE
-                            </button>
                         </div>
                         
                        
