@@ -1,10 +1,10 @@
-import { Facebook, Instagram, Twitter, Youtube, ChevronLeft, ChevronRight } from "lucide-react";
+import { Facebook, Instagram, Twitter, Youtube, ChevronLeft, ChevronRight, Star, Settings } from "lucide-react";
 
 export default function Home(){
     return(
         <div className="min-h-screen ">
             {/* Hero Section */}
-            <section className="container mx-auto px-6 ">
+            <section className="container mx-auto px-6 pb-10">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left Content */}
                     <div className="space-y-8">
@@ -59,6 +59,89 @@ export default function Home(){
                             </div>
                         </div>
 
+                    </div>
+                </div>
+            </section>
+
+            {/* About Section */}
+            <section className="py-20 bg-gray-50">
+                <div className="container mx-auto px-6">
+                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                         {/* Right Content - Image with Feature Cards */}
+                         <div className="relative">
+                            {/* Background Image */}
+                            <div className="relative h-96 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-lg overflow-hidden">
+                                <img 
+                                    src="https://img.freepik.com/free-photo/businesswoman-using-tablet-analysis_1150-18909.jpg" 
+                                    alt="Professional woman working" 
+                                    className="w-full h-full object-cover opacity-90"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-br from-teal-500/30 to-cyan-600/30"></div>
+                            </div>
+                            
+                            {/* Floating Feature Cards */}
+                            <div className="absolute -left-8 top-8 w-80 space-y-4">
+                                {/* Feature Card 1 */}
+                                <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-100">
+                                    <div className="flex items-start space-x-4">
+                                        <div className="flex-shrink-0">
+                                            <div className="w-10 h-10 flex items-center justify-center">
+                                                <Star className="w-6 h-6 text-gray-700" strokeWidth={1.5} />
+                                            </div>
+                                        </div>
+                                        <div className="flex-1">
+                                            <h3 className="text-lg font-bold text-gray-900 mb-2">
+                                                <span className="border-b-2 border-teal-400 pb-1">Our Belief</span>
+                                            </h3>
+                                            <p className="text-gray-600 text-sm leading-relaxed">
+                                                We believe health begins at home, and that every community can be trained, equipped, and supported to care well. We operate at the crossroads of health, social protection, education, and inclusion.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                {/* Feature Card 2 */}
+                                <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-100">
+                                    <div className="flex items-start space-x-4">
+                                        <div className="flex-shrink-0">
+                                            <div className="w-10 h-10 flex items-center justify-center">
+                                                <Settings className="w-6 h-6 text-gray-700" strokeWidth={1.5} />
+                                            </div>
+                                        </div>
+                                        <div className="flex-1">
+                                            <h3 className="text-lg font-bold text-gray-900 mb-2">
+                                                <span className="border-b-2 border-teal-400 pb-1">Community Health</span>
+                                            </h3>
+                                            <p className="text-gray-600 text-sm leading-relaxed">
+                                                We define community health as the capacity of a local population to care for its vulnerable members, especially mothers, children, the elderly, and persons with special needs. through everyday, dignified, non-clinical support. 
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Left Content */}
+                        <div className="space-y-8">
+                            <div className="space-y-6">
+                                <div className="inline-block bg-teal-500 text-white px-4 py-2 text-sm font-medium tracking-wide">
+                                    ABOUT
+                                </div>
+                                <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                                    Who We Are
+                                </h2>
+                                <div className="w-12 h-1 bg-gray-300"></div>
+                                <p className="text-gray-600 text-lg leading-relaxed">
+                                    CARA (Care Access for Resilient Africa) is a nonprofit advancing care access and community health by equipping caregivers, supporting families, and strengthening local systems of support. We support vulnerable populations, especially postpartum mothers, children with special needs, and the elderly, by training caregivers and creating inclusive support systems in schools, homes, and communities.
+                                </p>
+                            </div>
+                            
+                            <button className="bg-gradient-to-r from-teal-400 to-cyan-500 text-white px-8 py-4 rounded-full hover:from-teal-500 hover:to-cyan-600 transition-all duration-300 font-medium">
+                                READ MORE
+                            </button>
+                        </div>
+                        
+                       
                     </div>
                 </div>
             </section>
