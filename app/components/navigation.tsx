@@ -36,7 +36,7 @@ export default function Navigation() {
     return (
         <header className="sticky top-0 z-50 transition-all duration-300 p-4">
             <div className="container mx-auto">
-                <div className="bg rounded-full shadow-lg px-6 py-3">
+                <div className={`bg shadow-lg px-6 py-3 transition-all duration-300 ${mobileMenuOpen ? 'rounded-2xl lg:rounded-full' : 'rounded-full'}`}>
                     <div className="flex items-center justify-between">
                         <Link 
                             to="/" 
@@ -47,10 +47,7 @@ export default function Navigation() {
                                 alt="CARA Logo" 
                                 className="h-8 w-auto"
                             />
-                            <div className="text-white">
-                                <span className="font-bold text-xl">CARA</span>
-                                <span className="text-teal-200 text-sm ml-2">Care Access for Resilient Africa</span>
-                            </div>
+                           
                         </Link>
 
                         {/* Desktop Navigation */}
