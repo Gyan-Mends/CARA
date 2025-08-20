@@ -73,12 +73,12 @@ export default function AppLayout() {
                                     <div className="space-y-2 text-gray-300">
                                         <p className="flex items-center gap-2">
                                             <span className="text-teal-500">📍</span>
-                                            <span>Accra, Ghana | Nairobi, Kenya</span>
+                                            <span>Accra, Ghana </span>
                                         </p>
                                         <p className="flex items-center gap-2">
                                             <span className="text-[#FCB339]">📧</span>
-                                            <a href="mailto:info@cara-africa.org" className="hover:text-white transition-colors">
-                                                info@cara-africa.org
+                                            <a href="mailto:info@caraafrica.org " className="hover:text-white transition-colors">
+                                            info@caraafrica.org 
                                             </a>
                                         </p>
                                         <p className="flex items-center gap-2">
