@@ -70,7 +70,7 @@ export default function Home(){
                          {/* Right Content - Image with Feature Cards */}
                          <div className="relative">
                             {/* Background Image */}
-                            <div className="relative h-full bg-gradient-to-br from-teal-400 to-cyan-500 rounded-lg overflow-hidden">
+                            <div className="relative lg:h-full md:h-full h-[60vh] bg-gradient-to-br from-teal-400 to-cyan-500 rounded-lg overflow-hidden">
                                 <img 
                                     src="https://img.freepik.com/free-photo/businesswoman-using-tablet-analysis_1150-18909.jpg" 
                                     alt="Professional woman working" 
@@ -122,7 +122,7 @@ export default function Home(){
                         </div>
 
                         {/* Left Content */}
-                        <div className="space-y-8">
+                        <div className="space-y-8 mt-20 lg:mt-0">
                             <div className="space-y-6">
                                 
                                 <h2 className="text-4xl lg:text-5xl font-bold font-heading text-gray-900 leading-tight">
