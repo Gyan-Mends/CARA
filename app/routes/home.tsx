@@ -11,9 +11,9 @@ export default function Home(){
                         <div className="space-y-6">
                             <h1 className="text-5xl font-heading lg:text-6xl font-bold text-gray-900 leading-tight">
                                 Care for Those Who Care.<br />
-                                <span className="text-teal-500">Dignity for All.</span>
+                                <span className="text-[#00A5B8]">Dignity for All.</span>
                             </h1>
-                            <div className="w-12 h-1 bg-teal-500"></div>
+                            <div className="w-12 h-1 bg-[#00A5B8]"></div>
                             <p className="text-gray-600 text-lg leading-relaxed max-w-lg">
                                 CARA is a nonprofit organization providing care access for vulnerable populations through 
                                 caregiver training, advocacy, and community-based support. We equip families and communities 
@@ -22,7 +22,7 @@ export default function Home(){
                         </div>
                         
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <button className="bg-teal-500 text-white px-8 py-4 rounded-full hover:bg-teal-600 transition-colors duration-300 font-medium">
+                            <button className="bg-[#00A5B8] text-white px-8 py-4 rounded-full hover:bg-teal-600 transition-colors duration-300 font-medium">
                                 BECOME A CAREGIVER
                             </button>
                             <button className="bg-gray-800 text-white px-8 py-4 rounded-full hover:bg-gray-700 transition-colors duration-300 font-medium">
@@ -242,7 +242,7 @@ export default function Home(){
                         <h2 className="text-4xl lg:text-5xl font-heading font-bold text-gray-900 leading-tight mb-4">
                             Get Involved
                         </h2>
-                        <div className="w-12 h-1 bg-teal-500 mx-auto mb-6"></div>
+                        <div className="w-12 h-1 bg-[#00A5B8] mx-auto mb-6"></div>
                         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                             Join us to build systems of care that leave no one behind.
                         </p>
@@ -256,7 +256,7 @@ export default function Home(){
                                 
                                 <div className="space-y-6">
                                     <div className="flex items-start space-x-4">
-                                        <div className="flex-shrink-0 w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center mt-1">
+                                        <div className="flex-shrink-0 w-8 h-8 bg-[#00A5B8] rounded-full flex items-center justify-center mt-1">
                                             <span className="text-white text-sm font-bold">1</span>
                                         </div>
                                         <div>
@@ -266,7 +266,7 @@ export default function Home(){
                                     </div>
 
                                     <div className="flex items-start space-x-4">
-                                        <div className="flex-shrink-0 w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center mt-1">
+                                        <div className="flex-shrink-0 w-8 h-8 bg-[#00A5B8] rounded-full flex items-center justify-center mt-1">
                                             <span className="text-white text-sm font-bold">2</span>
                                         </div>
                                         <div>
@@ -276,7 +276,7 @@ export default function Home(){
                                     </div>
 
                                     <div className="flex items-start space-x-4">
-                                        <div className="flex-shrink-0 w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center mt-1">
+                                        <div className="flex-shrink-0 w-8 h-8 bg-[#00A5B8] rounded-full flex items-center justify-center mt-1">
                                             <span className="text-white text-sm font-bold">3</span>
                                         </div>
                                         <div>
@@ -334,7 +334,7 @@ export default function Home(){
 
                                 <button
                                     type="submit"
-                                    className="w-full bg-teal-500 text-white py-3 px-6 rounded-lg hover:bg-teal-600 transition-colors duration-300 font-medium"
+                                    className="w-full bg-[#00A5B8] text-white py-3 px-6 rounded-lg hover:bg-teal-600 transition-colors duration-300 font-medium"
                                 >
                                     Send Message
                                 </button>
