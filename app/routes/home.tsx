@@ -1,6 +1,88 @@
-import { Facebook, Instagram, Twitter, Youtube, ChevronLeft, ChevronRight, Star, Settings } from "lucide-react";
+import { Facebook, Instagram, Twitter, Youtube, ChevronLeft, ChevronRight, Star, Settings, Loader2 } from "lucide-react";
+import { useSearchParams, useActionData, useNavigation } from "react-router";
+import { type ActionFunctionArgs } from "react-router";
+import { redirect } from "react-router";
+import { sendContactEmail, type ContactFormData } from "~/utils/email.server";
+import { useEffect, useState } from "react";
+
+export async function action({ request }: ActionFunctionArgs) {
+  const formData = await request.formData();
+  
+  const contactData: ContactFormData = {
+    name: formData.get("name") as string,
+    email: formData.get("email") as string,
+    message: formData.get("message") as string,
+  };
+
+  // Basic validation
+  if (!contactData.name || !contactData.email || !contactData.message) {
+    return {
+      error: "All fields are required",
+      success: false,
+    };
+  }
+
+  // Email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(contactData.email)) {
+    return {
+      error: "Please enter a valid email address",
+      success: false,
+    };
+  }
+
+  try {
+    const result = await sendContactEmail(contactData);
+    
+    if (result.success) {
+      return redirect("/?success=true#get-involved");
+    } else {
+      return {
+        error: result.error || "Failed to send message. Please try again.",
+        success: false,
+      };
+    }
+  } catch (error) {
+    console.error("Contact form error:", error);
+    return {
+      error: "An unexpected error occurred. Please try again.",
+      success: false,
+    };
+  }
+}
 
 export default function Home(){
+    const [searchParams] = useSearchParams();
+    const actionData = useActionData();
+    const navigation = useNavigation();
+    const success = searchParams.get("success");
+    const showSuccessMessage = success === "true";
+    const [isLocalSubmitting, setIsLocalSubmitting] = useState(false);
+    
+    // Check both navigation state and local state
+    const isSubmitting = navigation.state === "submitting" || isLocalSubmitting;
+    
+    // Handle form submission state
+    const handleFormSubmit = () => {
+        setIsLocalSubmitting(true);
+    };
+    
+    // Reset local submitting state when navigation completes
+    useEffect(() => {
+        if (navigation.state === "idle") {
+            setIsLocalSubmitting(false);
+        }
+    }, [navigation.state]);
+
+    // Scroll to contact section on successful submission
+    useEffect(() => {
+        if (showSuccessMessage) {
+            const contactSection = document.getElementById("get-involved");
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+        }
+    }, [showSuccessMessage]);
     return(
         <div className="min-h-screen ">
             {/* Hero Section */}
@@ -292,7 +374,19 @@ export default function Home(){
                         <div className="bg-white p-8 rounded-lg shadow-lg">
                             <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Us</h3>
                             
-                            <form className="space-y-6">
+                            {showSuccessMessage && (
+                                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                                    <p className="text-green-800 font-medium">Thank you for your message! We'll get back to you soon.</p>
+                                </div>
+                            )}
+
+                            {actionData?.error && (
+                                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                                    <p className="text-red-800 font-medium">{actionData.error}</p>
+                                </div>
+                            )}
+                            
+                            <form method="post" className="space-y-6" onSubmit={handleFormSubmit}>
                                 <div>
                                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                                         Name
@@ -301,6 +395,7 @@ export default function Home(){
                                         type="text"
                                         id="name"
                                         name="name"
+                                        required
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors"
                                         placeholder="Your full name"
                                     />
@@ -314,6 +409,7 @@ export default function Home(){
                                         type="email"
                                         id="email"
                                         name="email"
+                                        required
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors"
                                         placeholder="your.email@example.com"
                                     />
@@ -327,6 +423,7 @@ export default function Home(){
                                         id="message"
                                         name="message"
                                         rows={5}
+                                        required
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors resize-vertical"
                                         placeholder="Tell us how you'd like to get involved..."
                                     ></textarea>
@@ -334,9 +431,11 @@ export default function Home(){
 
                                 <button
                                     type="submit"
-                                    className="w-full bg-[#00A5B8] text-white py-3 px-6 rounded-lg hover:bg-teal-600 transition-colors duration-300 font-medium"
+                                    disabled={isSubmitting}
+                                    className="w-full bg-[#00A5B8] text-white py-3 px-6 rounded-lg hover:bg-teal-600 disabled:bg-teal-400 disabled:cursor-not-allowed transition-colors duration-300 font-medium flex items-center justify-center gap-2"
                                 >
-                                    Send Message
+                                    {isSubmitting && <Loader2 className="w-4 h-4 animate-spin" />}
+                                    {isSubmitting ? "Sending..." : "Send Message"}
                                 </button>
                             </form>
                         </div>
