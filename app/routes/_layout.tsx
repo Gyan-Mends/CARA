@@ -1,6 +1,7 @@
 import { Outlet, Link } from "react-router";
 
 export default function AppLayout() {
+
     return (
         <div className="min-h-screen ">
         
@@ -90,16 +91,17 @@ export default function AppLayout() {
                                     <p className="text-gray-300 text-sm mb-4">
                                         Stay updated on our progress and latest initiatives
                                     </p>
-                                    <div className="flex gap-2">
-                                        <input
-                                            type="email"
-                                            placeholder="Your email address"
-                                            className="flex-1 px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-teal-500"
-                                        />
-                                        <button className="bg-[#FCB339] hover:opacity-80 px-4 py-2 rounded-lg font-semibold transition-opacity text-white">
-                                            Subscribe
-                                        </button>
-                                    </div>
+                                    
+                                    <Link 
+                                        to="/newsletter" 
+                                        className="inline-block bg-[#FCB339] hover:bg-[#FCB339]/80 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300 text-center w-full"
+                                    >
+                                        Subscribe to Newsletter
+                                    </Link>
+                                    
+                                    <p className="text-gray-400 text-xs mt-2">
+                                        We respect your privacy. Unsubscribe at any time.
+                                    </p>
                                 </div>
 
                                 <div>

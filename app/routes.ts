@@ -10,6 +10,7 @@ export default [
         route("/partner-with-us","routes/partner-with-us.tsx"),
         route("/privacy-policy","routes/privacy-policy.tsx"),
         route("/terms-of-service","routes/terms-of-service.tsx"),
+        route("/newsletter","routes/newsletter.tsx"),
     ]),
 
 ] satisfies RouteConfig;
