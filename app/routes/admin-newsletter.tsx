@@ -1,9 +1,16 @@
-import { Form, useActionData, useNavigation } from "react-router";
-import { type ActionFunctionArgs } from "react-router";
-import { sendNewsletterToAll, sendTemplateNewsletter, newsletterTemplates, type NewsletterContent } from "~/utils/newsletter-sender.server";
-import { getExistingSubscriptions } from "~/utils/newsletter.server";
+import { Form, useActionData, useNavigation, useLoaderData } from "react-router";
+import { type ActionFunctionArgs, type LoaderFunctionArgs } from "react-router";
+import type { NewsletterContent } from "~/types/newsletter";
+
+export async function loader() {
+    const { getExistingSubscriptions } = await import("~/utils/newsletter.server");
+    return {
+        subscribers: getExistingSubscriptions()
+    };
+}
 
 export async function action({ request }: ActionFunctionArgs) {
+    const { sendNewsletterToAll, sendTemplateNewsletter, newsletterTemplates } = await import("~/utils/newsletter-sender.server");
     const formData = await request.formData();
     const action = formData.get("action") as string;
 
@@ -47,9 +54,9 @@ export async function action({ request }: ActionFunctionArgs) {
 
 export default function AdminNewsletter() {
     const actionData = useActionData();
+    const { subscribers } = useLoaderData<typeof loader>();
     const navigation = useNavigation();
     const isSubmitting = navigation.state === "submitting";
-    const subscribers = getExistingSubscriptions();
 
     return (
         <div className="min-h-screen bg-gray-50 py-8">
