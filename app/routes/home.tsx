@@ -93,7 +93,7 @@ export default function Home(){
                 {/* Navigation */}
                 <Navigation />
                 
-                <div className="container mx-auto px-6 pb-10 pt-8">
+                <div className="container mt-16 lg:mt-0 mx-auto px-6 pb-10 pt-8">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left Content */}
                     <div className="space-y-8">
@@ -129,7 +129,7 @@ export default function Home(){
                     </div>
                     
                     {/* Right Content - Circular Image Container */}
-                    <div className="relative">
+                    <div className="relative lg:mt-20">
                         <div className="relative w-full  mx-auto">
                             {/* Background Circles */}
                             <div className="absolute inset-0  rounded-full"></div>
