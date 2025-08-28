@@ -74,11 +74,14 @@ export default function Navigation() {
                             ))}
                         </nav>
 
-                        {/* Donate Button */}
+                        {/* Support Us Button */}
                         <div className="hidden lg:flex items-center">
-                            <button className="bg-[#FCB339] text-white px-6 py-2 rounded-full hover:bg-orange-100 transition-colors duration-300 font-medium">
-                                DONATE
-                            </button>
+                            <Link 
+                                to="/support-us"
+                                className="bg-[#FCB339] text-white px-6 py-2 rounded-full hover:bg-orange-100 transition-colors duration-300 font-medium"
+                            >
+                                SUPPORT US
+                            </Link>
                         </div>
 
                         {/* Mobile Menu Button */}
