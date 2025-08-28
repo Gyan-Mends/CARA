@@ -5,7 +5,6 @@ import { Link, useLocation } from "react-router";
 const navigation = [
     { name: "Home", to: "/", isExternal: false },
     { name: "About", to: "/#about", isExternal: false },
-    { name: "Services", to: "/#services", isExternal: false },
     { name: "Programs", to: "/programs", isExternal: false },
     { name: "Get Involved", to: "/#get-involved", isExternal: false },
     { name: "Become a Giver", to: "/become-a-giver", isExternal: false },
@@ -15,7 +14,6 @@ const navigation = [
 const mobileNavigation = [
     { name: "Home", to: "/", isExternal: false },
     { name: "About", to: "/#about", isExternal: false },
-    { name: "Services", to: "/#services", isExternal: false },
     { name: "Programs", to: "/programs", isExternal: false },
     { name: "Get Involved", to: "/#get-involved", isExternal: false },
     { name: "Support Us", to: "/support-us", isExternal: false },

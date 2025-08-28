@@ -1,4 +1,5 @@
-import { Heart, Users, BookOpen, Building2, Target, Award, CheckCircle, Clock, MapPin } from "lucide-react";
+import { Heart, Users, BookOpen, Building2, Target, Award, CheckCircle, Clock, MapPin, ArrowRight } from "lucide-react";
+import { Link } from "react-router";
 import Navigation from "~/components/navigation";
 import afr from "~/components/images/african-woman-teaching-kids-class_23-2148892556.jpg"
 import gg from "~/components/images/gg.png"
@@ -8,6 +9,7 @@ export default function Programs() {
     const programs = [
         {
             id: 1,
+            slug: "caregiver-training",
             title: "Caregiver Training Program",
             description: "Comprehensive training for community caregivers focusing on essential care skills, emotional support, and community health practices.",
             icon: Heart,
@@ -29,6 +31,7 @@ export default function Programs() {
         },
         {
             id: 2,
+            slug: "community-health-education",
             title: "Community Health Education",
             description: "Educational initiatives focused on preventive healthcare, nutrition, and wellness practices for sustainable community health.",
             icon: Users,
@@ -50,6 +53,7 @@ export default function Programs() {
         },
         {
             id: 3,
+            slug: "youth-leadership",
             title: "Youth Leadership Development",
             description: "Empowering young people to become leaders in their communities through leadership training, mentorship, and project implementation.",
             icon: Target,
@@ -71,6 +75,7 @@ export default function Programs() {
         },
         {
             id: 4,
+            slug: "women-empowerment",
             title: "Women Empowerment Initiative",
             description: "Supporting women through skills training, economic opportunities, and advocacy for gender equality in care and community development.",
             icon: Award,
@@ -219,7 +224,7 @@ export default function Programs() {
                                     {/* Program Features */}
                                     <div>
                                         <h4 className="text-lg font-semibold text-gray-900 mb-3">Program Features</h4>
-                                        <ul className="space-y-2">
+                                        <ul className="space-y-2 mb-6">
                                             {program.features.map((feature, featureIndex) => (
                                                 <li key={featureIndex} className="flex items-start gap-2">
                                                     <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
@@ -227,6 +232,15 @@ export default function Programs() {
                                                 </li>
                                             ))}
                                         </ul>
+                                        
+                                        {/* Learn More Button */}
+                                        <Link 
+                                            to={`/programs/${program.slug}`}
+                                            className="inline-flex items-center gap-2 bg-[#00A5B8] text-white px-6 py-3 rounded-full hover:bg-teal-600 transition-colors duration-300 font-medium"
+                                        >
+                                            Learn More
+                                            <ArrowRight className="w-4 h-4" />
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

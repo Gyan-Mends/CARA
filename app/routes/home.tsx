@@ -68,6 +68,7 @@ export default function Home() {
     const programs = [
         {
             id: 1,
+            slug: "caregiver-training",
             title: "Caregiver Training Program",
             description: "Comprehensive training for community caregivers focusing on essential care skills, emotional support, and community health practices.",
             duration: "3 months",
@@ -79,6 +80,7 @@ export default function Home() {
         },
         {
             id: 2,
+            slug: "community-health-education",
             title: "Community Health Education",
             description: "Educational initiatives focused on preventive healthcare, nutrition, and wellness practices for sustainable community health.",
             duration: "Ongoing",
@@ -90,6 +92,7 @@ export default function Home() {
         },
         {
             id: 3,
+            slug: "youth-leadership",
             title: "Youth Leadership Development",
             description: "Empowering young people to become leaders in their communities through leadership training, mentorship, and project implementation.",
             duration: "6 months",
@@ -98,6 +101,18 @@ export default function Home() {
             alt: "African mother with little girl",
             tagColor: "bg-green-100",
             tagTextColor: "text-green-600"
+        },
+        {
+            id: 4,
+            slug: "women-empowerment",
+            title: "Women Empowerment Initiative",
+            description: "Supporting women through skills training, economic opportunities, and advocacy for gender equality in care and community development.",
+            duration: "12 months",
+            achievement: "70% started businesses",
+            image: womenEmpowerment,
+            alt: "Black businesswoman shaking hands with male partner",
+            tagColor: "bg-purple-100",
+            tagTextColor: "text-purple-600"
         }
     ];
 
