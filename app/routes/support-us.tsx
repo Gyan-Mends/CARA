@@ -1,5 +1,6 @@
 import { Facebook, Twitter, Linkedin, Heart, Users, BookOpen, Building2, ChevronDown, ArrowDown } from "lucide-react";
 import pay from "~/components/images/payment.png"
+import gg from "~/components/images/gg.png"
 import { useState, useEffect } from "react";
 
 // Paystack configuration
@@ -80,7 +81,7 @@ export default function SupportUs() {
                     }
                 ]
             },
-            callback: function(response: any) {
+            callback: function (response: any) {
                 alert('Payment successful. Transaction reference: ' + response.reference);
                 // Here you would typically send the transaction details to your backend
                 setIsLoading(false);
@@ -97,7 +98,7 @@ export default function SupportUs() {
                     });
                 }
             },
-            onClose: function() {
+            onClose: function () {
                 alert('Transaction was not completed, window closed.');
                 setIsLoading(false);
             }
@@ -120,7 +121,7 @@ export default function SupportUs() {
 
     const handleFormSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        
+
         // Validation
         if (!formData.firstName || !formData.lastName || !formData.email || !formData.amount || !formData.donationType) {
             alert('Please fill in all required fields!');
@@ -146,168 +147,118 @@ export default function SupportUs() {
         <div className="min-h-screen bg-white">
             {/* Hero Section */}
             <section className=" relative overflow-hidden">
-                <div className="absolute -left-16 top-32 w-40 h-10 bg-gray-400 rounded-full opacity-30"></div>
-                <div className="absolute -left-6 top-48 w-20 h-10 bg-gray-300 rounded-full opacity-35"></div>
+               
 
                 <div className="container mx-auto px-6 relative z-10">
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    <div className="grid lg:grid-cols-2 gap-16 items-center">
                         {/* Left Content */}
-                        <div className="space-y-8">
+                        <div className="space-y-12">
 
+                            {/* Header Section */}
                             <div className="space-y-6">
-                                <h1 className="text-5xl lg:text-6xl font-heading font-bold text-gray-900 leading-tight">
+                                <h1 className="text-4xl lg:text-6xl font-heading font-bold text-gray-900 leading-tight">
                                     Transform Lives Through
                                     <span className="text-[#00A5B8]"> Care</span>.
                                 </h1>
 
-                                <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
+                                <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl">
                                     Your support strengthens communities and restores dignity across Africa.
+                                    Every contribution helps us build sustainable systems of care.
                                 </p>
                             </div>
 
 
-                            <div className="flex gap-4">
-                                <p className="text-xl font-heading font-semibold text-gray-600 leading-relaxed max-w-lg ">
-                                    Support Now
-                                </p>
-                                <ArrowDown className="text-xl font-heading font-semibold text-gray-600 leading-relaxed max-w-lg animate-bounce" />
-                            </div>
-                            
-                            
-                            
-                            {/* Custom Amount Input */}
-                            <div className="mb-6">
-                                <label className="block text-sm font-medium text-gray-700 mb-3">
-                                    Enter Donation Amount (₵)
-                                </label>
-                                <div className="max-w-xs">
-                                    <input
-                                        type="number"
-                                        value={customAmount}
-                                        onChange={(e) => setCustomAmount(e.target.value)}
-                                        placeholder="Enter amount"
-                                        min="1"
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00A5B8] focus:border-transparent transition-colors"
-                                    />
+                            {/* Quick Actions */}
+                            <div className="">
+                                <div className="flex items-center gap-3">
+                                    <h3 className="text-lg font-heading font-semibold text-gray-700">
+                                        Quick Donate
+                                    </h3>
+                                    <ArrowDown className="w-5 h-5 text-gray-500 animate-bounce" />
                                 </div>
                             </div>
-                            
-                            <div className="flex flex-col sm:flex-row gap-4">
-                                <div className="text-center">
-                                   
-                                    <button 
-                                        onClick={() => {
-                                            if (!paystackLoaded) {
-                                                alert('Payment system is still loading. Please try again in a moment.');
-                                                return;
-                                            }
-                                            if (!customAmount || isNaN(Number(customAmount)) || Number(customAmount) <= 0) {
-                                                alert('Please enter a valid amount above!');
-                                                return;
-                                            }
-                                            setIsLoading(true);
-                                            initializePaystack(Number(customAmount));
-                                        }}
-                                        disabled={isLoading || !paystackLoaded}
-                                        className="hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-4 focus:ring-[#00A5B8]/20 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
-                                    >
-                                        <img className="h-32 w-52 rounded-lg shadow-lg" src={pay} alt="Click to pay with payment methods" />
-                                    </button>
+
+
+
+                            {/* Custom Amount Section */}
+                            <div className="bg-gray-50 p-6 -mt-10 rounded-2xl border border-gray-100">
+                                <h3 className="text-lg font-heading font-semibold text-gray-700 mb-4">
+                                    Custom Amount
+                                </h3>
+
+                                <div className="space-y-4">
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-600 mb-2">
+                                            Enter Your Amount (₵)
+                                        </label>
+                                        <div className="max-w-xs">
+                                            <input
+                                                type="number"
+                                                value={customAmount}
+                                                onChange={(e) => setCustomAmount(e.target.value)}
+                                                placeholder="e.g. 150"
+                                                min="1"
+                                                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#00A5B8] focus:border-transparent transition-colors bg-white"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="pt-2">
+                                        <p className="text-sm text-gray-500 mb-3">Click to pay:</p>
+                                        <button
+                                            onClick={() => {
+                                                if (!paystackLoaded) {
+                                                    alert('Payment system is still loading. Please try again in a moment.');
+                                                    return;
+                                                }
+                                                if (!customAmount || isNaN(Number(customAmount)) || Number(customAmount) <= 0) {
+                                                    alert('Please enter a valid amount above!');
+                                                    return;
+                                                }
+                                                setIsLoading(true);
+                                                initializePaystack(Number(customAmount));
+                                            }}
+                                            disabled={isLoading || !paystackLoaded}
+                                            className="hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-4 focus:ring-[#00A5B8]/20 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                                        >
+                                            <img className="h-24 w-40 rounded-xl shadow-md hover:shadow-lg transition-shadow" src={pay} alt="Payment methods" />
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         {/* Right Image */}
-                        <div className="relative">
-                            <div className="relative z-10">
+                        <div className="relative lg:order-last">
+                            {/* Main image container */}
+                            <div className="relative">
+
                                 <img
-                                    src="/api/placeholder/600/500"
-                                    alt="CARA caregiver helping community member"
-                                    className="w-full h-auto rounded-2xl shadow-2xl"
+                                    src={gg}
+                                    alt="CARA caregiver "
+                                    className="w-full h-auto -mt-70   object-cover"
                                 />
                             </div>
-                            {/* Background accent */}
 
+                            {/* Small accent elements */}
+                            <div className="absolute top-10 -right-2 w-20 h-20 bg-yellow-400 rounded-full opacity-80"></div>
+                            <div className="absolute top-20 -right-4 w-10 h-10 bg-[#00A5B8] rounded-full"></div>
                         </div>
                     </div>
                 </div>
 
-                {/* Bottom Stats/Icons */}
-                <div className="mt-20">
-                    <div className="container mx-auto px-6">
-                        <div className="grid md:grid-cols-4 gap-8">
-                            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
-                                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-                                    <Users className="w-6 h-6 text-gray-700" />
-                                </div>
-                                <h3 className="font-bold text-gray-900 text-lg mb-2">Community Care</h3>
-                                <p className="text-gray-600 text-sm">Supporting vulnerable populations with dignity and compassion</p>
-                            </div>
-
-                            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
-                                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-                                    <BookOpen className="w-6 h-6 text-gray-700" />
-                                </div>
-                                <h3 className="font-bold text-gray-900 text-lg mb-2">Training Programs</h3>
-                                <p className="text-gray-600 text-sm">Empowering caregivers with essential skills and knowledge</p>
-                            </div>
-
-                            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
-                                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-                                    <Building2 className="w-6 h-6 text-gray-700" />
-                                </div>
-                                <h3 className="font-bold text-gray-900 text-lg mb-2">System Building</h3>
-                                <p className="text-gray-600 text-sm">Creating sustainable infrastructure for long-term impact</p>
-                            </div>
-
-                            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
-                                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-                                    <Heart className="w-6 h-6 text-gray-700" />
-                                </div>
-                                <h3 className="font-bold text-gray-900 text-lg mb-2">Compassionate Care</h3>
-                                <p className="text-gray-600 text-sm">Ensuring no one is left behind in our care systems</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </section>
 
             {/* Donation Form Section */}
             <section className="py-20 bg-gray-50">
-                <div className="container mx-auto px-6 flex items-center justify-center">
-                    <div className="max-w-6xl w-full bg-white rounded-lg shadow-lg overflow-hidden">
+                <div className="container mx-auto px-6 flex  ">
+                    <div className="max-w-full w-full  overflow-hidden">
                         <div className="grid lg:grid-cols-2 min-h-[600px]">
-                            {/* Left Side - Image and Social Links */}
-                            <div className="bg-gradient-to-br from-[#00A5B8] to-teal-600 p-8 flex flex-col justify-between">
-                                <div className="flex-1 flex items-center justify-center">
-                                    <div className="text-center text-white">
-                                        <div className="bg-white/20 rounded-lg p-6 mb-6">
-                                            <img
-                                                src="/api/placeholder/300/200"
-                                                alt="Children from CARA programs"
-                                                className="w-full h-48 object-cover rounded-lg"
-                                            />
-                                        </div>
-                                        <h2 className="text-3xl font-bold mb-2">Support CARA</h2>
-                                        <p className="text-lg opacity-90">Building systems of care across Africa</p>
-                                    </div>
-                                </div>
 
-                                <div className="mt-8">
-                                    <p className="text-white text-sm mb-4">Follow us on social</p>
-                                    <div className="flex gap-3">
-                                        <div className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center hover:bg-teal-600 transition-colors cursor-pointer">
-                                            <Facebook className="w-5 h-5 text-white" />
-                                        </div>
-                                        <div className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center hover:bg-teal-600 transition-colors cursor-pointer">
-                                            <Twitter className="w-5 h-5 text-white" />
-                                        </div>
-                                        <div className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center hover:bg-teal-600 transition-colors cursor-pointer">
-                                            <Linkedin className="w-5 h-5 text-white" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           <div>
+                            
+                           </div>
+
 
                             {/* Right Side - Donation Form */}
                             <div className="p-8">

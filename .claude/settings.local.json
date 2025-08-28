@@ -5,7 +5,8 @@
       "Bash(npm run dev:*)",
       "Bash(npx tsc:*)",
       "Read(c:\\Users\\Nharnhar Qwadwo\\Desktop/**)",
-      "Read(c:\\Users\\Nharnhar Qwadwo\\Desktop/**)"
+      "Read(c:\\Users\\Nharnhar Qwadwo\\Desktop/**)",
+      "Bash(copy:*)"
     ],
     "deny": [],
     "ask": []

@@ -1,34 +1,41 @@
 import { useState } from "react";
 import { Users, Menu, X, Facebook, Twitter, Search } from "lucide-react";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 
 const navigation = [
-    { name: "Home", to: "#hero", isExternal: false },
-    { name: "About", to: "#about", isExternal: false },
-    { name: "Services", to: "#services", isExternal: false },
-    { name: "Get Involved", to: "#get-involved", isExternal: false },
+    { name: "Home", to: "/#hero", isExternal: false },
+    { name: "About", to: "/#about", isExternal: false },
+    { name: "Services", to: "/#services", isExternal: false },
+    { name: "Get Involved", to: "/#get-involved", isExternal: false },
 ];
 
 export default function Navigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const location = useLocation();
 
-    const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isExternal: boolean) => {
+    const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isExternal: boolean) => {
         if (isExternal) {
-            // Let the browser handle external navigation
             setMobileMenuOpen(false);
             return;
         }
         
         e.preventDefault();
-        const targetId = href.replace('#', '');
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-            });
-        }
         setMobileMenuOpen(false);
+        
+        // If we're on the home page, scroll to section
+        if (location.pathname === '/') {
+            const targetId = href.replace('/#', '');
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                });
+            }
+        } else {
+            // If we're on another page, navigate to home page with hash
+            window.location.href = href;
+        }
     };
 
     return (
@@ -41,7 +48,7 @@ export default function Navigation() {
                             className="flex items-center space-x-2 transform hover:scale-105 transition-transform duration-200"
                         >
                             <img 
-                                src="/app/components/images/Cara logo-01.png" 
+                                src="/logo.png" 
                                 alt="CARA Logo" 
                                 className="h-8 w-auto"
                             />
@@ -65,7 +72,7 @@ export default function Navigation() {
                                         key={item.name}
                                         href={item.to}
                                         className="text-white hover:text-orange-200 font-medium transition-colors duration-200 relative group"
-                                        onClick={(e) => handleSmoothScroll(e, item.to, item.isExternal)}
+                                        onClick={(e) => handleNavigation(e, item.to, item.isExternal)}
                                     >
                                         {item.name}
                                         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
@@ -117,7 +124,7 @@ export default function Navigation() {
                                             key={item.name}
                                             href={item.to}
                                             className="text-white hover:text-orange-200 font-medium transition-colors duration-200 py-2"
-                                            onClick={(e) => handleSmoothScroll(e, item.to, item.isExternal)}
+                                            onClick={(e) => handleNavigation(e, item.to, item.isExternal)}
                                         >
                                             {item.name}
                                         </a>

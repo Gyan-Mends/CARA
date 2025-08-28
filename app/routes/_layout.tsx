@@ -1,6 +1,5 @@
 import { Outlet } from "react-router";
 import Navigation from "~/components/navigation";
-import logo from '~/components/images/Cara logo-01.png'
 
 export default function AppLayout() {
     return (
@@ -18,7 +17,7 @@ export default function AppLayout() {
                             {/* About CARA */}
                             <div className="lg:col-span-2">
                                 <div className="mb-6">
-                                   <img src={logo} alt="" className='w-60 h-22'    />
+                                   <img src="/logo.png" alt="CARA Logo" className='w-60 h-22'    />
                                 </div>
                                 <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
                                     Building Africa's care economy by making care visible, connected, and valued throughout all stages of life.
