@@ -1,6 +1,8 @@
 import { Facebook, Twitter, Linkedin, Heart, Users, BookOpen, Building2, ChevronDown, ArrowDown } from "lucide-react";
 import pay from "~/components/images/payment.png"
 import gg from "~/components/images/gg.png"
+import caraLogo from "~/components/images/Cara logo-01.png"
+import afr from "~/components/images/african-woman-teaching-kids-class_23-2148892556.jpg"
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router";
 
@@ -46,7 +48,7 @@ export default function SupportUs() {
             console.error('Failed to load Paystack script');
         };
         document.body.appendChild(script);
-        
+
         // Clean up function
         return () => {
             const scripts = document.querySelectorAll('script[src*="paystack"]');
@@ -65,16 +67,16 @@ export default function SupportUs() {
 
     const initializePaystack = (amount: number, email: string = '', firstName: string = '', lastName: string = '', donationType: string = '', message: string = '') => {
         console.log('Initializing Paystack inline payment:', { amount, email, firstName });
-        
+
         if (!(window as PaystackWindow).PaystackPop) {
             alert('Payment system not loaded. Please refresh and try again.');
             setIsLoading(false);
             return;
         }
-        
+
         // Generate unique reference
         const reference = 'CARA_' + Math.floor((Math.random() * 1000000000) + 1);
-        
+
         const handler = (window as PaystackWindow).PaystackPop.setup({
             key: PAYSTACK_PUBLIC_KEY,
             email: email || 'donor@caraafrica.org',
@@ -87,18 +89,18 @@ export default function SupportUs() {
                 donation_type: donationType || 'Quick Donation',
                 message: message || 'Quick donation via payment button'
             },
-            callback: function(response: any) {
+            callback: function (response: any) {
                 console.log('Payment successful:', response);
                 setPaymentStatus('success');
                 setIsLoading(false);
                 // You can add additional success handling here
             },
-            onClose: function() {
+            onClose: function () {
                 console.log('Payment popup closed');
                 setIsLoading(false);
             }
         });
-        
+
         handler.openIframe();
     };
 
@@ -118,23 +120,23 @@ export default function SupportUs() {
     const retryPaystackLoad = () => {
         setScriptError(false);
         setPaystackLoaded(false);
-        
+
         console.log('Retrying Paystack load...');
-        
+
         // Check if PaystackPop is now available
         if ((window as any).PaystackPop) {
             console.log('Paystack was already loaded, enabling now');
             setPaystackLoaded(true);
             return;
         }
-        
+
         // Force reload the page as a last resort
         const forceReload = () => {
             if (confirm('Payment system still not loading. Would you like to refresh the page to try again?')) {
                 window.location.reload();
             }
         };
-        
+
         // Try again after a short delay
         setTimeout(() => {
             if ((window as any).PaystackPop) {
@@ -144,7 +146,7 @@ export default function SupportUs() {
                 console.log('Paystack still not available after retry');
                 forceReload();
             }
-        }, 2000); 
+        }, 2000);
     };
 
     const handleFormSubmit = (e: React.FormEvent) => {
@@ -175,18 +177,16 @@ export default function SupportUs() {
         <div className="min-h-screen bg-white">
             {/* Hero Section */}
             <section className=" relative overflow-hidden">
-               
 
                 <div className="container mx-auto px-6 relative z-10">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         {/* Left Content */}
-                        <div className="space-y-12">
-
+                        <div className="-mt-20 space-y-6">
                             {/* Header Section */}
                             <div className="space-y-6">
                                 <h1 className="text-4xl lg:text-6xl font-heading font-bold text-gray-900 leading-tight">
-                                    Transform Lives Through
-                                    <span className="text-[#00A5B8]"> Care</span>.
+                                    Care Support
+
                                 </h1>
 
                                 <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl">
@@ -216,7 +216,7 @@ export default function SupportUs() {
                                     <p className="text-green-700 text-sm mb-4">
                                         Thank you for your donation! Your support helps us build systems of care across Africa.
                                     </p>
-                                    <button 
+                                    <button
                                         onClick={() => setPaymentStatus(null)}
                                         className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
                                     >
@@ -234,7 +234,7 @@ export default function SupportUs() {
                                     <p className="text-yellow-700 text-sm mb-4">
                                         Your payment was cancelled. You can try again whenever you're ready.
                                     </p>
-                                    <button 
+                                    <button
                                         onClick={() => setPaymentStatus(null)}
                                         className="bg-yellow-600 text-white px-4 py-2 rounded-lg hover:bg-yellow-700 transition-colors text-sm font-medium"
                                     >
@@ -253,7 +253,7 @@ export default function SupportUs() {
                                     <p className="text-red-700 text-sm mb-4">
                                         Failed to load payment system. This might be due to network issues or browser restrictions.
                                     </p>
-                                    <button 
+                                    <button
                                         onClick={retryPaystackLoad}
                                         className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors text-sm font-medium"
                                     >
@@ -262,10 +262,8 @@ export default function SupportUs() {
                                 </div>
                             )}
 
-
-
                             {/* Custom Amount Section */}
-                            <div className="bg-gray-50 p-6 -mt-10 rounded-2xl border border-gray-100">
+                            <div className="bg-gray-50 p-6  rounded-2xl border border-gray-100">
                                 <h3 className="text-lg font-heading font-semibold text-gray-700 mb-4">
                                     Custom Amount
                                 </h3>
@@ -340,11 +338,61 @@ export default function SupportUs() {
             <section className="py-20 bg-gray-50">
                 <div className="container mx-auto px-6 flex  ">
                     <div className="max-w-full w-full  overflow-hidden">
-                        <div className="grid lg:grid-cols-2 min-h-[600px]">
+                        <div className="grid lg:grid-cols-2  min-h-[600px]">
+                            {/* Left Side - Content */}
+                            <div className="p-8 flex gap-10 flex-col justify-center">
+                                <div className="space-y-6">
+                                    <div className="flex flex-col items-center gap-4 mb-6">
 
-                           <div>
-                            
-                           </div>
+                                        <div>
+                                            <h2 className="text-2xl font-heading font-bold text-gray-900">
+                                                Support Our Mission
+                                            </h2>
+                                            <p className="text-sm text-gray-500">Building systems of care across Africa</p>
+                                        </div>
+
+                                    </div>
+
+                                    <div className="space-y-4">
+                                        <div className="flex items-start gap-3">
+                                            <Heart className="w-6 h-6 text-[#00A5B8] mt-1 flex-shrink-0" />
+                                            <div>
+                                                <h3 className="font-semibold text-gray-800 mb-1">Healthcare Access</h3>
+                                                <p className="text-gray-600 text-sm">Providing essential healthcare services to underserved communities across Africa.</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex items-start gap-3">
+                                            <Users className="w-6 h-6 text-[#00A5B8] mt-1 flex-shrink-0" />
+                                            <div>
+                                                <h3 className="font-semibold text-gray-800 mb-1">Community Support</h3>
+                                                <p className="text-gray-600 text-sm">Empowering local communities with resources and training for sustainable development.</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex items-start gap-3">
+                                            <BookOpen className="w-6 h-6 text-[#00A5B8] mt-1 flex-shrink-0" />
+                                            <div>
+                                                <h3 className="font-semibold text-gray-800 mb-1">Education Programs</h3>
+                                                <p className="text-gray-600 text-sm">Supporting educational initiatives that build capacity and create opportunities.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-[#00A5B8]/10 p-4 rounded-lg border border-[#00A5B8]/20">
+                                        <p className="text-sm text-gray-700 italic">
+                                            "Every donation, no matter the size, contributes to meaningful change in communities that need it most."
+                                        </p>
+                                        <p className="text-xs text-gray-500 mt-2">- CARA Africa Team</p>
+                                    </div>
+                                </div>
+
+                                <img
+                                    src={afr}
+                                    alt="CARA Africa Logo"
+                                    className=" w-auto rounded-2xl"
+                                />
+                            </div>
 
 
                             {/* Right Side - Donation Form */}
