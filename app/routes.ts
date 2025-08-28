@@ -12,6 +12,7 @@ export default [
         route("/terms-of-service","routes/terms-of-service.tsx"),
         route("/newsletter","routes/newsletter.tsx"),
         route("/admin-newsletter","routes/admin-newsletter.tsx"),
+        
     ]),
 
 ] satisfies RouteConfig;
