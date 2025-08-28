@@ -1,101 +1,11 @@
 import { Heart, Users, BookOpen, Building2, Target, Award, CheckCircle, Clock, MapPin, ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 import Navigation from "~/components/navigation";
-import afr from "~/components/images/african-woman-teaching-kids-class_23-2148892556.jpg"
-import gg from "~/components/images/gg.png"
 import care from "~/components/scene-from-care-job-with-senior-patient-being-take-care_23-2151224145.jpg"
+import { getPrograms, type ProgramDetail, programIconMap } from "~/utils/programs";
 
 export default function Programs() {
-    const programs = [
-        {
-            id: 1,
-            slug: "caregiver-training",
-            title: "Caregiver Training Program",
-            description: "Comprehensive training for community caregivers focusing on essential care skills, emotional support, and community health practices.",
-            icon: Heart,
-            image: care,
-            duration: "3 months",
-            participants: "500+ caregivers",
-            locations: "15 communities",
-            features: [
-                "Essential care skills training",
-                "Mental health support techniques",
-                "Community health education",
-                "Certification upon completion",
-                "Ongoing mentorship program"
-            ],
-            impact: {
-                number: "2,500+",
-                description: "families supported through trained caregivers"
-            }
-        },
-        {
-            id: 2,
-            slug: "community-health-education",
-            title: "Community Health Education",
-            description: "Educational initiatives focused on preventive healthcare, nutrition, and wellness practices for sustainable community health.",
-            icon: Users,
-            image: afr,
-            duration: "Ongoing",
-            participants: "1,000+ individuals",
-            locations: "20 communities",
-            features: [
-                "Preventive healthcare workshops",
-                "Nutrition and wellness education",
-                "Health screening programs",
-                "Community health ambassador training",
-                "Resource development and distribution"
-            ],
-            impact: {
-                number: "85%",
-                description: "improvement in community health awareness"
-            }
-        },
-        {
-            id: 3,
-            slug: "youth-leadership",
-            title: "Youth Leadership Development",
-            description: "Empowering young people to become leaders in their communities through leadership training, mentorship, and project implementation.",
-            icon: Target,
-            image: gg,
-            duration: "6 months",
-            participants: "200+ youth",
-            locations: "10 communities",
-            features: [
-                "Leadership skills development",
-                "Project management training",
-                "Mentorship matching program",
-                "Community service projects",
-                "Scholarship opportunities"
-            ],
-            impact: {
-                number: "150+",
-                description: "community projects led by youth participants"
-            }
-        },
-        {
-            id: 4,
-            slug: "women-empowerment",
-            title: "Women Empowerment Initiative",
-            description: "Supporting women through skills training, economic opportunities, and advocacy for gender equality in care and community development.",
-            icon: Award,
-            image: afr,
-            duration: "12 months",
-            participants: "300+ women",
-            locations: "12 communities",
-            features: [
-                "Skills-based training programs",
-                "Microfinance and business support",
-                "Leadership development for women",
-                "Advocacy and rights education",
-                "Peer support networks"
-            ],
-            impact: {
-                number: "70%",
-                description: "of participants started their own income-generating activities"
-            }
-        }
-    ];
+    const programs: ProgramDetail[] = getPrograms();
 
     const stats = [
         { number: "25+", label: "Active Programs", icon: BookOpen },
@@ -110,7 +20,7 @@ export default function Programs() {
             <Navigation />
             
             {/* Page Header */}
-            <section className="py-12 relative bg-gray-900 border-b border-gray-200 overflow-hidden h-[70vh] -mt-20">
+            <section className="py-12 mt-20 relative bg-gray-900 border-b border-gray-200 overflow-hidden h-[70vh] -mt-20">
                 {/* Background Image */}
                 <div className="absolute inset-0">
                     <img 
@@ -167,11 +77,14 @@ export default function Programs() {
                                         <img 
                                             src={program.image} 
                                             alt={program.title}
-                                            className="w-full h-[60vh] object-cover"
+                                            className="w-full h-[65vh] object-cover"
                                         />
                                         <div className="absolute top-4 left-4">
                                             <div className="flex items-center justify-center w-12 h-12 bg-[#00A5B8] text-white rounded-full">
-                                                <program.icon className="w-6 h-6" />
+                                                {(() => {
+                                                    const Icon = programIconMap[program.iconKey];
+                                                    return <Icon className="w-6 h-6" />;
+                                                })()}
                                             </div>
                                         </div>
                                     </div>

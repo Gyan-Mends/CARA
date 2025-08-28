@@ -6,9 +6,7 @@ import { sendContactEmail, type ContactFormData } from "~/utils/email.server";
 import { useEffect, useState } from "react";
 import hero from "~/components/african-mother-little-girl-medium-shot_23-2148960557.jpg"
 import care from "~/components/scene-from-care-job-with-senior-patient-being-take-care_23-2151224145.jpg"
-import caregiverTraining from "~/components/images/african-woman-teaching-kids-class_23-2148892556.jpg"
-import businessPartnership from "~/components/business-partners-closing-contract_74855-1152.jpg"
-import womenEmpowerment from "~/components/black-businesswoman-shaking-hands-with-male-partner_74855-1085.jpg"
+import { getPrograms } from "~/utils/programs";
 import Navigation from "~/components/navigation";
 
 export async function action({ request }: ActionFunctionArgs) {
@@ -65,56 +63,7 @@ export default function Home() {
     const showSuccessMessage = success === "true";
     const [isLocalSubmitting, setIsLocalSubmitting] = useState(false);
 
-    const programs = [
-        {
-            id: 1,
-            slug: "caregiver-training",
-            title: "Caregiver Training Program",
-            description: "Comprehensive training for community caregivers focusing on essential care skills, emotional support, and community health practices.",
-            duration: "3 months",
-            achievement: "500+ caregivers trained",
-            image: caregiverTraining,
-            alt: "African woman teaching children in class",
-            tagColor: "bg-[#00A5B8]/10",
-            tagTextColor: "text-[#00A5B8]"
-        },
-        {
-            id: 2,
-            slug: "community-health-education",
-            title: "Community Health Education",
-            description: "Educational initiatives focused on preventive healthcare, nutrition, and wellness practices for sustainable community health.",
-            duration: "Ongoing",
-            achievement: "85% health improvement",
-            image: care,
-            alt: "Scene from care job with senior patient being taken care of",
-            tagColor: "bg-[#FCB339]/10",
-            tagTextColor: "text-[#FCB339]"
-        },
-        {
-            id: 3,
-            slug: "youth-leadership",
-            title: "Youth Leadership Development",
-            description: "Empowering young people to become leaders in their communities through leadership training, mentorship, and project implementation.",
-            duration: "6 months",
-            achievement: "150+ youth projects",
-            image: hero,
-            alt: "African mother with little girl",
-            tagColor: "bg-green-100",
-            tagTextColor: "text-green-600"
-        },
-        {
-            id: 4,
-            slug: "women-empowerment",
-            title: "Women Empowerment Initiative",
-            description: "Supporting women through skills training, economic opportunities, and advocacy for gender equality in care and community development.",
-            duration: "12 months",
-            achievement: "70% started businesses",
-            image: womenEmpowerment,
-            alt: "Black businesswoman shaking hands with male partner",
-            tagColor: "bg-purple-100",
-            tagTextColor: "text-purple-600"
-        }
-    ];
+    const programs = getPrograms();
 
     // Check both navigation state and local state
     const isSubmitting = navigation.state === "submitting" || isLocalSubmitting;
@@ -319,7 +268,7 @@ export default function Home() {
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                        {programs.map((program) => (
+                        {programs.slice(0, 3).map((program) => (
                             <div key={program.id} className="relative  bg-gray-50 rounded-xl overflow-hidden group hover:shadow-lg transition-all duration-300 border border-gray-100">
                                 <div className="absolute top-4 right-4 w-12 h-12 bg-[#00A5B8]/10 rounded-full flex items-center justify-center">
                                     <span className="text-[#00A5B8] font-bold text-lg">{program.id.toString().padStart(2, '0')}</span>
@@ -340,10 +289,21 @@ export default function Home() {
                                             {program.description}
                                         </p>
                                         <div className="flex items-center justify-between text-sm text-gray-500">
-                                            <span className={`${program.tagColor} px-3 py-1 rounded-full ${program.tagTextColor} font-medium`}>
+                                            <span className={`${program.tagColor ?? ''} px-3 py-1 rounded-full ${program.tagTextColor ?? ''} font-medium`}>
                                                 {program.duration}
                                             </span>
                                             <span>{program.achievement}</span>
+                                        </div>
+                                        <div className="mt-4">
+                                            <Link
+                                                to={`/programs/${program.slug}`}
+                                                className="inline-flex items-center gap-2 text-[#00A5B8] font-medium hover:underline"
+                                            >
+                                                Read More
+                                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                </svg>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>

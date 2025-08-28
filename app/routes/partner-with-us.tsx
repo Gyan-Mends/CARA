@@ -97,7 +97,7 @@ export default function PartnerWithUs() {
             <Navigation />
             
             {/* Page Header */}
-            <section className="py-12 relative bg-gray-900 border-b border-gray-200 overflow-hidden h-[70vh] -mt-20">
+            <section className="py-12 mt-20 relative bg-gray-900 border-b border-gray-200 overflow-hidden h-[70vh] -mt-20">
                 {/* Background Image */}
                 <div className="absolute inset-0 h-[70vvh]">
                     <img 
