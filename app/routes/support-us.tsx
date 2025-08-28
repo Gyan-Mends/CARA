@@ -5,6 +5,7 @@ import caraLogo from "~/components/images/Cara logo-01.png"
 import afr from "~/components/images/african-woman-teaching-kids-class_23-2148892556.jpg"
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router";
+import Navigation from "~/components/navigation";
 
 // Paystack configuration
 const PAYSTACK_PUBLIC_KEY = "pk_test_2a5fe03e4f2b193e9a6056d4683391e2aae03d21";
@@ -174,11 +175,13 @@ export default function SupportUs() {
     };
 
     return (
-        <div className="min-h-screen bg-white overflow-x-hidden">
+        <div className="min-h-screen bg-white">
             {/* Hero Section */}
-            <section className=" relative overflow-hidden">
-
-                <div className="container mx-auto px-6 relative z-10">
+            <section className="relative overflow-hidden">
+                {/* Navigation */}
+                <Navigation />
+                
+                <div className="container mx-auto px-6 relative z-10 pt-8">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         {/* Left Content */}
                         <div className="lg:-mt-20 space-y-6">

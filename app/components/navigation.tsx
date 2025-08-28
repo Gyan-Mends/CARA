@@ -3,15 +3,39 @@ import { Users, Menu, X, Facebook, Twitter, Search } from "lucide-react";
 import { Link, useLocation } from "react-router";
 
 const navigation = [
-    { name: "Home", to: "/#hero", isExternal: false },
+    { name: "Home", to: "/", isExternal: false },
     { name: "About", to: "/#about", isExternal: false },
     { name: "Services", to: "/#services", isExternal: false },
+    { name: "Programs", to: "/programs", isExternal: false },
     { name: "Get Involved", to: "/#get-involved", isExternal: false },
+    { name: "Become a Giver", to: "/become-a-giver", isExternal: false },
+    { name: "Partner with Us", to: "/partner-with-us", isExternal: false },
+];
+
+const mobileNavigation = [
+    { name: "Home", to: "/", isExternal: false },
+    { name: "About", to: "/#about", isExternal: false },
+    { name: "Services", to: "/#services", isExternal: false },
+    { name: "Programs", to: "/programs", isExternal: false },
+    { name: "Get Involved", to: "/#get-involved", isExternal: false },
+    { name: "Support Us", to: "/support-us", isExternal: false },
+    { name: "Become a Giver", to: "/become-a-giver", isExternal: false },
+    { name: "Partner with Us", to: "/partner-with-us", isExternal: false },
 ];
 
 export default function Navigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();
+
+    const isActive = (href: string) => {
+        if (href === "/") {
+            return location.pathname === "/";
+        }
+        if (href.startsWith("/#")) {
+            return location.pathname === "/" && location.hash === href.substring(1);
+        }
+        return location.pathname === href;
+    };
 
     const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isExternal: boolean) => {
         if (isExternal) {
@@ -19,27 +43,31 @@ export default function Navigation() {
             return;
         }
         
-        e.preventDefault();
         setMobileMenuOpen(false);
         
-        // If we're on the home page, scroll to section
-        if (location.pathname === '/') {
-            const targetId = href.replace('/#', '');
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
-                });
+        // Handle hash links (sections on home page)
+        if (href.startsWith('/#')) {
+            e.preventDefault();
+            // If we're on the home page, scroll to section
+            if (location.pathname === '/') {
+                const targetId = href.replace('/#', '');
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                    });
+                }
+            } else {
+                // If we're on another page, navigate to home page with hash
+                window.location.href = href;
             }
-        } else {
-            // If we're on another page, navigate to home page with hash
-            window.location.href = href;
         }
+        // For regular routes, let React Router handle navigation
     };
 
     return (
-        <header className="sticky top-0 z-50 transition-all duration-300 p-4">
+        <header className="sticky top-0 z-[9999] transition-all duration-300 p-4">
             <div className="container mx-auto">
                 <div className={`lg:bg-gradient-to-r from-white via-[#00A5B8]  to-[#00A5B8] bg-[#00A5B8]  shadow-sm px-6 py-3 transition-all duration-300 ${mobileMenuOpen ? 'rounded-2xl lg:rounded-full' : 'rounded-full'}`}>
                     <div className="flex items-center justify-between">
@@ -50,7 +78,7 @@ export default function Navigation() {
                             <img 
                                 src="/logo.png" 
                                 alt="CARA Logo" 
-                                className="h-8 w-auto"
+                                className="h-16 w-auto"
                             />
                            
                         </Link>
@@ -62,20 +90,32 @@ export default function Navigation() {
                                     <Link
                                         key={item.name}
                                         to={item.to}
-                                        className="text-white hover:text-orange-200 font-medium transition-colors duration-200 relative group"
+                                        className={`font-medium transition-colors duration-200 relative group ${
+                                            isActive(item.to) 
+                                                ? 'text-[#FCB339]' 
+                                                : 'text-white hover:text-orange-200'
+                                        }`}
                                     >
                                         {item.name}
-                                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                                        <span className={`absolute bottom-0 left-0 h-0.5 bg-white transition-all duration-300 ${
+                                            isActive(item.to) ? 'w-full' : 'w-0 group-hover:w-full'
+                                        }`}></span>
                                     </Link>
                                 ) : (
                                     <a
                                         key={item.name}
                                         href={item.to}
-                                        className="text-white hover:text-orange-200 font-medium transition-colors duration-200 relative group"
+                                        className={`font-medium transition-colors duration-200 relative group ${
+                                            isActive(item.to) 
+                                                ? 'text-[#FCB339]' 
+                                                : 'text-white hover:text-orange-200'
+                                        }`}
                                         onClick={(e) => handleNavigation(e, item.to, item.isExternal)}
                                     >
                                         {item.name}
-                                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                                        <span className={`absolute bottom-0 left-0 h-0.5 bg-white transition-all duration-300 ${
+                                            isActive(item.to) ? 'w-full' : 'w-0 group-hover:w-full'
+                                        }`}></span>
                                     </a>
                                 )
                             ))}
@@ -109,12 +149,16 @@ export default function Navigation() {
                     {mobileMenuOpen && (
                         <nav className="lg:hidden mt-4 pb-4 border-t border-teal-400 pt-4 animate-fade-in">
                             <div className="flex flex-col space-y-4">
-                                {navigation.map((item) => (
+                                {mobileNavigation.map((item) => (
                                     item.isExternal ? (
                                         <Link 
                                             key={item.name}
                                             to={item.to} 
-                                            className="text-white hover:text-orange-200 font-medium transition-colors duration-200 py-2"
+                                            className={`font-medium transition-colors duration-200 py-2 ${
+                                                isActive(item.to) 
+                                                    ? 'text-[#FCB339]' 
+                                                    : 'text-white hover:text-orange-200'
+                                            }`}
                                             onClick={() => setMobileMenuOpen(false)}
                                         >
                                             {item.name}
@@ -123,7 +167,11 @@ export default function Navigation() {
                                         <a
                                             key={item.name}
                                             href={item.to}
-                                            className="text-white hover:text-orange-200 font-medium transition-colors duration-200 py-2"
+                                            className={`font-medium transition-colors duration-200 py-2 ${
+                                                isActive(item.to) 
+                                                    ? 'text-[#FCB339]' 
+                                                    : 'text-white hover:text-orange-200'
+                                            }`}
                                             onClick={(e) => handleNavigation(e, item.to, item.isExternal)}
                                         >
                                             {item.name}

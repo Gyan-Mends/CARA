@@ -1,11 +1,8 @@
 import { Outlet } from "react-router";
-import Navigation from "~/components/navigation";
 
 export default function AppLayout() {
     return (
-        <div className="min-h-screen !overflow-x-hidden">
-             {/* Navigation */}
-             <Navigation />
+        <div className="min-h-screen ">
             <Outlet />
              {/* Footer */}
              <footer className="bg-gray-900 text-white">

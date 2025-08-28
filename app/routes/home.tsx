@@ -1,11 +1,12 @@
 import { Facebook, Instagram, Twitter, Youtube, ChevronLeft, ChevronRight, Star, Settings, Loader2 } from "lucide-react";
-import { useSearchParams, useActionData, useNavigation } from "react-router";
+import { useSearchParams, useActionData, useNavigation, Link } from "react-router";
 import { type ActionFunctionArgs } from "react-router";
 import { redirect } from "react-router";
 import { sendContactEmail, type ContactFormData } from "~/utils/email.server";
 import { useEffect, useState } from "react";
 import hero from "~/components/african-mother-little-girl-medium-shot_23-2148960557.jpg"
 import care from "~/components/scene-from-care-job-with-senior-patient-being-take-care_23-2151224145.jpg"
+import Navigation from "~/components/navigation";
 
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
@@ -88,7 +89,11 @@ export default function Home(){
     return(
         <div className="min-h-screen ">
             {/* Hero Section */}
-            <section id="hero" className="container mx-auto px-6 pb-10">
+            <section id="hero" className="relative">
+                {/* Navigation */}
+                <Navigation />
+                
+                <div className="container mx-auto px-6 pb-10 pt-8">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left Content */}
                     <div className="space-y-8">
@@ -106,15 +111,24 @@ export default function Home(){
                         </div>
                         
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <button className="bg-[#00A5B8] text-white px-8 py-4 rounded-full hover:bg-teal-600 transition-colors duration-300 font-medium">
-                                BECOME A CAREGIVER
-                            </button>
-                            <button className="bg-gray-800 text-white px-8 py-4 rounded-full hover:bg-gray-700 transition-colors duration-300 font-medium">
+                            <Link 
+                                to="/become-a-giver" 
+                                className="bg-[#00A5B8] text-white px-8 py-4 rounded-full hover:bg-teal-600 transition-colors duration-300 font-medium text-center"
+                            >
+                                BECOME A VOLUNTEER GIVER
+                            </Link>
+                            <Link 
+                                to="/partner-with-us" 
+                                className="bg-gray-800 text-white px-8 py-4 rounded-full hover:bg-gray-700 transition-colors duration-300 font-medium text-center"
+                            >
                                 PARTNER WITH US
-                            </button>
-                            <button className="border-2 border-gray-800 text-gray-800 px-8 py-4 rounded-full hover:bg-gray-800 hover:text-white transition-colors duration-300 font-medium">
-                                LEARN MORE
-                            </button>
+                            </Link>
+                            <Link 
+                                to="/support-us" 
+                                className="border-2 border-gray-800 text-gray-800 px-8 py-4 rounded-full hover:bg-gray-800 hover:text-white transition-colors duration-300 font-medium text-center"
+                            >
+                                SUPPORT US
+                            </Link>
                         </div>
                         
                     </div>
@@ -143,6 +157,7 @@ export default function Home(){
                         </div>
 
                     </div>
+                </div>
                 </div>
             </section>
 
