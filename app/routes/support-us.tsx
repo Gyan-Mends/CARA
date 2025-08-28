@@ -137,7 +137,7 @@ export default function SupportUs() {
                 console.log('Paystack still not available after retry');
                 forceReload();
             }
-        }, 2000);
+        }, 2000); 
     };
 
     const handleFormSubmit = (e: React.FormEvent) => {
