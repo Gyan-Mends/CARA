@@ -118,7 +118,7 @@ export default function Home() {
                                     to="/become-a-giver"
                                     className="bg-[#00A5B8] text-white px-8 py-4 rounded-full hover:bg-teal-600 transition-colors duration-300 font-medium text-center"
                                 >
-                                    BECOME A VOLUNTEER GIVER
+                                    BECOME A CARE GIVER
                                 </Link>
                                 <Link
                                     to="/partner-with-us"
