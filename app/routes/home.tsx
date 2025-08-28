@@ -5,6 +5,7 @@ import { redirect } from "react-router";
 import { sendContactEmail, type ContactFormData } from "~/utils/email.server";
 import { useEffect, useState } from "react";
 import hero from "~/components/african-mother-little-girl-medium-shot_23-2148960557.jpg"
+import care from "~/components/scene-from-care-job-with-senior-patient-being-take-care_23-2151224145.jpg"
 
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
@@ -154,9 +155,8 @@ export default function Home(){
                             {/* Background Image */}
                             <div className="relative lg:h-full md:h-full h-[60vh] bg-gradient-to-br from-teal-400 to-cyan-500 rounded-lg overflow-hidden">
                                 <img 
-                                    src="https://img.freepik.com/free-photo/businesswoman-using-tablet-analysis_1150-18909.jpg" 
-                                    alt="Professional woman working" 
-                                    className="w-full h-full object-cover opacity-90"
+                                    src={care} 
+                                    className="w-full h-[60vh] object-cover opacity-90"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-br from-teal-500/30 to-cyan-600/30"></div>
                             </div>
