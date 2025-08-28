@@ -123,12 +123,7 @@ export default function Home(){
                             >
                                 PARTNER WITH US
                             </Link>
-                            <Link 
-                                to="/support-us" 
-                                className="border-2 border-gray-800 text-gray-800 px-8 py-4 rounded-full hover:bg-gray-800 hover:text-white transition-colors duration-300 font-medium text-center"
-                            >
-                                SUPPORT US
-                            </Link>
+                           
                         </div>
                         
                     </div>

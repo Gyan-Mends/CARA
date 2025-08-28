@@ -7,6 +7,8 @@ export default [
         route("/support-us","routes/support-us.tsx"),
         route("/become-a-giver","routes/become-a-giver.tsx"),
         route("/partner-with-us","routes/partner-with-us.tsx"),
+        route("/privacy-policy","routes/privacy-policy.tsx"),
+        route("/terms-of-service","routes/terms-of-service.tsx"),
     ]),
 
 ] satisfies RouteConfig;
