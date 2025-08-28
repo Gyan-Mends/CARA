@@ -6,7 +6,8 @@
       "Bash(npx tsc:*)",
       "Read(c:\\Users\\Nharnhar Qwadwo\\Desktop/**)",
       "Read(c:\\Users\\Nharnhar Qwadwo\\Desktop/**)",
-      "Bash(copy:*)"
+      "Bash(copy:*)",
+      "Read(c:\\Users\\Nharnhar Qwadwo\\Desktop/**)"
     ],
     "deny": [],
     "ask": []

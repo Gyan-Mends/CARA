@@ -32,23 +32,26 @@ export default function SupportUs() {
     const [searchParams] = useSearchParams();
     const [paymentStatus, setPaymentStatus] = useState<string | null>(null);
 
-    // Set Paystack as always ready since we'll use redirect method
+    // Load Paystack script for inline method
     useEffect(() => {
-        // For redirect method, we don't need to load external scripts
-        setPaystackLoaded(true);
-        console.log('Using Paystack redirect method - no external script needed');
+        const script = document.createElement('script');
+        script.src = 'https://js.paystack.co/v1/inline.js';
+        script.async = true;
+        script.onload = () => {
+            setPaystackLoaded(true);
+            console.log('Paystack inline script loaded successfully');
+        };
+        script.onerror = () => {
+            setScriptError(true);
+            console.error('Failed to load Paystack script');
+        };
+        document.body.appendChild(script);
         
-        // Check for payment status in URL
-        const payment = searchParams.get('payment');
-        const ref = searchParams.get('ref');
-        
-        if (payment === 'success') {
-            setPaymentStatus('success');
-            console.log('Payment successful:', ref);
-        } else if (payment === 'cancelled') {
-            setPaymentStatus('cancelled');
-            console.log('Payment cancelled');
-        }
+        // Clean up function
+        return () => {
+            const scripts = document.querySelectorAll('script[src*="paystack"]');
+            scripts.forEach(script => script.remove());
+        };
     }, [searchParams]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -61,38 +64,42 @@ export default function SupportUs() {
     };
 
     const initializePaystack = (amount: number, email: string = '', firstName: string = '', lastName: string = '', donationType: string = '', message: string = '') => {
-        console.log('Initializing Paystack redirect payment:', { amount, email, firstName });
+        console.log('Initializing Paystack inline payment:', { amount, email, firstName });
+        
+        if (!(window as PaystackWindow).PaystackPop) {
+            alert('Payment system not loaded. Please refresh and try again.');
+            setIsLoading(false);
+            return;
+        }
         
         // Generate unique reference
         const reference = 'CARA_' + Math.floor((Math.random() * 1000000000) + 1);
         
-        // Create Paystack Standard checkout URL
-        const paystackUrl = new URL('https://checkout.paystack.com/v1/checkout');
-        
-        const params = {
+        const handler = (window as PaystackWindow).PaystackPop.setup({
             key: PAYSTACK_PUBLIC_KEY,
             email: email || 'donor@caraafrica.org',
-            amount: (amount * 100).toString(), // Convert to kobo
+            amount: amount * 100, // Convert to pesewas for GHS
             currency: 'GHS',
             ref: reference,
-            callback_url: window.location.origin + '/support-us?payment=success&ref=' + reference,
-            cancel_url: window.location.origin + '/support-us?payment=cancelled',
             firstname: firstName || 'Anonymous',
             lastname: lastName || 'Donor',
-            // Add metadata as URL parameters
-            'metadata[donation_type]': donationType || 'Quick Donation',
-            'metadata[message]': message || 'Quick donation via payment button'
-        };
-        
-        // Add parameters to URL
-        Object.entries(params).forEach(([key, value]) => {
-            paystackUrl.searchParams.append(key, value);
+            metadata: {
+                donation_type: donationType || 'Quick Donation',
+                message: message || 'Quick donation via payment button'
+            },
+            callback: function(response: any) {
+                console.log('Payment successful:', response);
+                setPaymentStatus('success');
+                setIsLoading(false);
+                // You can add additional success handling here
+            },
+            onClose: function() {
+                console.log('Payment popup closed');
+                setIsLoading(false);
+            }
         });
         
-        console.log('Redirecting to Paystack:', paystackUrl.toString());
-        
-        // Redirect to Paystack
-        window.location.href = paystackUrl.toString();
+        handler.openIframe();
     };
 
     const handleQuickDonate = (amount: number) => {
@@ -208,7 +215,6 @@ export default function SupportUs() {
                                     </div>
                                     <p className="text-green-700 text-sm mb-4">
                                         Thank you for your donation! Your support helps us build systems of care across Africa.
-                                        Transaction reference: {searchParams.get('ref')}
                                     </p>
                                     <button 
                                         onClick={() => setPaymentStatus(null)}
@@ -284,7 +290,10 @@ export default function SupportUs() {
                                     <div className="pt-2">
                                         <p className="text-sm text-gray-500 mb-3">Click to pay:</p>
                                         <button
-                                            onClick={() => {
+                                            type="button"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                e.stopPropagation();
                                                 if (!paystackLoaded) {
                                                     alert('Payment system is still loading. Please try again in a moment.');
                                                     return;
