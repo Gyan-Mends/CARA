@@ -2,6 +2,7 @@ import { Facebook, Twitter, Linkedin, Heart, Users, BookOpen, Building2, Chevron
 import pay from "~/components/images/payment.png"
 import gg from "~/components/images/gg.png"
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router";
 
 // Paystack configuration
 const PAYSTACK_PUBLIC_KEY = "pk_test_2a5fe03e4f2b193e9a6056d4683391e2aae03d21";
@@ -28,48 +29,27 @@ export default function SupportUs() {
     const [paystackLoaded, setPaystackLoaded] = useState(false);
     const [customAmount, setCustomAmount] = useState('');
     const [scriptError, setScriptError] = useState(false);
+    const [searchParams] = useSearchParams();
+    const [paymentStatus, setPaymentStatus] = useState<string | null>(null);
 
-    // Check for Paystack script
+    // Set Paystack as always ready since we'll use redirect method
     useEffect(() => {
-        const checkPaystack = () => {
-            if ((window as any).PaystackPop) {
-                console.log('Paystack script loaded successfully');
-                setPaystackLoaded(true);
-                return;
-            }
-            
-            // Check if script exists in DOM
-            const script = document.querySelector('script[src="https://js.paystack.co/v1/inline.js"]');
-            if (script) {
-                // Script exists but might not be loaded yet
-                script.addEventListener('load', () => {
-                    console.log('Paystack script loaded from global script');
-                    setPaystackLoaded(true);
-                });
-                
-                script.addEventListener('error', () => {
-                    console.error('Paystack script failed to load from global script');
-                    setScriptError(true);
-                });
-            } else {
-                console.error('Paystack script not found in DOM');
-                setScriptError(true);
-            }
-        };
-
-        // Initial check
-        checkPaystack();
+        // For redirect method, we don't need to load external scripts
+        setPaystackLoaded(true);
+        console.log('Using Paystack redirect method - no external script needed');
         
-        // Fallback check after a delay
-        const timeoutId = setTimeout(() => {
-            if (!paystackLoaded && !(window as any).PaystackPop) {
-                console.error('Paystack script failed to load after timeout');
-                setScriptError(true);
-            }
-        }, 10000); // 10 second timeout
-
-        return () => clearTimeout(timeoutId);
-    }, [paystackLoaded]);
+        // Check for payment status in URL
+        const payment = searchParams.get('payment');
+        const ref = searchParams.get('ref');
+        
+        if (payment === 'success') {
+            setPaymentStatus('success');
+            console.log('Payment successful:', ref);
+        } else if (payment === 'cancelled') {
+            setPaymentStatus('cancelled');
+            console.log('Payment cancelled');
+        }
+    }, [searchParams]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -81,66 +61,38 @@ export default function SupportUs() {
     };
 
     const initializePaystack = (amount: number, email: string = '', firstName: string = '', lastName: string = '', donationType: string = '', message: string = '') => {
-        console.log('Initializing Paystack:', { paystackLoaded, paystack: (window as any).PaystackPop });
+        console.log('Initializing Paystack redirect payment:', { amount, email, firstName });
         
-        if (!paystackLoaded) {
-            alert('Payment system is still loading. Please try again in a moment.');
-            setIsLoading(false);
-            return;
-        }
+        // Generate unique reference
+        const reference = 'CARA_' + Math.floor((Math.random() * 1000000000) + 1);
         
-        if (!(window as any).PaystackPop) {
-            console.error('PaystackPop is not available');
-            alert('Payment system failed to initialize. Please refresh the page and try again.');
-            setIsLoading(false);
-            return;
-        }
-
-        const handler = (window as any).PaystackPop.setup({
+        // Create Paystack Standard checkout URL
+        const paystackUrl = new URL('https://checkout.paystack.com/v1/checkout');
+        
+        const params = {
             key: PAYSTACK_PUBLIC_KEY,
             email: email || 'donor@caraafrica.org',
-            amount: amount * 100, // Paystack expects amount in kobo (multiply by 100)
-            currency: 'GHS', // Ghana Cedis
-            ref: 'CARA_' + Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference
+            amount: (amount * 100).toString(), // Convert to kobo
+            currency: 'GHS',
+            ref: reference,
+            callback_url: window.location.origin + '/support-us?payment=success&ref=' + reference,
+            cancel_url: window.location.origin + '/support-us?payment=cancelled',
             firstname: firstName || 'Anonymous',
             lastname: lastName || 'Donor',
-            metadata: {
-                custom_fields: [
-                    {
-                        display_name: "Donation Type",
-                        variable_name: "donation_type",
-                        value: donationType || 'Quick Donation'
-                    },
-                    {
-                        display_name: "Message",
-                        variable_name: "message",
-                        value: message || 'Quick donation via payment button'
-                    }
-                ]
-            },
-            callback: function (response: any) {
-                alert('Payment successful. Transaction reference: ' + response.reference);
-                // Here you would typically send the transaction details to your backend
-                setIsLoading(false);
-                // Reset form only if it was filled
-                if (email === formData.email) {
-                    setFormData({
-                        firstName: '',
-                        lastName: '',
-                        email: '',
-                        phone: '',
-                        donationType: '',
-                        amount: '',
-                        message: ''
-                    });
-                }
-            },
-            onClose: function () {
-                alert('Transaction was not completed, window closed.');
-                setIsLoading(false);
-            }
+            // Add metadata as URL parameters
+            'metadata[donation_type]': donationType || 'Quick Donation',
+            'metadata[message]': message || 'Quick donation via payment button'
+        };
+        
+        // Add parameters to URL
+        Object.entries(params).forEach(([key, value]) => {
+            paystackUrl.searchParams.append(key, value);
         });
-        handler.openIframe();
+        
+        console.log('Redirecting to Paystack:', paystackUrl.toString());
+        
+        // Redirect to Paystack
+        window.location.href = paystackUrl.toString();
     };
 
     const handleQuickDonate = (amount: number) => {
@@ -246,6 +198,44 @@ export default function SupportUs() {
                                     <ArrowDown className="w-5 h-5 text-gray-500 animate-bounce" />
                                 </div>
                             </div>
+
+                            {/* Payment Status Messages */}
+                            {paymentStatus === 'success' && (
+                                <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <span className="text-green-500 text-xl">✅</span>
+                                        <h4 className="font-semibold text-green-800">Payment Successful!</h4>
+                                    </div>
+                                    <p className="text-green-700 text-sm mb-4">
+                                        Thank you for your donation! Your support helps us build systems of care across Africa.
+                                        Transaction reference: {searchParams.get('ref')}
+                                    </p>
+                                    <button 
+                                        onClick={() => setPaymentStatus(null)}
+                                        className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
+                                    >
+                                        Make Another Donation
+                                    </button>
+                                </div>
+                            )}
+
+                            {paymentStatus === 'cancelled' && (
+                                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <span className="text-yellow-500 text-xl">⚠️</span>
+                                        <h4 className="font-semibold text-yellow-800">Payment Cancelled</h4>
+                                    </div>
+                                    <p className="text-yellow-700 text-sm mb-4">
+                                        Your payment was cancelled. You can try again whenever you're ready.
+                                    </p>
+                                    <button 
+                                        onClick={() => setPaymentStatus(null)}
+                                        className="bg-yellow-600 text-white px-4 py-2 rounded-lg hover:bg-yellow-700 transition-colors text-sm font-medium"
+                                    >
+                                        Try Again
+                                    </button>
+                                </div>
+                            )}
 
                             {/* Error State */}
                             {scriptError && (
