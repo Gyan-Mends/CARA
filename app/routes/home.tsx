@@ -6,70 +6,109 @@ import { sendContactEmail, type ContactFormData } from "~/utils/email.server";
 import { useEffect, useState } from "react";
 import hero from "~/components/african-mother-little-girl-medium-shot_23-2148960557.jpg"
 import care from "~/components/scene-from-care-job-with-senior-patient-being-take-care_23-2151224145.jpg"
+import caregiverTraining from "~/components/images/african-woman-teaching-kids-class_23-2148892556.jpg"
+import businessPartnership from "~/components/business-partners-closing-contract_74855-1152.jpg"
+import womenEmpowerment from "~/components/black-businesswoman-shaking-hands-with-male-partner_74855-1085.jpg"
 import Navigation from "~/components/navigation";
 
 export async function action({ request }: ActionFunctionArgs) {
-  const formData = await request.formData();
-  
-  const contactData: ContactFormData = {
-    name: formData.get("name") as string,
-    email: formData.get("email") as string,
-    message: formData.get("message") as string,
-  };
+    const formData = await request.formData();
 
-  // Basic validation
-  if (!contactData.name || !contactData.email || !contactData.message) {
-    return {
-      error: "All fields are required",
-      success: false,
+    const contactData: ContactFormData = {
+        name: formData.get("name") as string,
+        email: formData.get("email") as string,
+        message: formData.get("message") as string,
     };
-  }
 
-  // Email validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(contactData.email)) {
-    return {
-      error: "Please enter a valid email address",
-      success: false,
-    };
-  }
-
-  try {
-    const result = await sendContactEmail(contactData);
-    
-    if (result.success) {
-      return redirect("/?success=true#get-involved");
-    } else {
-      return {
-        error: result.error || "Failed to send message. Please try again.",
-        success: false,
-      };
+    // Basic validation
+    if (!contactData.name || !contactData.email || !contactData.message) {
+        return {
+            error: "All fields are required",
+            success: false,
+        };
     }
-  } catch (error) {
-    console.error("Contact form error:", error);
-    return {
-      error: "An unexpected error occurred. Please try again.",
-      success: false,
-    };
-  }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(contactData.email)) {
+        return {
+            error: "Please enter a valid email address",
+            success: false,
+        };
+    }
+
+    try {
+        const result = await sendContactEmail(contactData);
+
+        if (result.success) {
+            return redirect("/?success=true#get-involved");
+        } else {
+            return {
+                error: result.error || "Failed to send message. Please try again.",
+                success: false,
+            };
+        }
+    } catch (error) {
+        console.error("Contact form error:", error);
+        return {
+            error: "An unexpected error occurred. Please try again.",
+            success: false,
+        };
+    }
 }
 
-export default function Home(){
+export default function Home() {
     const [searchParams] = useSearchParams();
     const actionData = useActionData();
     const navigation = useNavigation();
     const success = searchParams.get("success");
     const showSuccessMessage = success === "true";
     const [isLocalSubmitting, setIsLocalSubmitting] = useState(false);
-    
+
+    const programs = [
+        {
+            id: 1,
+            title: "Caregiver Training Program",
+            description: "Comprehensive training for community caregivers focusing on essential care skills, emotional support, and community health practices.",
+            duration: "3 months",
+            achievement: "500+ caregivers trained",
+            image: caregiverTraining,
+            alt: "African woman teaching children in class",
+            tagColor: "bg-[#00A5B8]/10",
+            tagTextColor: "text-[#00A5B8]"
+        },
+        {
+            id: 2,
+            title: "Community Health Education",
+            description: "Educational initiatives focused on preventive healthcare, nutrition, and wellness practices for sustainable community health.",
+            duration: "Ongoing",
+            achievement: "85% health improvement",
+            image: care,
+            alt: "Scene from care job with senior patient being taken care of",
+            tagColor: "bg-[#FCB339]/10",
+            tagTextColor: "text-[#FCB339]"
+        },
+        {
+            id: 3,
+            title: "Youth Leadership Development",
+            description: "Empowering young people to become leaders in their communities through leadership training, mentorship, and project implementation.",
+            duration: "6 months",
+            achievement: "150+ youth projects",
+            image: hero,
+            alt: "African mother with little girl",
+            tagColor: "bg-green-100",
+            tagTextColor: "text-green-600"
+        }
+    ];
+
     // Check both navigation state and local state
     const isSubmitting = navigation.state === "submitting" || isLocalSubmitting;
-    
+
     // Handle form submission state
     const handleFormSubmit = () => {
         setIsLocalSubmitting(true);
     };
-    
+
     // Reset local submitting state when navigation completes
     useEffect(() => {
         if (navigation.state === "idle") {
@@ -86,73 +125,73 @@ export default function Home(){
             }
         }
     }, [showSuccessMessage]);
-    return(
+    return (
         <div className="min-h-screen ">
             {/* Hero Section */}
             <section id="hero" className="relative">
                 {/* Navigation */}
                 <Navigation />
-                
+
                 <div className="container mt-16 lg:mt-0 mx-auto px-6 pb-10 pt-8">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    {/* Left Content */}
-                    <div className="space-y-8">
-                        <div className="space-y-6">
-                            <h1 className="text-5xl font-heading lg:text-6xl font-bold text-gray-900 leading-tight">
-                                Care for Those Who Care.<br />
-                                <span className="text-[#00A5B8]">Dignity for All.</span>
-                            </h1>
-                            <div className="w-12 h-1 bg-[#00A5B8]"></div>
-                            <p className="text-gray-600 text-lg leading-relaxed max-w-lg">
-                                CARA is a nonprofit organization providing care access for vulnerable populations through 
-                                caregiver training, advocacy, and community-based support. We equip families and communities 
-                                to care with dignity.
-                            </p>
-                        </div>
-                        
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <Link 
-                                to="/become-a-giver" 
-                                className="bg-[#00A5B8] text-white px-8 py-4 rounded-full hover:bg-teal-600 transition-colors duration-300 font-medium text-center"
-                            >
-                                BECOME A VOLUNTEER GIVER
-                            </Link>
-                            <Link 
-                                to="/partner-with-us" 
-                                className="bg-gray-800 text-white px-8 py-4 rounded-full hover:bg-gray-700 transition-colors duration-300 font-medium text-center"
-                            >
-                                PARTNER WITH US
-                            </Link>
-                           
-                        </div>
-                        
-                    </div>
-                    
-                    {/* Right Content - Circular Image Container */}
-                    <div className="relative lg:mt-20">
-                        <div className="relative w-full  mx-auto">
-                            {/* Background Circles */}
-                            <div className="absolute inset-0  rounded-full"></div>
-                            <div className="absolute top-4 left-4 right-4 bottom-4  rounded-full "></div>
-                            
-                            {/* Left side oval decorative elements */}
-                          
-                            <div className="absolute -left-16 top-32 w-40 h-10 bg-gray-400 rounded-full opacity-30"></div>
-                            <div className="absolute -left-6 top-48 w-20 h-10 bg-gray-300 rounded-full opacity-35"></div>
-                            
-                            {/* Main Image Container */}
-                            <div className="relative bg-gray-100 rounded-full p-8 ">
-                                <div className="aspect-square rounded-full overflow-hidden">
-                                    <img 
-                                        src={hero} 
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
+                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                        {/* Left Content */}
+                        <div className="space-y-8">
+                            <div className="space-y-6">
+                                <h1 className="text-5xl font-heading lg:text-6xl font-bold text-gray-900 leading-tight">
+                                    Care for Those Who Care.<br />
+                                    <span className="text-[#00A5B8]">Dignity for All.</span>
+                                </h1>
+                                <div className="w-12 h-1 bg-[#00A5B8]"></div>
+                                <p className="text-gray-600 text-lg leading-relaxed max-w-lg">
+                                    CARA is a nonprofit organization providing care access for vulnerable populations through
+                                    caregiver training, advocacy, and community-based support. We equip families and communities
+                                    to care with dignity.
+                                </p>
                             </div>
+
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <Link
+                                    to="/become-a-giver"
+                                    className="bg-[#00A5B8] text-white px-8 py-4 rounded-full hover:bg-teal-600 transition-colors duration-300 font-medium text-center"
+                                >
+                                    BECOME A VOLUNTEER GIVER
+                                </Link>
+                                <Link
+                                    to="/partner-with-us"
+                                    className="bg-gray-800 text-white px-8 py-4 rounded-full hover:bg-gray-700 transition-colors duration-300 font-medium text-center"
+                                >
+                                    PARTNER WITH US
+                                </Link>
+
+                            </div>
+
                         </div>
 
+                        {/* Right Content - Circular Image Container */}
+                        <div className="relative lg:mt-20">
+                            <div className="relative w-full  mx-auto">
+                                {/* Background Circles */}
+                                <div className="absolute inset-0  rounded-full"></div>
+                                <div className="absolute top-4 left-4 right-4 bottom-4  rounded-full "></div>
+
+                                {/* Left side oval decorative elements */}
+
+                                <div className="absolute -left-16 top-32 w-40 h-10 bg-gray-400 rounded-full opacity-30"></div>
+                                <div className="absolute -left-6 top-48 w-20 h-10 bg-gray-300 rounded-full opacity-35"></div>
+
+                                {/* Main Image Container */}
+                                <div className="relative bg-gray-100 rounded-full p-8 ">
+                                    <div className="aspect-square rounded-full overflow-hidden">
+                                        <img
+                                            src={hero}
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                </div>
                 </div>
             </section>
 
@@ -160,17 +199,17 @@ export default function Home(){
             <section id="about" className="py-20 bg-gray-50">
                 <div className="container mx-auto px-6">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
-                         {/* Right Content - Image with Feature Cards */}
-                         <div className="relative">
+                        {/* Right Content - Image with Feature Cards */}
+                        <div className="relative">
                             {/* Background Image */}
                             <div className="relative lg:h-full md:h-full h-[60vh] bg-gradient-to-br from-teal-400 to-cyan-500 rounded-lg overflow-hidden">
-                                <img 
-                                    src={care} 
+                                <img
+                                    src={care}
                                     className="w-full h-[60vh] object-cover opacity-90"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-br from-teal-500/30 to-cyan-600/30"></div>
                             </div>
-                            
+
                             {/* Floating Feature Cards */}
                             <div className="absolute -left-8 top-8 w-80 space-y-4">
                                 {/* Feature Card 1 */}
@@ -191,7 +230,7 @@ export default function Home(){
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 {/* Feature Card 2 */}
                                 <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-100">
                                     <div className="flex items-start space-x-4">
@@ -205,7 +244,7 @@ export default function Home(){
                                                 <span className="border-b-2 border-teal-400 pb-1">Community Health</span>
                                             </h3>
                                             <p className="text-gray-600 text-sm leading-relaxed">
-                                                We define community health as the capacity of a local population to care for its vulnerable members, especially mothers, children, the elderly, and persons with special needs. through everyday, dignified, non-clinical support. 
+                                                We define community health as the capacity of a local population to care for its vulnerable members, especially mothers, children, the elderly, and persons with special needs. through everyday, dignified, non-clinical support.
                                             </p>
                                         </div>
                                     </div>
@@ -216,7 +255,7 @@ export default function Home(){
                         {/* Left Content */}
                         <div className="space-y-8 mt-20 lg:mt-0">
                             <div className="space-y-6">
-                                
+
                                 <h2 className="text-4xl lg:text-5xl font-bold font-heading text-gray-900 leading-tight">
                                     Who We Are
                                 </h2>
@@ -243,85 +282,71 @@ export default function Home(){
                                 </div>
                             </div>
                         </div>
-                        
-                       
+
+
                     </div>
                 </div>
             </section>
 
-            {/* Services Section */}
+            {/* Programs Section */}
             <section id="services" className="py-20 bg-white">
                 <div className="container mx-auto px-6">
                     {/* Section Header */}
                     <div className="text-center mb-16">
-                       
+
                         <h2 className="text-4xl lg:text-5xl font-heading font-bold text-gray-900 leading-tight mb-4">
-                            What We Do
+                            Our Programs
                         </h2>
-                        <div className="w-12 h-1 bg-gray-300 mx-auto"></div>
+                        <div className="w-12 h-1 bg-[#00A5B8] mx-auto mb-6"></div>
+                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                            Discover our comprehensive programs designed to build sustainable systems of care across African communities through training, education, and empowerment.
+                        </p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-                        {/* Service Card 1 */}
-                        <div className="relative p-8 bg-gray-50 rounded-lg overflow-hidden group hover:bg-gray-100 transition-colors duration-300">
-                            <div className="absolute top-4 right-4 text-8xl font-bold text-gray-200 opacity-50 select-none">
-                                01
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                        {programs.map((program) => (
+                            <div key={program.id} className="relative  bg-gray-50 rounded-xl overflow-hidden group hover:shadow-lg transition-all duration-300 border border-gray-100">
+                                <div className="absolute top-4 right-4 w-12 h-12 bg-[#00A5B8]/10 rounded-full flex items-center justify-center">
+                                    <span className="text-[#00A5B8] font-bold text-lg">{program.id.toString().padStart(2, '0')}</span>
+                                </div>
+                                <div className="relative z-10">
+                                    <div className="mb-6">
+                                        <img
+                                            src={program.image}
+                                            alt={program.alt}
+                                            className="w-full h-68 object-cover rounded-tr-lg rounded-tl-lg"
+                                        />
+                                    </div>
+                                    <div className="px-3 pb-3">
+                                        <h3 className="text-xl font-bold text-gray-900 mb-4">
+                                            {program.title}
+                                        </h3>
+                                        <p className="text-gray-600 leading-relaxed mb-4">
+                                            {program.description}
+                                        </p>
+                                        <div className="flex items-center justify-between text-sm text-gray-500">
+                                            <span className={`${program.tagColor} px-3 py-1 rounded-full ${program.tagTextColor} font-medium`}>
+                                                {program.duration}
+                                            </span>
+                                            <span>{program.achievement}</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="relative z-10">
-                                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                                    Caregiver Training
-                                </h3>
-                                <p className="text-gray-600 leading-relaxed">
-                                    Training for family caregivers, school aides, and volunteers with special focus on newborn care, special needs inclusion, and elder support.
-                                </p>
-                            </div>
-                        </div>
+                        ))}
+                    </div>
 
-                        {/* Service Card 2 */}
-                        <div className="relative p-8 bg-gray-50 rounded-lg overflow-hidden group hover:bg-gray-100 transition-colors duration-300">
-                            <div className="absolute top-4 right-4 text-8xl font-bold text-gray-200 opacity-50 select-none">
-                                02
-                            </div>
-                            <div className="relative z-10">
-                                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                                    Community-Based Support
-                                </h3>
-                                <p className="text-gray-600 leading-relaxed">
-                                    Programs like CareReach for postpartum follow-up, home visits, and care access mapping to strengthen community health networks.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Service Card 3 */}
-                        <div className="relative p-8 bg-gray-50 rounded-lg overflow-hidden group hover:bg-gray-100 transition-colors duration-300">
-                            <div className="absolute top-4 right-4 text-8xl font-bold text-gray-200 opacity-50 select-none">
-                                03
-                            </div>
-                            <div className="relative z-10">
-                                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                                    Inclusive Education Support
-                                </h3>
-                                <p className="text-gray-600 leading-relaxed">
-                                    Partnering with schools to create inclusive units and train inclusive care aides to support children with diverse needs.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Service Card 4 */}
-                        <div className="relative p-8 bg-gray-50 rounded-lg overflow-hidden group hover:bg-gray-100 transition-colors duration-300">
-                            <div className="absolute top-4 right-4 text-8xl font-bold text-gray-200 opacity-50 select-none">
-                                04
-                            </div>
-                            <div className="relative z-10">
-                                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                                    Advocacy and Awareness
-                                </h3>
-                                <p className="text-gray-600 leading-relaxed">
-                                    Campaigns that promote dignity, disability inclusion, and community health as a right for all vulnerable populations.
-                                </p>
-                            </div>
-                        </div>
-
+                    {/* View More Button */}
+                    <div className="text-center">
+                        <Link
+                            to="/programs"
+                            className="inline-flex items-center gap-2 bg-[#00A5B8] text-white px-8 py-4 rounded-full hover:bg-teal-600 transition-colors duration-300 font-medium"
+                        >
+                            View All Programs
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -345,7 +370,7 @@ export default function Home(){
                         <div className="space-y-8">
                             <div>
                                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Ways to Engage:</h3>
-                                
+
                                 <div className="space-y-6">
                                     <div className="flex items-start space-x-4">
                                         <div className="flex-shrink-0 w-8 h-8 bg-[#00A5B8] rounded-full flex items-center justify-center mt-1">
@@ -383,7 +408,7 @@ export default function Home(){
                         {/* Right Content - Contact Form */}
                         <div className="bg-white p-8 rounded-lg shadow-lg">
                             <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Us</h3>
-                            
+
                             {showSuccessMessage && (
                                 <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
                                     <p className="text-green-800 font-medium">Thank you for your message! We'll get back to you soon.</p>
@@ -395,7 +420,7 @@ export default function Home(){
                                     <p className="text-red-800 font-medium">{actionData.error}</p>
                                 </div>
                             )}
-                            
+
                             <form method="post" className="space-y-6" onSubmit={handleFormSubmit}>
                                 <div>
                                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">

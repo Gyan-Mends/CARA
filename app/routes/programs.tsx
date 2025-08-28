@@ -153,7 +153,7 @@ export default function Programs() {
                         </p>
                     </div>
 
-                    <div className="space-y-16">
+                    <div className="space-y-40">
                         {programs.map((program, index) => (
                             <div key={program.id} className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
                                 {/* Program Image */}
@@ -162,7 +162,7 @@ export default function Programs() {
                                         <img 
                                             src={program.image} 
                                             alt={program.title}
-                                            className="w-full h-80 object-cover"
+                                            className="w-full h-[60vh] object-cover"
                                         />
                                         <div className="absolute top-4 left-4">
                                             <div className="flex items-center justify-center w-12 h-12 bg-[#00A5B8] text-white rounded-full">
@@ -231,6 +231,84 @@ export default function Programs() {
                                 </div>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* What We Do Section */}
+            <section className="py-20 bg-white">
+                <div className="container mx-auto px-6">
+                    {/* Section Header */}
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl lg:text-5xl font-heading font-bold text-gray-900 leading-tight mb-4">
+                            What We Do
+                        </h2>
+                        <div className="w-12 h-1 bg-gray-300 mx-auto mb-6"></div>
+                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                            Our comprehensive approach to community care combines training, support, and advocacy to create lasting change.
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                        {/* Service Card 1 */}
+                        <div className="relative p-8 bg-gray-50 rounded-lg overflow-hidden group hover:bg-gray-100 transition-colors duration-300">
+                            <div className="absolute top-4 right-4 text-8xl font-bold text-gray-200 opacity-50 select-none">
+                                01
+                            </div>
+                            <div className="relative z-10">
+                                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                                    Caregiver Training
+                                </h3>
+                                <p className="text-gray-600 leading-relaxed">
+                                    Training for family caregivers, school aides, and volunteers with special focus on newborn care, special needs inclusion, and elder support.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Service Card 2 */}
+                        <div className="relative p-8 bg-gray-50 rounded-lg overflow-hidden group hover:bg-gray-100 transition-colors duration-300">
+                            <div className="absolute top-4 right-4 text-8xl font-bold text-gray-200 opacity-50 select-none">
+                                02
+                            </div>
+                            <div className="relative z-10">
+                                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                                    Community-Based Support
+                                </h3>
+                                <p className="text-gray-600 leading-relaxed">
+                                    Programs like CareReach for postpartum follow-up, home visits, and care access mapping to strengthen community health networks.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Service Card 3 */}
+                        <div className="relative p-8 bg-gray-50 rounded-lg overflow-hidden group hover:bg-gray-100 transition-colors duration-300">
+                            <div className="absolute top-4 right-4 text-8xl font-bold text-gray-200 opacity-50 select-none">
+                                03
+                            </div>
+                            <div className="relative z-10">
+                                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                                    Inclusive Education Support
+                                </h3>
+                                <p className="text-gray-600 leading-relaxed">
+                                    Partnering with schools to create inclusive units and train inclusive care aides to support children with diverse needs.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Service Card 4 */}
+                        <div className="relative p-8 bg-gray-50 rounded-lg overflow-hidden group hover:bg-gray-100 transition-colors duration-300">
+                            <div className="absolute top-4 right-4 text-8xl font-bold text-gray-200 opacity-50 select-none">
+                                04
+                            </div>
+                            <div className="relative z-10">
+                                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                                    Advocacy and Awareness
+                                </h3>
+                                <p className="text-gray-600 leading-relaxed">
+                                    Campaigns that promote dignity, disability inclusion, and community health as a right for all vulnerable populations.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
