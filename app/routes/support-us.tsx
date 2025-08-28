@@ -29,47 +29,47 @@ export default function SupportUs() {
     const [customAmount, setCustomAmount] = useState('');
     const [scriptError, setScriptError] = useState(false);
 
-    // Load Paystack script
+    // Check for Paystack script
     useEffect(() => {
-        // Check if script already exists
-        const existingScript = document.querySelector('script[src="https://js.paystack.co/v1/inline.js"]');
-        
-        if (existingScript) {
-            // Script already exists, check if PaystackPop is available
+        const checkPaystack = () => {
             if ((window as any).PaystackPop) {
+                console.log('Paystack script loaded successfully');
                 setPaystackLoaded(true);
-            } else {
-                // Wait for existing script to load
-                existingScript.addEventListener('load', () => {
+                return;
+            }
+            
+            // Check if script exists in DOM
+            const script = document.querySelector('script[src="https://js.paystack.co/v1/inline.js"]');
+            if (script) {
+                // Script exists but might not be loaded yet
+                script.addEventListener('load', () => {
+                    console.log('Paystack script loaded from global script');
                     setPaystackLoaded(true);
                 });
-            }
-            return;
-        }
-
-        const script = document.createElement('script');
-        script.src = 'https://js.paystack.co/v1/inline.js';
-        script.async = true;
-        script.crossOrigin = 'anonymous';
-        
-        script.onload = () => {
-            console.log('Paystack script loaded successfully');
-            setPaystackLoaded(true);
-        };
-        
-        script.onerror = (error) => {
-            console.error('Failed to load Paystack script:', error);
-            setScriptError(true);
-        };
-        
-        document.head.appendChild(script);
-
-        return () => {
-            if (document.head.contains(script)) {
-                document.head.removeChild(script);
+                
+                script.addEventListener('error', () => {
+                    console.error('Paystack script failed to load from global script');
+                    setScriptError(true);
+                });
+            } else {
+                console.error('Paystack script not found in DOM');
+                setScriptError(true);
             }
         };
-    }, []);
+
+        // Initial check
+        checkPaystack();
+        
+        // Fallback check after a delay
+        const timeoutId = setTimeout(() => {
+            if (!paystackLoaded && !(window as any).PaystackPop) {
+                console.error('Paystack script failed to load after timeout');
+                setScriptError(true);
+            }
+        }, 10000); // 10 second timeout
+
+        return () => clearTimeout(timeoutId);
+    }, [paystackLoaded]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -160,29 +160,32 @@ export default function SupportUs() {
         setScriptError(false);
         setPaystackLoaded(false);
         
-        // Remove existing script if any
-        const existingScript = document.querySelector('script[src="https://js.paystack.co/v1/inline.js"]');
-        if (existingScript) {
-            existingScript.remove();
+        console.log('Retrying Paystack load...');
+        
+        // Check if PaystackPop is now available
+        if ((window as any).PaystackPop) {
+            console.log('Paystack was already loaded, enabling now');
+            setPaystackLoaded(true);
+            return;
         }
         
-        // Reload the script
-        const script = document.createElement('script');
-        script.src = 'https://js.paystack.co/v1/inline.js';
-        script.async = true;
-        script.crossOrigin = 'anonymous';
-        
-        script.onload = () => {
-            console.log('Paystack script loaded successfully on retry');
-            setPaystackLoaded(true);
+        // Force reload the page as a last resort
+        const forceReload = () => {
+            if (confirm('Payment system still not loading. Would you like to refresh the page to try again?')) {
+                window.location.reload();
+            }
         };
         
-        script.onerror = (error) => {
-            console.error('Failed to load Paystack script on retry:', error);
-            setScriptError(true);
-        };
-        
-        document.head.appendChild(script);
+        // Try again after a short delay
+        setTimeout(() => {
+            if ((window as any).PaystackPop) {
+                console.log('Paystack loaded on retry');
+                setPaystackLoaded(true);
+            } else {
+                console.log('Paystack still not available after retry');
+                forceReload();
+            }
+        }, 2000);
     };
 
     const handleFormSubmit = (e: React.FormEvent) => {
