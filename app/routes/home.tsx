@@ -332,7 +332,7 @@ export default function Home() {
                     {/* Section Header */}
                     <div className="text-center mb-16">
                         <h2 className="text-4xl lg:text-5xl font-heading font-bold text-gray-900 leading-tight mb-4">
-                            Get Involved
+                            Contact Us
                         </h2>
                         <div className="w-12 h-1 bg-[#00A5B8] mx-auto mb-6"></div>
                         <p className="text-xl text-gray-600 max-w-2xl mx-auto">

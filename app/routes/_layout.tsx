@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { Outlet, Link } from "react-router";
 
 export default function AppLayout() {
     return (
@@ -22,16 +22,16 @@ export default function AppLayout() {
                                     Supporting families, uplifting caregivers, and strengthening communities.
                                 </p>
                                 <div className="flex space-x-4">
-                                    <a href="#" className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity">
+                                    <a href="mailto:info@caraafrica.org" className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity" title="Email">
                                         <span className="text-white text-lg">📧</span>
                                     </a>
-                                    <a href="#" className="w-10 h-10 bg-[#FCB339] rounded-full flex items-center justify-center hover:opacity-80 transition-opacity">
+                                    <a href="https://twitter.com/caraafrica" className="w-10 h-10 bg-[#FCB339] rounded-full flex items-center justify-center hover:opacity-80 transition-opacity" title="Twitter">
                                         <span className="text-white text-lg">🐦</span>
                                     </a>
-                                    <a href="#" className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity">
+                                    <a href="https://facebook.com/caraafrica" className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity" title="Facebook">
                                         <span className="text-white text-lg">📘</span>
                                     </a>
-                                    <a href="#" className="w-10 h-10 bg-[#FCB339] rounded-full flex items-center justify-center hover:opacity-80 transition-opacity">
+                                    <a href="https://instagram.com/caraafrica" className="w-10 h-10 bg-[#FCB339] rounded-full flex items-center justify-center hover:opacity-80 transition-opacity" title="Instagram">
                                         <span className="text-white text-lg">📱</span>
                                     </a>
                                 </div>
@@ -41,11 +41,11 @@ export default function AppLayout() {
                             <div>
                                 <h4 className="font-heading text-lg font-semibold mb-6 text-[#FCB339]">Quick Links</h4>
                                 <ul className="space-y-3">
-                                    <li><a href="#hero" className="text-gray-300 hover:text-white transition-colors">Home</a></li>
-                                    <li><a href="#about" className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
-                                    <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">Services</a></li>
-                                    <li><a href="#get-involved" className="text-gray-300 hover:text-white transition-colors">Get Involved</a></li>
-                                    <li><a href="#contact" className="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+                                    <li><Link to="/" className="text-gray-300 hover:text-white transition-colors">Home</Link></li>
+                                    <li><Link to="/#about" className="text-gray-300 hover:text-white transition-colors">About Us</Link></li>
+                                    <li><Link to="/programs" className="text-gray-300 hover:text-white transition-colors">Programs</Link></li>
+                                    <li><Link to="/#get-involved" className="text-gray-300 hover:text-white transition-colors">Contact Us</Link></li>
+                                    
                                 </ul>
                             </div>
 
@@ -53,11 +53,11 @@ export default function AppLayout() {
                             <div>
                                 <h4 className="font-heading text-lg font-semibold mb-6 text-teal-500">Get Involved</h4>
                                 <ul className="space-y-3">
-                                    <li><a href="#volunteer" className="text-gray-300 hover:text-white transition-colors">Volunteer as Caregiver</a></li>
-                                    <li><a href="#sponsor" className="text-gray-300 hover:text-white transition-colors">Sponsor Training</a></li>
-                                    <li><a href="#partner" className="text-gray-300 hover:text-white transition-colors">Partner With Us</a></li>
-                                    <li><a href="#donate" className="text-gray-300 hover:text-white transition-colors">Donate</a></li>
-                                    <li><a href="#training" className="text-gray-300 hover:text-white transition-colors">Training Programs</a></li>
+                                    <li><Link to="/become-a-giver" className="text-gray-300 hover:text-white transition-colors">Volunteer as Caregiver</Link></li>
+                                    <li><Link to="/support-us" className="text-gray-300 hover:text-white transition-colors">Support Our Work</Link></li>
+                                    <li><Link to="/partner-with-us" className="text-gray-300 hover:text-white transition-colors">Partner With Us</Link></li>
+                                   
+                                    <li><Link to="/programs" className="text-gray-300 hover:text-white transition-colors">Training Programs</Link></li>
                                 </ul>
                             </div>
                         </div>
@@ -125,8 +125,8 @@ export default function AppLayout() {
                                 © 2024 Care Access for Resilient Africa (CARA). All rights reserved.
                             </div>
                             <div className="flex gap-6 text-sm">
-                                <a href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
-                                <a href="/terms-of-service" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                                <Link to="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link>
+                                <Link to="/terms-of-service" className="text-gray-400 hover:text-white transition-colors">Terms of Service</Link>
                                 <a href="#accessibility" className="text-gray-400 hover:text-white transition-colors">Accessibility</a>
                             </div>
                         </div>
