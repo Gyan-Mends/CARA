@@ -27,19 +27,47 @@ export default function SupportUs() {
     const [isLoading, setIsLoading] = useState(false);
     const [paystackLoaded, setPaystackLoaded] = useState(false);
     const [customAmount, setCustomAmount] = useState('');
+    const [scriptError, setScriptError] = useState(false);
 
     // Load Paystack script
     useEffect(() => {
+        // Check if script already exists
+        const existingScript = document.querySelector('script[src="https://js.paystack.co/v1/inline.js"]');
+        
+        if (existingScript) {
+            // Script already exists, check if PaystackPop is available
+            if ((window as any).PaystackPop) {
+                setPaystackLoaded(true);
+            } else {
+                // Wait for existing script to load
+                existingScript.addEventListener('load', () => {
+                    setPaystackLoaded(true);
+                });
+            }
+            return;
+        }
+
         const script = document.createElement('script');
         script.src = 'https://js.paystack.co/v1/inline.js';
         script.async = true;
+        script.crossOrigin = 'anonymous';
+        
         script.onload = () => {
+            console.log('Paystack script loaded successfully');
             setPaystackLoaded(true);
         };
-        document.body.appendChild(script);
+        
+        script.onerror = (error) => {
+            console.error('Failed to load Paystack script:', error);
+            setScriptError(true);
+        };
+        
+        document.head.appendChild(script);
 
         return () => {
-            document.body.removeChild(script);
+            if (document.head.contains(script)) {
+                document.head.removeChild(script);
+            }
         };
     }, []);
 
@@ -53,8 +81,17 @@ export default function SupportUs() {
     };
 
     const initializePaystack = (amount: number, email: string = '', firstName: string = '', lastName: string = '', donationType: string = '', message: string = '') => {
-        if (!paystackLoaded || !(window as any).PaystackPop) {
+        console.log('Initializing Paystack:', { paystackLoaded, paystack: (window as any).PaystackPop });
+        
+        if (!paystackLoaded) {
             alert('Payment system is still loading. Please try again in a moment.');
+            setIsLoading(false);
+            return;
+        }
+        
+        if (!(window as any).PaystackPop) {
+            console.error('PaystackPop is not available');
+            alert('Payment system failed to initialize. Please refresh the page and try again.');
             setIsLoading(false);
             return;
         }
@@ -119,6 +156,35 @@ export default function SupportUs() {
         initializePaystack(amount, formData.email, formData.firstName, formData.lastName);
     };
 
+    const retryPaystackLoad = () => {
+        setScriptError(false);
+        setPaystackLoaded(false);
+        
+        // Remove existing script if any
+        const existingScript = document.querySelector('script[src="https://js.paystack.co/v1/inline.js"]');
+        if (existingScript) {
+            existingScript.remove();
+        }
+        
+        // Reload the script
+        const script = document.createElement('script');
+        script.src = 'https://js.paystack.co/v1/inline.js';
+        script.async = true;
+        script.crossOrigin = 'anonymous';
+        
+        script.onload = () => {
+            console.log('Paystack script loaded successfully on retry');
+            setPaystackLoaded(true);
+        };
+        
+        script.onerror = (error) => {
+            console.error('Failed to load Paystack script on retry:', error);
+            setScriptError(true);
+        };
+        
+        document.head.appendChild(script);
+    };
+
     const handleFormSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -177,6 +243,25 @@ export default function SupportUs() {
                                     <ArrowDown className="w-5 h-5 text-gray-500 animate-bounce" />
                                 </div>
                             </div>
+
+                            {/* Error State */}
+                            {scriptError && (
+                                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <span className="text-red-500 text-xl">⚠️</span>
+                                        <h4 className="font-semibold text-red-800">Payment System Error</h4>
+                                    </div>
+                                    <p className="text-red-700 text-sm mb-4">
+                                        Failed to load payment system. This might be due to network issues or browser restrictions.
+                                    </p>
+                                    <button 
+                                        onClick={retryPaystackLoad}
+                                        className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors text-sm font-medium"
+                                    >
+                                        Retry Loading Payment System
+                                    </button>
+                                </div>
+                            )}
 
 
 
