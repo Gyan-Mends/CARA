@@ -4,6 +4,7 @@ import { type ActionFunctionArgs } from "react-router";
 import { redirect } from "react-router";
 import { sendContactEmail, type ContactFormData } from "~/utils/email.server";
 import { useEffect, useState } from "react";
+import hero from "~/components/african-mother-little-girl-medium-shot_23-2148960557.jpg"
 
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
@@ -133,8 +134,7 @@ export default function Home(){
                             <div className="relative bg-gray-100 rounded-full p-8 ">
                                 <div className="aspect-square rounded-full overflow-hidden">
                                     <img 
-                                        src="https://img.freepik.com/free-photo/nurse-taking-care-elderly-patient_23-2150780370.jpg?t=st=1755725298~exp=1755728898~hmac=e5aee9201e23a12af8750c2962a49c1963e17824a79fd1016bfe425476e49a1d&w=1060" 
-                                        alt="Professional woman with tablet" 
+                                        src={hero} 
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
