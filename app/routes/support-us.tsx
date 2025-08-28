@@ -174,14 +174,14 @@ export default function SupportUs() {
     };
 
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-white overflow-x-hidden">
             {/* Hero Section */}
             <section className=" relative overflow-hidden">
 
                 <div className="container mx-auto px-6 relative z-10">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         {/* Left Content */}
-                        <div className="-mt-20 space-y-6">
+                        <div className="lg:-mt-20 space-y-6">
                             {/* Header Section */}
                             <div className="space-y-6">
                                 <h1 className="text-4xl lg:text-6xl font-heading font-bold text-gray-900 leading-tight">
@@ -321,7 +321,7 @@ export default function SupportUs() {
                                 <img
                                     src={gg}
                                     alt="CARA caregiver "
-                                    className="w-full h-auto -mt-70   object-cover"
+                                    className="w-full h-auto lg:-mt-70  -mt-50  object-cover"
                                 />
                             </div>
 
