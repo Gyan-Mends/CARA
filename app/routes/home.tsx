@@ -6,6 +6,8 @@ import { sendContactEmail, type ContactFormData } from "~/utils/email.server";
 import { useEffect, useState } from "react";
 import hero from "~/components/african-mother-little-girl-medium-shot_23-2148960557.jpg"
 import care from "~/components/scene-from-care-job-with-senior-patient-being-take-care_23-2151224145.jpg"
+import teachingImage from "~/components/images/african-woman-teaching-kids-class_23-2148892556.jpg"
+import partnershipImage from "~/components/black-businesswoman-shaking-hands-with-male-partner_74855-1085.jpg"
 import { getPrograms } from "~/utils/programs";
 import Navigation from "~/components/navigation";
 
@@ -55,6 +57,30 @@ export async function action({ request }: ActionFunctionArgs) {
     }
 }
 
+// Carousel images with descriptions
+const carouselImages = [
+    {
+        src: hero,
+        alt: "African mother with little girl",
+        caption: "Empowering families through care"
+    },
+    {
+        src: teachingImage,
+        alt: "African woman teaching kids in class",
+        caption: "Building knowledge in communities"
+    },
+    {
+        src: partnershipImage,
+        alt: "Professional partnership handshake",
+        caption: "Strengthening collaborative networks"
+    },
+    {
+        src: care,
+        alt: "Care professional with senior patient",
+        caption: "Providing dignified support"
+    }
+];
+
 export default function Home() {
     const [searchParams] = useSearchParams();
     const actionData = useActionData();
@@ -62,11 +88,35 @@ export default function Home() {
     const success = searchParams.get("success");
     const showSuccessMessage = success === "true";
     const [isLocalSubmitting, setIsLocalSubmitting] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const programs = getPrograms();
 
     // Check both navigation state and local state
     const isSubmitting = navigation.state === "submitting" || isLocalSubmitting;
+
+    // Carousel navigation functions
+    const nextImage = () => {
+        setCurrentImageIndex((prevIndex) => 
+            prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
+        );
+    };
+
+    const prevImage = () => {
+        setCurrentImageIndex((prevIndex) => 
+            prevIndex === 0 ? carouselImages.length - 1 : prevIndex - 1
+        );
+    };
+
+    const goToImage = (index: number) => {
+        setCurrentImageIndex(index);
+    };
+
+    // Auto-play carousel
+    useEffect(() => {
+        const interval = setInterval(nextImage, 10000); // Change image every 5 seconds
+        return () => clearInterval(interval);
+    }, []);
 
     // Handle form submission state
     const handleFormSubmit = () => {
@@ -102,14 +152,12 @@ export default function Home() {
                         <div className="space-y-8">
                             <div className="space-y-6">
                                 <h1 className="text-5xl font-heading lg:text-6xl font-bold text-gray-900 leading-tight">
-                                    Care for Those Who Care.<br />
-                                    <span className="text-[#00A5B8]">Dignity for All.</span>
+                                Reimagining Care for life’s most .<br />
+                                    <span className="text-[#00A5B8]">vulnerable moments.</span>
                                 </h1>
                                 <div className="w-12 h-1 bg-[#00A5B8]"></div>
                                 <p className="text-gray-600 text-lg leading-relaxed max-w-lg">
-                                    CARA is a nonprofit organization providing care access for vulnerable populations through
-                                    caregiver training, advocacy, and community-based support. We equip families and communities
-                                    to care with dignity.
+                                From new mothers to children with special needs and the elderly, CARA advances access to care that protects dignity during life’s most vulnerable moments.
                                 </p>
                             </div>
 
@@ -131,29 +179,82 @@ export default function Home() {
 
                         </div>
 
-                        {/* Right Content - Circular Image Container */}
+                        {/* Right Content - Circular Image Carousel */}
                         <div className="relative lg:mt-20">
-                            <div className="relative w-full  mx-auto">
+                            <div className="relative w-full mx-auto">
                                 {/* Background Circles */}
-                                <div className="absolute inset-0  rounded-full"></div>
-                                <div className="absolute top-4 left-4 right-4 bottom-4  rounded-full "></div>
+                                <div className="absolute inset-0 rounded-full"></div>
+                                <div className="absolute top-4 left-4 right-4 bottom-4 rounded-full"></div>
 
                                 {/* Left side oval decorative elements */}
-
                                 <div className="absolute -left-16 top-32 w-40 h-10 bg-gray-400 rounded-full opacity-30"></div>
                                 <div className="absolute -left-6 top-48 w-20 h-10 bg-gray-300 rounded-full opacity-35"></div>
 
-                                {/* Main Image Container */}
-                                <div className="relative bg-gray-100 rounded-full p-8 ">
-                                    <div className="aspect-square rounded-full overflow-hidden">
-                                        <img
-                                            src={hero}
-                                            className="w-full h-full object-cover"
-                                        />
+                                {/* Main Carousel Container */}
+                                <div className="relative bg-gray-100 rounded-full p-8">
+                                    <div className="aspect-square rounded-full overflow-hidden relative">
+                                        {/* Carousel Images */}
+                                        <div className="relative w-full h-full overflow-hidden">
+                                            {carouselImages.map((image, index) => (
+                                                <div
+                                                    key={index}
+                                                    className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                                                        index === currentImageIndex
+                                                            ? 'opacity-100 scale-100'
+                                                            : 'opacity-0 scale-105'
+                                                    }`}
+                                                >
+                                                    <img
+                                                        src={image.src}
+                                                        alt={image.alt}
+                                                        className="w-full h-full object-cover"
+                                                    />
+                                                </div>
+                                            ))}
+                                            
+                                            {/* Image Caption */}
+                                            <div className="absolute bottom-4 left-4 right-4 bg-black/60 text-white px-4 py-2 rounded-lg backdrop-blur-sm transition-all duration-500 ease-in-out">
+                                                <p className="text-sm font-medium text-center">
+                                                    {carouselImages[currentImageIndex].caption}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        {/* Navigation Arrows */}
+                                        <button
+                                            onClick={prevImage}
+                                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110"
+                                            aria-label="Previous image"
+                                        >
+                                            <ChevronLeft className="w-5 h-5 text-gray-800" />
+                                        </button>
+                                        
+                                        <button
+                                            onClick={nextImage}
+                                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110"
+                                            aria-label="Next image"
+                                        >
+                                            <ChevronRight className="w-5 h-5 text-gray-800" />
+                                        </button>
+                                    </div>
+
+                                    {/* Dot Indicators */}
+                                    <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex space-x-2">
+                                        {carouselImages.map((_, index) => (
+                                            <button
+                                                key={index}
+                                                onClick={() => goToImage(index)}
+                                                className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                                                    index === currentImageIndex
+                                                        ? 'bg-[#00A5B8] scale-125'
+                                                        : 'bg-gray-300 hover:bg-gray-400'
+                                                }`}
+                                                aria-label={`Go to image ${index + 1}`}
+                                            />
+                                        ))}
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -263,7 +364,7 @@ export default function Home() {
                         </h2>
                         <div className="w-12 h-1 bg-[#00A5B8] mx-auto mb-6"></div>
                         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                            Discover our comprehensive programs designed to build sustainable systems of care across African communities through training, education, and empowerment.
+                        CARA empowers youth and women to provide dignified care for mothers, children with special needs, and the elderly, strengthening families and communities through sustainable care systems.
                         </p>
                     </div>
 

@@ -6,19 +6,19 @@ const navigation = [
     { name: "Home", to: "/", isExternal: false },
     { name: "About", to: "/#about", isExternal: false },
     { name: "Programs", to: "/programs", isExternal: false },
-    { name: "Contact Us", to: "/#get-involved", isExternal: false },
     { name: "Become a Giver", to: "/become-a-giver", isExternal: false },
     { name: "Partner with Us", to: "/partner-with-us", isExternal: false },
+    { name: "Contact Us", to: "/#get-involved", isExternal: false },
 ];
 
 const mobileNavigation = [
     { name: "Home", to: "/", isExternal: false },
     { name: "About", to: "/#about", isExternal: false },
     { name: "Programs", to: "/programs", isExternal: false },
-    { name: "Contact Us", to: "/#get-involved", isExternal: false },
     { name: "Support Us", to: "/support-us", isExternal: false },
     { name: "Become a Giver", to: "/become-a-giver", isExternal: false },
     { name: "Partner with Us", to: "/partner-with-us", isExternal: false },
+    { name: "Contact Us", to: "/#get-involved", isExternal: false },
 ];
 
 export default function Navigation() {
