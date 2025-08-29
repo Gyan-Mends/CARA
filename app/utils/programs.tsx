@@ -48,8 +48,8 @@ const programs: ProgramDetail[] = [
         id: "1",
         slug: "caregiver-training",
         title: "Caregiver Training Program",
-        description: "Comprehensive training for community caregivers focusing on essential care skills, emotional support, and community health practices.",
-        longDescription: "Our Caregiver Training Program is designed to equip community members with the essential skills needed to provide dignified, effective care to vulnerable populations. Through hands-on training, theoretical education, and ongoing mentorship, we build a network of skilled caregivers who serve as the backbone of community health systems.",
+        description: "We empower youth and women as caregivers through practical training for families, school aides, and volunteers, with a focus on newborn care, disability inclusion, and support for the elderly.",
+        longDescription: "We empower youth and women as caregivers through practical training for families, school aides, and volunteers, with a focus on newborn care, disability inclusion, and support for the elderly. Through hands-on training and ongoing mentorship, we build a network of skilled caregivers who serve as the backbone of community health systems.",
         iconKey: "Heart",
         image: caregiverTraining,
         heroImage: care,
@@ -71,14 +71,9 @@ const programs: ProgramDetail[] = [
             { module: "Community Health", topics: ["Health promotion", "Disease prevention", "Resource navigation", "Advocacy and rights"] }
         ],
         features: [
-            "Hands-on training with experienced instructors",
-            "Mental health support techniques",
-            "Community health education",
-            "Certification upon completion",
-            "Ongoing mentorship program",
-            "Job placement assistance",
-            "Peer support networks",
-            "Continuing education opportunities"
+            "Tailored modules on postpartum care, child development, disability support, and eldercare",
+            "Certification of trained caregivers to improve employability and recognition",
+            "Ongoing mentorship and refresher sessions to sustain caregiver competence"
         ],
         impact: {
             number: "2,500+",
@@ -108,12 +103,12 @@ const programs: ProgramDetail[] = [
     },
     {
         id: "2",
-        slug: "community-health-education",
-        title: "Community Health Education",
-        description: "Educational initiatives focused on preventive healthcare, nutrition, and wellness practices for sustainable community health.",
-        longDescription: "Our Community Health Education program empowers entire communities with knowledge and resources to maintain optimal health and well-being. Through workshops, peer education, and community-led initiatives, we build health literacy and promote preventive care practices that reduce disease burden and improve quality of life.",
+        slug: "community-based-support",
+        title: "Community-Based Support",
+        description: "We equip local caregivers to extend follow-up from health facilities to households, ensuring vulnerable families are linked to health, education, and social services.",
+        longDescription: "We equip local caregivers to extend follow-up from health facilities to households, ensuring vulnerable families are linked to health, education, and social services. Through comprehensive community outreach and support systems, we bridge the gap between formal healthcare and home-based care.",
         iconKey: "Users",
-        image: care,
+        image: caregiverTraining,
         heroImage: caregiverTraining,
         duration: "Ongoing",
         participants: "1,000+ individuals reached monthly",
@@ -133,14 +128,9 @@ const programs: ProgramDetail[] = [
             { module: "Disease Prevention", topics: ["Hygiene practices", "Water sanitation", "Infectious disease prevention", "Chronic disease management"] }
         ],
         features: [
-            "Interactive community workshops",
-            "Peer educator training",
-            "Health screening programs",
-            "Educational material distribution",
-            "Mobile health clinics",
-            "Community health fairs",
-            "Digital health resources",
-            "Follow-up support programs"
+            "Postpartum home visits and follow-up for new mothers and infants",
+            "Household mapping to identify unmet care needs in communities",
+            "Referral pathways connecting families to clinics, schools, and social protection services"
         ],
         impact: {
             number: "85%",
@@ -170,12 +160,12 @@ const programs: ProgramDetail[] = [
     },
     {
         id: "3",
-        slug: "youth-leadership",
-        title: "Youth Leadership Development",
-        description: "Empowering young people to become leaders in their communities through leadership training, mentorship, and project implementation.",
-        longDescription: "Our Youth Leadership Development program recognizes young people as catalysts for positive change in their communities. Through comprehensive leadership training, mentorship, and hands-on project experience, we develop the next generation of community leaders who are equipped to address local challenges and drive sustainable development.",
+        slug: "inclusive-education-support",
+        title: "Inclusive Education Support",
+        description: "We empower schools by establishing inclusive units and training teachers and care aides to support children with special needs.",
+        longDescription: "We empower schools by establishing inclusive units and training teachers and care aides to support children with special needs. Through comprehensive training and support systems, we create educational environments where all children can thrive and reach their full potential.",
         iconKey: "Target",
-        image: hero,
+        image: caregiverTraining,
         heroImage: gg,
         duration: "6 months intensive + ongoing support",
         participants: "200+ youth leaders developed",
@@ -195,14 +185,9 @@ const programs: ProgramDetail[] = [
             { module: "Social Innovation", topics: ["Problem identification and analysis", "Creative solution development", "Social entrepreneurship", "Scaling impact"] }
         ],
         features: [
-            "Intensive leadership workshops",
-            "One-on-one mentorship matching",
-            "Hands-on project implementation",
-            "Networking and peer support",
-            "Scholarship and funding opportunities",
-            "Alumni network access",
-            "Continuing education pathways",
-            "Leadership conferences and events"
+            "Creation of SENCO (Special Educational Needs Coordinator) units within schools",
+            "Training for teachers, school aides, and peer mentors on inclusive education",
+            "Collaboration with parents and communities to foster supportive learning environments"
         ],
         impact: {
             number: "150+",
@@ -232,10 +217,10 @@ const programs: ProgramDetail[] = [
     },
     {
         id: "4",
-        slug: "women-empowerment",
-        title: "Women Empowerment Initiative",
-        description: "Supporting women through skills training, economic opportunities, and advocacy for gender equality in care and community development.",
-        longDescription: "Our Women Empowerment Initiative addresses the unique challenges faced by women in accessing economic opportunities and leadership roles. Through skills training, microfinance support, and advocacy programs, we work to break down barriers and create pathways for women to achieve economic independence and take on leadership roles in their communities.",
+        slug: "advocacy-and-awareness",
+        title: "Advocacy and Awareness",
+        description: "We engage caregivers and communities in campaigns that champion dignity, disability inclusion, and community health as a human right.",
+        longDescription: "We engage caregivers and communities in campaigns that champion dignity, disability inclusion, and community health as a human right. Through advocacy efforts and awareness campaigns, we work to change attitudes, influence policy, and create more inclusive communities for all.",
         iconKey: "Award",
         image: womenEmpowerment,
         heroImage: businessPartnership,
@@ -257,14 +242,9 @@ const programs: ProgramDetail[] = [
             { module: "Leadership and Advocacy", topics: ["Women's rights and law", "Leadership development", "Public speaking", "Community organizing"] }
         ],
         features: [
-            "Vocational skills training",
-            "Business development support",
-            "Microfinance and loans",
-            "Peer support networks",
-            "Leadership development workshops",
-            "Legal rights education",
-            "Childcare support during training",
-            "Market linkage assistance"
+            "Public awareness campaigns on disability inclusion, maternal health, and elder dignity",
+            "Policy dialogues to influence government and institutional support for care systems",
+            "Community forums and storytelling platforms that amplify caregiver and family voices"
         ],
         impact: {
             number: "70%",
