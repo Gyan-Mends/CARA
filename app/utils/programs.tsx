@@ -51,7 +51,7 @@ const programs: ProgramDetail[] = [
         description: "We empower youth and women as caregivers through practical training for families, school aides, and volunteers, with a focus on newborn care, disability inclusion, and support for the elderly.",
         longDescription: "We empower youth and women as caregivers through practical training for families, school aides, and volunteers, with a focus on newborn care, disability inclusion, and support for the elderly. Through hands-on training and ongoing mentorship, we build a network of skilled caregivers who serve as the backbone of community health systems.",
         iconKey: "Heart",
-        image: caregiverTraining,
+        image: care,
         heroImage: care,
         duration: "3 months",
         participants: "500+ caregivers trained",
