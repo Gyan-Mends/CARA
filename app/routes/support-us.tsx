@@ -292,6 +292,7 @@ export default function SupportUs() {
                                     <div className="pt-2">
                                         <p className="text-sm text-gray-500 mb-3">Click to pay:</p>
                                         <button
+                                      className="bg-[#00A5B8] text-white px-8 py-4 rounded-lg hover:bg-teal-600 transition-colors duration-300 font-medium text-center"
                                             type="button"
                                             onClick={(e) => {
                                                 e.preventDefault();
@@ -308,9 +309,9 @@ export default function SupportUs() {
                                                 initializePaystack(Number(customAmount));
                                             }}
                                             disabled={isLoading || !paystackLoaded}
-                                            className="hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-4 focus:ring-[#00A5B8]/20 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                                           
                                         >
-                                            <img className="h-24 w-40 rounded-xl shadow-md hover:shadow-lg transition-shadow" src={pay} alt="Payment methods" />
+                                           Happy to Help
                                         </button>
                                     </div>
                                 </div>

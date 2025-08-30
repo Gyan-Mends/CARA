@@ -76,7 +76,7 @@ const programs: ProgramDetail[] = [
             "Ongoing mentorship and refresher sessions to sustain caregiver competence"
         ],
         impact: {
-            number: "2,500+",
+            number: "20+",
             description: "families supported through trained caregivers",
             stories: [
                 "Mary, a program graduate, now supports 15 elderly community members and has trained 3 additional caregivers.",
@@ -133,7 +133,7 @@ const programs: ProgramDetail[] = [
             "Referral pathways connecting families to clinics, schools, and social protection services"
         ],
         impact: {
-            number: "85%",
+            number: "25%",
             description: "improvement in community health knowledge",
             stories: [
                 "Vaccination rates increased by 60% in participating communities.",
@@ -190,7 +190,7 @@ const programs: ProgramDetail[] = [
             "Collaboration with parents and communities to foster supportive learning environments"
         ],
         impact: {
-            number: "150+",
+            number: "15+",
             description: "community projects led by youth participants",
             stories: [
                 "Youth participants have started 50+ small businesses in their communities.",
@@ -247,7 +247,7 @@ const programs: ProgramDetail[] = [
             "Community forums and storytelling platforms that amplify caregiver and family voices"
         ],
         impact: {
-            number: "70%",
+            number: "30%",
             description: "of participants started income-generating activities",
             stories: [
                 "Sarah increased her family income by 300% through her tailoring business.",
