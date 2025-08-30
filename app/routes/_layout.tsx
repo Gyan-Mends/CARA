@@ -81,7 +81,7 @@ export default function AppLayout() {
                                         </p>
                                         <p className="flex items-center gap-2">
                                             <span className="text-teal-500">📞</span>
-                                            <span>+233 XXX XXX XXX</span>
+                                            <span>+233 572 772 772</span>
                                         </p>
                                     </div>
                                 </div>

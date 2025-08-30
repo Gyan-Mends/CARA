@@ -114,7 +114,7 @@ export default function PartnerWithUs() {
                             Partner <span className="text-[#FCB339]">With Us</span>
                         </h1>
                         <p className="text-lg text-white/90 leading-relaxed mb-8">
-                            Join forces with CARA Africa to create sustainable impact through strategic partnerships and collaborative initiatives.
+                            Join forces with CARA to create sustainable impact through strategic partnerships and collaborative initiatives.
                         </p>
                         
                         {/* Partnership Types */}
@@ -195,7 +195,7 @@ export default function PartnerWithUs() {
                                         <p className="text-sm text-gray-700 italic">
                                             "Together, we can achieve more than any organization could accomplish alone."
                                         </p>
-                                        <p className="text-xs text-gray-500 mt-2">- CARA Africa Partnership Team</p>
+                                        <p className="text-xs text-gray-500 mt-2">- CARA Partnership Team</p>
                                     </div>
                                 </div>
 
@@ -326,7 +326,7 @@ export default function PartnerWithUs() {
                                     <div>
                                         <label className="block text-sm text-gray-700 mb-4">Sectors of Interest</label>
                                         <div className="grid grid-cols-2 gap-2">
-                                            {['Healthcare', 'Education', 'Water & Sanitation', 'Economic Development', 'Women Empowerment', 'Youth Programs'].map(sector => (
+                                            {['Healthcare', 'Education', 'Disability Inclusion', 'Economic Development', 'Women Empowerment', 'Youth Programs'].map(sector => (
                                                 <label key={sector} className="flex items-center p-2 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
                                                     <input 
                                                         type="checkbox" 
@@ -386,7 +386,7 @@ export default function PartnerWithUs() {
                             Partnership Benefits
                         </h2>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            Discover how partnering with CARA Africa can amplify your organization's impact
+                            Discover how partnering with CARA  can amplify your organization's impact
                         </p>
                     </div>
 

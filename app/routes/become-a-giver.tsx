@@ -100,7 +100,7 @@ export default function BecomeAGiver() {
                 <div className="container mx-auto px-6 relative z-10 pt-20">
                     <div className="text-center max-w-3xl mx-auto">
                         <h1 className="text-3xl lg:text-4xl font-heading font-bold text-white mb-4">
-                            Become a <span className="text-yellow-300">Giver</span>
+                            Become a Care <span className="text-yellow-300">Giver</span>
                         </h1>
                         <p className="text-lg text-white/90 leading-relaxed mb-8">
                             Join our community of passionate individuals dedicated to building sustainable systems of care across Africa.
@@ -184,7 +184,7 @@ export default function BecomeAGiver() {
                                         <p className="text-sm text-gray-700 italic">
                                             "Every giver becomes part of a larger story of transformation and hope across Africa."
                                         </p>
-                                        <p className="text-xs text-gray-500 mt-2">- CARA Africa Team</p>
+                                        <p className="text-xs text-gray-500 mt-2">- CARA  Team</p>
                                     </div>
                                 </div>
 

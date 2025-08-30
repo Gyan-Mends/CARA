@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
             content: [
                 {
                     subtitle: "Personal Information",
-                    text: "When you interact with CARA Africa, we may collect personal information such as your name, email address, phone number, and any information you provide when applying to become a giver, partner, or when contacting us."
+                    text: "When you interact with CARA, we may collect personal information such as your name, email address, phone number, and any information you provide when applying to become a giver, partner, or when contacting us."
                 },
                 {
                     subtitle: "Usage Information",
@@ -50,7 +50,7 @@ export default function PrivacyPolicy() {
             content: [
                 {
                     subtitle: "Limited Sharing",
-                    text: "CARA Africa does not sell, rent, or trade your personal information. We only share information when necessary to provide our services or comply with legal requirements."
+                    text: "CARA does not sell, rent, or trade your personal information. We only share information when necessary to provide our services or comply with legal requirements."
                 },
                 {
                     subtitle: "Partner Organizations",
@@ -58,7 +58,7 @@ export default function PrivacyPolicy() {
                 },
                 {
                     subtitle: "Legal Requirements",
-                    text: "We may disclose information if required by law, regulation, or legal process, or to protect the rights, property, or safety of CARA Africa, our community, or others."
+                    text: "We may disclose information if required by law, regulation, or legal process, or to protect the rights, property, or safety of CARA, our community, or others."
                 }
             ]
         },
@@ -120,7 +120,7 @@ export default function PrivacyPolicy() {
                             Privacy Policy
                         </h1>
                         <p className="text-lg text-white/90 leading-relaxed mb-6">
-                            Your privacy is important to us. This policy explains how CARA Africa collects, uses, and protects your personal information.
+                            Your privacy is important to us. This policy explains how CARA collects, uses, and protects your personal information.
                         </p>
                         
                     </div>
@@ -135,7 +135,7 @@ export default function PrivacyPolicy() {
                         <div className="mb-12 p-8 bg-gray-50 rounded-2xl">
                             <h2 className="text-2xl font-heading font-bold text-gray-900 mb-4">Our Commitment</h2>
                             <p className="text-lg text-gray-600 leading-relaxed">
-                                CARA Africa is committed to protecting your privacy and handling your personal information responsibly. 
+                                CARA is committed to protecting your privacy and handling your personal information responsibly. 
                                 This Privacy Policy describes our practices regarding the collection, use, and disclosure of information 
                                 when you use our website and services. By using our services, you agree to the collection and use of 
                                 information in accordance with this policy.
@@ -183,7 +183,7 @@ export default function PrivacyPolicy() {
                                 If you have any questions about this Privacy Policy or our data practices, please contact us:
                             </p>
                             <div className="space-y-2 text-gray-600">
-                                <p><strong>CARA Africa</strong></p>
+                                <p><strong>CARA</strong></p>
                                 <p>Email: privacy@caraafrica.org</p>
                                 <p>Address: Accra, Ghana</p>
                             </div>

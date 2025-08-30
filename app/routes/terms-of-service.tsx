@@ -12,7 +12,7 @@ export default function TermsOfService() {
             content: [
                 {
                     subtitle: "Agreement to Terms",
-                    text: "By accessing and using CARA Africa's website and services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service."
+                    text: "By accessing and using CARA  website and services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service."
                 },
                 {
                     subtitle: "Capacity",
@@ -27,7 +27,7 @@ export default function TermsOfService() {
             content: [
                 {
                     subtitle: "Our Mission",
-                    text: "CARA Africa provides community development services, caregiver training programs, and facilitates partnerships to build sustainable systems of care across African communities."
+                    text: "CARA  provides community development services, caregiver training programs, and facilitates partnerships to build sustainable systems of care across African communities."
                 },
                 {
                     subtitle: "Service Availability",
@@ -65,7 +65,7 @@ export default function TermsOfService() {
             content: [
                 {
                     subtitle: "Donation Policy",
-                    text: "All donations to CARA Africa are voluntary contributions to support our mission. Donations are generally non-refundable unless required by law or due to processing errors."
+                    text: "All donations to CARA are voluntary contributions to support our mission. Donations are generally non-refundable unless required by law or due to processing errors."
                 },
                 {
                     subtitle: "Payment Processing",
@@ -84,11 +84,11 @@ export default function TermsOfService() {
             content: [
                 {
                     subtitle: "CARA Content",
-                    text: "All content on our website, including text, images, logos, and materials, is the property of CARA Africa or our partners and is protected by copyright and other intellectual property laws."
+                    text: "All content on our website, including text, images, logos, and materials, is the property of CARA or our partners and is protected by copyright and other intellectual property laws."
                 },
                 {
                     subtitle: "Limited Use License",
-                    text: "You may view and download content for personal, non-commercial use only. Any other use requires written permission from CARA Africa."
+                    text: "You may view and download content for personal, non-commercial use only. Any other use requires written permission from CARA."
                 },
                 {
                     subtitle: "User-Generated Content",
@@ -107,7 +107,7 @@ export default function TermsOfService() {
                 },
                 {
                     subtitle: "Liability Limits",
-                    text: "To the fullest extent permitted by law, CARA Africa shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services."
+                    text: "To the fullest extent permitted by law, CARA shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services."
                 },
                 {
                     subtitle: "Force Majeure",
@@ -135,7 +135,7 @@ export default function TermsOfService() {
                             Terms of Service
                         </h1>
                         <p className="text-lg text-white/90 leading-relaxed mb-6">
-                            These terms govern your use of CARA Africa's services and outline our mutual rights and responsibilities.
+                            These terms govern your use of CARA services and outline our mutual rights and responsibilities.
                         </p>
                         
                     </div>
@@ -150,7 +150,7 @@ export default function TermsOfService() {
                         <div className="mb-12 p-8 bg-gray-50 rounded-2xl">
                             <h2 className="text-2xl font-heading font-bold text-gray-900 mb-4">Terms and Conditions</h2>
                             <p className="text-lg text-gray-600 leading-relaxed">
-                                Welcome to CARA Africa. These Terms of Service ("Terms") govern your access to and use of our 
+                                Welcome to CARA. These Terms of Service ("Terms") govern your access to and use of our 
                                 website, services, and programs. Please read these Terms carefully before using our services. 
                                 By accessing or using any part of our services, you agree to be bound by these Terms.
                             </p>
@@ -203,7 +203,7 @@ export default function TermsOfService() {
                             <div className="p-6 bg-amber-50 rounded-xl border border-amber-200">
                                 <h3 className="text-lg font-semibold text-amber-800 mb-3">Modifications to Terms</h3>
                                 <p className="text-amber-700">
-                                    CARA Africa reserves the right to modify these Terms at any time. We will notify users of 
+                                    CARA  reserves the right to modify these Terms at any time. We will notify users of 
                                     significant changes by posting updates on our website. Continued use of our services after 
                                     changes constitutes acceptance of the modified Terms.
                                 </p>
@@ -242,7 +242,7 @@ export default function TermsOfService() {
                                 If you have any questions about these Terms of Service, please contact us:
                             </p>
                             <div className="space-y-2 text-white/90">
-                                <p><strong>CARA Africa</strong></p>
+                                <p><strong>CARA </strong></p>
                                 <p>Email: legal@caraafrica.org</p>
                                 <p>Address: Accra, Ghana</p>
                             </div>

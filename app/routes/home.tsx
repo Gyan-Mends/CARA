@@ -8,6 +8,8 @@ import hero from "~/components/african-mother-little-girl-medium-shot_23-2148960
 import care from "~/components/scene-from-care-job-with-senior-patient-being-take-care_23-2151224145.jpg"
 import teachingImage from "~/components/images/african-woman-teaching-kids-class_23-2148892556.jpg"
 import partnershipImage from "~/components/black-businesswoman-shaking-hands-with-male-partner_74855-1085.jpg"
+import newmother from "~/components/images/ne.jpg"
+import specialcare from "~/components/images/special care.avif"
 import { getPrograms } from "~/utils/programs";
 import Navigation from "~/components/navigation";
 
@@ -60,19 +62,15 @@ export async function action({ request }: ActionFunctionArgs) {
 // Carousel images with descriptions
 const carouselImages = [
     {
-        src: hero,
+        src: newmother,
         alt: "African mother with little girl",
-        caption: "Empowering families through care"
+        caption: "New Mother"
     },
+   
     {
-        src: teachingImage,
-        alt: "African woman teaching kids in class",
-        caption: "Building knowledge in communities"
-    },
-    {
-        src: partnershipImage,
+        src: specialcare,
         alt: "Professional partnership handshake",
-        caption: "Strengthening collaborative networks"
+        caption: "Child with special care"
     },
     {
         src: care,
