@@ -8,7 +8,8 @@
       "Read(c:\\Users\\Nharnhar Qwadwo\\Desktop/**)",
       "Bash(copy:*)",
       "Read(c:\\Users\\Nharnhar Qwadwo\\Desktop/**)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Read(C:\\Users\\Nharnhar Qwadwo\\Desktop/**)"
     ],
     "deny": [],
     "ask": []

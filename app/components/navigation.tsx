@@ -67,7 +67,7 @@ export default function Navigation() {
     return (
         <header className="fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ">
             <div className="">
-                <div className={`lg:bg-gradient-to-r from-white via-[#00A5B8]  to-[#00A5B8] bg-[#00A5B8] shadow-sm px-4 lg:px-6  transition-all duration-300 `}>
+                <div className="bg-gradient-to-r from-white  to-[#00A5B8] lg:bg-gradient-to-r lg:from-white lg:via-[#00A5B8] lg:to-[#00A5B8] shadow-sm px-4 lg:px-6 transition-all duration-300">
                     <div className="flex items-center justify-between">
                         <Link 
                             to="/" 
@@ -76,7 +76,7 @@ export default function Navigation() {
                             <img 
                                 src="/logo.png" 
                                 alt="CARA Logo" 
-                                className="lg:w-60 lg:h-22 w-auto h-16"
+                                className="lg:w-60 lg:h-22 w-auto h-20"
                             />
                            
                         </Link>
@@ -88,10 +88,10 @@ export default function Navigation() {
                                     <Link
                                         key={item.name}
                                         to={item.to}
-                                        className={`font-medium transition-colors duration-200 relative group ${
+                                        className={`font-medium  transition-colors duration-200 relative group ${
                                             isActive(item.to) 
                                                 ? 'text-[#FCB339]' 
-                                                : 'text-white hover:text-orange-200'
+                                                : 'lg:text-white hover:text-orange-200'
                                         }`}
                                     >
                                         {item.name}
@@ -168,7 +168,7 @@ export default function Navigation() {
                                             className={`font-medium transition-colors duration-200 py-2 ${
                                                 isActive(item.to) 
                                                     ? 'text-[#FCB339]' 
-                                                    : 'text-white hover:text-orange-200'
+                                                    : 'text-black hover:text-orange-200'
                                             }`}
                                             onClick={(e) => handleNavigation(e, item.to, item.isExternal)}
                                         >
