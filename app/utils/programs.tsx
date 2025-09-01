@@ -54,7 +54,7 @@ const programs: ProgramDetail[] = [
         image: care,
         heroImage: care,
         duration: "3 months",
-        participants: "500+ caregivers trained",
+        participants: "25+ caregivers trained",
         locations: "15 communities across Africa",
         startDate: "Rolling admissions",
         cost: "Free for participants",
@@ -98,7 +98,7 @@ const programs: ProgramDetail[] = [
         ],
         tagColor: "bg-[#00A5B8]/10",
         tagTextColor: "text-[#00A5B8]",
-        achievement: "500+ caregivers trained",
+        achievement: "20+ caregivers trained",
         alt: "African woman teaching children in class"
     },
     {
@@ -111,7 +111,7 @@ const programs: ProgramDetail[] = [
         image: caregiverTraining,
         heroImage: caregiverTraining,
         duration: "Ongoing",
-        participants: "1,000+ individuals reached monthly",
+        participants: "30+ individuals reached monthly",
         locations: "20 communities across Africa",
         startDate: "Year-round programming",
         cost: "Free community workshops",
@@ -155,7 +155,7 @@ const programs: ProgramDetail[] = [
         ],
         tagColor: "bg-[#FCB339]/10",
         tagTextColor: "text-[#FCB339]",
-        achievement: "85% health improvement",
+        achievement: "15% health improvement",
         alt: "Scene from care job with senior patient being taken care of"
     },
     {
@@ -168,21 +168,21 @@ const programs: ProgramDetail[] = [
         image: caregiverTraining,
         heroImage: gg,
         duration: "6 months intensive + ongoing support",
-        participants: "200+ youth leaders developed",
+        participants: "15+ schools with inclusive units",
         locations: "10 communities across Africa",
         startDate: "Quarterly cohorts",
         cost: "Free with scholarship opportunities",
         objectives: [
-            "Develop leadership skills in young people aged 16-25",
-            "Create sustainable youth-led community projects",
-            "Build networks of peer support and collaboration",
-            "Prepare youth for future leadership roles"
+            "Establish inclusive education units in schools",
+            "Train teachers and aides in special needs support",
+            "Create accessible learning environments for all children",
+            "Build community support for inclusive education"
         ],
         curriculum: [
-            { module: "Leadership Fundamentals", topics: ["Leadership styles and principles", "Self-awareness and emotional intelligence", "Communication and public speaking", "Team building and collaboration"] },
-            { module: "Project Management", topics: ["Project planning and design", "Resource mobilization", "Implementation strategies", "Monitoring and evaluation"] },
-            { module: "Community Engagement", topics: ["Community needs assessment", "Stakeholder engagement", "Advocacy and campaigning", "Cultural sensitivity and inclusion"] },
-            { module: "Social Innovation", topics: ["Problem identification and analysis", "Creative solution development", "Social entrepreneurship", "Scaling impact"] }
+            { module: "Inclusive Education Foundations", topics: ["Understanding special needs", "Disability awareness and inclusion", "Individual education planning", "Classroom adaptation techniques"] },
+            { module: "Support Strategies", topics: ["Learning support methods", "Assistive technologies", "Behavioral management", "Communication aids"] },
+            { module: "Teacher and Aide Training", topics: ["Special needs identification", "Differentiated instruction", "Collaborative teaching", "Parent-teacher collaboration"] },
+            { module: "School Environment", topics: ["Accessible infrastructure", "Inclusive policies", "Peer support systems", "Community engagement"] }
         ],
         features: [
             "Creation of SENCO (Special Educational Needs Coordinator) units within schools",
@@ -212,7 +212,7 @@ const programs: ProgramDetail[] = [
         ],
         tagColor: "bg-green-100",
         tagTextColor: "text-green-600",
-        achievement: "150+ youth projects",
+        achievement: "10+ youth projects",
         alt: "African mother with little girl"
     },
     {
@@ -225,21 +225,21 @@ const programs: ProgramDetail[] = [
         image: womenEmpowerment,
         heroImage: businessPartnership,
         duration: "12 months with ongoing support",
-        participants: "300+ women empowered annually",
+        participants: "50+ community advocates trained",
         locations: "12 communities across Africa",
         startDate: "Monthly intake",
         cost: "Free with microfinance options",
         objectives: [
-            "Provide women with marketable skills and training",
-            "Support women in starting income-generating activities",
-            "Advocate for women's rights and gender equality",
-            "Build women's leadership capacity in communities"
+            "Raise awareness on dignity, disability inclusion, and health rights",
+            "Advocate for policy changes supporting vulnerable populations",
+            "Build community capacity for advocacy and awareness",
+            "Champion inclusive practices and community health as human rights"
         ],
         curriculum: [
-            { module: "Skills Development", topics: ["Vocational training options", "Business skills", "Financial literacy", "Digital literacy"] },
-            { module: "Entrepreneurship", topics: ["Business plan development", "Market analysis", "Product development", "Customer service"] },
-            { module: "Financial Management", topics: ["Personal finance management", "Savings and investment", "Microfinance options", "Credit management"] },
-            { module: "Leadership and Advocacy", topics: ["Women's rights and law", "Leadership development", "Public speaking", "Community organizing"] }
+            { module: "Advocacy Foundations", topics: ["Human rights principles", "Disability rights framework", "Community organizing", "Campaign development"] },
+            { module: "Awareness Campaigns", topics: ["Message development", "Media engagement", "Community outreach", "Storytelling techniques"] },
+            { module: "Policy Engagement", topics: ["Policy analysis", "Stakeholder mapping", "Government engagement", "Coalition building"] },
+            { module: "Community Mobilization", topics: ["Grassroots organizing", "Event planning", "Volunteer coordination", "Impact measurement"] }
         ],
         features: [
             "Public awareness campaigns on disability inclusion, maternal health, and elder dignity",
@@ -269,7 +269,7 @@ const programs: ProgramDetail[] = [
         ],
         tagColor: "bg-purple-100",
         tagTextColor: "text-purple-600",
-        achievement: "70% started businesses",
+        achievement: "20% started businesses",
         alt: "Black businesswoman shaking hands with male partner"
     }
 ];

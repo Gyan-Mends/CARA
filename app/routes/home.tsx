@@ -66,7 +66,7 @@ const carouselImages = [
         alt: "African mother with little girl",
         caption: "New Mother"
     },
-   
+
     {
         src: specialcare,
         alt: "Professional partnership handshake",
@@ -95,13 +95,13 @@ export default function Home() {
 
     // Carousel navigation functions
     const nextImage = () => {
-        setCurrentImageIndex((prevIndex) => 
+        setCurrentImageIndex((prevIndex) =>
             prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
         );
     };
 
     const prevImage = () => {
-        setCurrentImageIndex((prevIndex) => 
+        setCurrentImageIndex((prevIndex) =>
             prevIndex === 0 ? carouselImages.length - 1 : prevIndex - 1
         );
     };
@@ -150,12 +150,13 @@ export default function Home() {
                         <div className="space-y-8">
                             <div className="space-y-6">
                                 <h1 className="text-5xl font-heading lg:text-6xl font-bold text-gray-900 leading-tight">
-                                Reimagining Care for life’s most .<br />
+                                    Reimagining Care  <br />
+                                    <span className="text-[#00A5B8]">for life’s most </span>
                                     <span className="text-[#00A5B8]">vulnerable moments.</span>
                                 </h1>
                                 <div className="w-12 h-1 bg-[#00A5B8]"></div>
                                 <p className="text-gray-600 text-lg leading-relaxed max-w-lg">
-                                From new mothers to children with special needs and the elderly, CARA advances access to care that protects dignity during life’s most vulnerable moments.
+                                    From new mothers to children with special needs and the elderly, CARA advances access to care that protects dignity during life’s most vulnerable moments.
                                 </p>
                             </div>
 
@@ -196,11 +197,10 @@ export default function Home() {
                                             {carouselImages.map((image, index) => (
                                                 <div
                                                     key={index}
-                                                    className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-                                                        index === currentImageIndex
+                                                    className={`absolute inset-0 transition-all duration-700 ease-in-out ${index === currentImageIndex
                                                             ? 'opacity-100 scale-100'
                                                             : 'opacity-0 scale-105'
-                                                    }`}
+                                                        }`}
                                                 >
                                                     <img
                                                         src={image.src}
@@ -209,7 +209,7 @@ export default function Home() {
                                                     />
                                                 </div>
                                             ))}
-                                            
+
                                             {/* Image Caption */}
                                             <div className="absolute bottom-4 left-4 right-4 bg-black/60 text-white px-4 py-2 rounded-lg backdrop-blur-sm transition-all duration-500 ease-in-out">
                                                 <p className="text-sm font-medium text-center">
@@ -226,7 +226,7 @@ export default function Home() {
                                         >
                                             <ChevronLeft className="w-5 h-5 text-gray-800" />
                                         </button>
-                                        
+
                                         <button
                                             onClick={nextImage}
                                             className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110"
@@ -242,11 +242,10 @@ export default function Home() {
                                             <button
                                                 key={index}
                                                 onClick={() => goToImage(index)}
-                                                className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                                                    index === currentImageIndex
+                                                className={`w-3 h-3 rounded-full transition-all duration-200 ${index === currentImageIndex
                                                         ? 'bg-[#00A5B8] scale-125'
                                                         : 'bg-gray-300 hover:bg-gray-400'
-                                                }`}
+                                                    }`}
                                                 aria-label={`Go to image ${index + 1}`}
                                             />
                                         ))}
@@ -268,7 +267,7 @@ export default function Home() {
                             <div className="relative lg:h-full md:h-full h-[60vh] bg-gradient-to-br from-teal-400 to-cyan-500 rounded-lg overflow-hidden">
                                 <img
                                     src={care}
-                                    className="w-full h-[60vh] object-cover opacity-90"
+                                    className="w-full h-[75vh] object-cover opacity-90"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-br from-teal-500/30 to-cyan-600/30"></div>
                             </div>
@@ -288,7 +287,7 @@ export default function Home() {
                                                 <span className="border-b-2 border-teal-400 pb-1">Our Belief</span>
                                             </h3>
                                             <p className="text-gray-600 text-sm leading-relaxed">
-                                                We believe health begins at home, and that every community can be trained, equipped, and supported to care well. We operate at the crossroads of health, social protection, education, and inclusion.
+                                            We believe that health begins at home, and that every community can be trained, equipped, and supported to provide good care. As a nonprofit organization dedicated to community health and innovation in care, we work at the intersection of health, social protection, education, and inclusion. 
                                             </p>
                                         </div>
                                     </div>
@@ -307,7 +306,7 @@ export default function Home() {
                                                 <span className="border-b-2 border-teal-400 pb-1">Community Health</span>
                                             </h3>
                                             <p className="text-gray-600 text-sm leading-relaxed">
-                                                We define community health as the capacity of a local population to care for its vulnerable members, especially mothers, children, the elderly, and persons with special needs. through everyday, dignified, non-clinical support.
+                                            We define community health as the capacity of a local population to care for its vulnerable members, especially mothers, children, the elderly, and persons with special needs, through everyday, dignified, non-clinical support. 
                                             </p>
                                         </div>
                                     </div>
@@ -324,7 +323,9 @@ export default function Home() {
                                 </h2>
                                 <div className="w-12 h-1 bg-gray-300"></div>
                                 <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                                    CARA (Care Access for Resilient Africa) is a nonprofit advancing care access and community health by equipping caregivers, supporting families, and strengthening local systems of support. We support vulnerable populations, especially postpartum mothers, children with special needs, and the elderly, by training caregivers and creating inclusive support systems in schools, homes, and communities.
+                                    CARA, Care Access for Resilient Africa,  is a nonprofit organization advancing care access and community health. We equip caregivers, support families, and strengthen local systems of care.
+                                    We serve vulnerable populations, especially postpartum mothers, children with special needs, and the elderly, by training caregivers and building inclusive support systems in homes, schools, and communities.
+
                                 </p>
                                 <div className="text-gray-600 leading-relaxed">
                                     <p className="font-semibold mb-3">We provide community health by:</p>
@@ -339,7 +340,7 @@ export default function Home() {
                                         </li>
                                         <li className="flex items-start">
                                             <span className="text-teal-500 mr-3 mt-1">•</span>
-                                            Bridging the gap between vulnerable households and formal health and social services through outreach, referral, and system linkages.
+                                            Bridging the gap between vulnerable households and formal health, education, and social services through outreach, referral, and system linkages.
                                         </li>
                                     </ul>
                                 </div>
@@ -362,7 +363,7 @@ export default function Home() {
                         </h2>
                         <div className="w-12 h-1 bg-[#00A5B8] mx-auto mb-6"></div>
                         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                        CARA empowers youth and women to provide dignified care for mothers, children with special needs, and the elderly, strengthening families and communities through sustainable care systems.
+                            CARA empowers youth and women to provide dignified care for mothers, children with special needs, and the elderly, strengthening families and communities through sustainable care systems.
                         </p>
                     </div>
 
