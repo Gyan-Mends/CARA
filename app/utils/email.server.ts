@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import path from 'path';
 
 // Create transporter using Gmail SMTP
 const transporter = nodemailer.createTransport({
@@ -10,6 +11,9 @@ const transporter = nodemailer.createTransport({
     pass: process.env.SMTP_PASS,
   },
 });
+
+const logoCid = 'caralogo';
+const logoPath = path.join(process.cwd(), 'public', 'logo.png');
 
 export interface ContactFormData {
   name: string;
@@ -76,7 +80,7 @@ export async function sendContactEmail(data: ContactFormData) {
             <!-- Header -->
             <div style="background: linear-gradient(135deg, #00A5B8 0%, #0891b2 100%); padding: 30px 20px; text-align: center;">
               <div style="width: 60px; height: 60px; background-color: white; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 15px;">
-                <span style="font-size: 24px; font-weight flex items-center justify-center: bold; color: #00A5B8;">CARA</span>
+               <img src="cid:${logoCid}" alt="CARA Logo" style="width: 100%; height: 100%; object-fit: contain;">
               </div>
               <h1 style="color: white; margin: 0; font-size: 28px; font-weight: bold;">New Contact Form Submission</h1>
               <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 16px;">Care for Those Who Care. Dignity for All.</p>
@@ -121,6 +125,13 @@ export async function sendContactEmail(data: ContactFormData) {
         </body>
         </html>
       `,
+      attachments: [
+        {
+          filename: 'logo.png',
+          path: logoPath,
+          cid: logoCid,
+        }
+      ],
     });
 
     // Send confirmation email to the sender
@@ -141,7 +152,7 @@ export async function sendContactEmail(data: ContactFormData) {
             <!-- Header -->
             <div style="background: linear-gradient(135deg, #00A5B8 0%, #0891b2 100%); padding: 30px 20px; text-align: center;">
               <div style="width: 60px; height: 60px; background-color: white; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 15px;">
-                <span style="font-size: 24px; font-weight: bold; color: #00A5B8;">CARA</span>
+                <img src="cid:${logoCid}" alt="CARA Logo" style="width: 100%; height: 100%; object-fit: contain;">
               </div>
               <h1 style="color: white; margin: 0; font-size: 28px; font-weight: bold;">Thank You!</h1>
               <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 16px;">Care for Those Who Care. Dignity for All.</p>
@@ -203,6 +214,13 @@ export async function sendContactEmail(data: ContactFormData) {
         </body>
         </html>
       `,
+      attachments: [
+        {
+          filename: 'logo.png',
+          path: logoPath,
+          cid: logoCid,
+        }
+      ],
     });
 
     return { success: true };
@@ -235,7 +253,7 @@ export async function sendGiverApplicationEmail(data: GiverFormData) {
             <!-- Header -->
             <div style="background: linear-gradient(135deg, #00A5B8 0%, #0891b2 100%); padding: 30px 20px; text-align: center;">
               <div style="width: 60px; height: 60px; background-color: white; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 15px;">
-                <span style="font-size: 24px; font-weight: bold; color: #00A5B8;">CARA</span>
+                <img src="cid:${logoCid}" alt="CARA Logo" style="width: 100%; height: 100%; object-fit: contain;">
               </div>
               <h1 style="color: white; margin: 0; font-size: 28px; font-weight: bold;">New Giver Application</h1>
               <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 16px;">Someone wants to become a giver!</p>
@@ -301,6 +319,13 @@ export async function sendGiverApplicationEmail(data: GiverFormData) {
         </body>
         </html>
       `,
+      attachments: [
+        {
+          filename: 'logo.png',
+          path: logoPath,
+          cid: logoCid,
+        }
+      ],
     });
 
     // Send confirmation email to applicant
@@ -321,7 +346,7 @@ export async function sendGiverApplicationEmail(data: GiverFormData) {
             <!-- Header -->
             <div style="background: linear-gradient(135deg, #00A5B8 0%, #0891b2 100%); padding: 30px 20px; text-align: center;">
               <div style="width: 60px; height: 60px; background-color: white; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 15px;">
-                <span style="font-size: 24px; font-weight: bold; color: #00A5B8;">CARA</span>
+                <img src="cid:${logoCid}" alt="CARA Logo" style="width: 100%; height: 100%; object-fit: contain;">
               </div>
               <h1 style="color: white; margin: 0; font-size: 28px; font-weight: bold;">Welcome to the CARA Community!</h1>
               <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 16px;">Thank you for your application</p>
@@ -367,6 +392,13 @@ export async function sendGiverApplicationEmail(data: GiverFormData) {
         </body>
         </html>
       `,
+      attachments: [
+        {
+          filename: 'logo.png',
+          path: logoPath,
+          cid: logoCid,
+        }
+      ],
     });
 
     return { success: true };
@@ -399,7 +431,7 @@ export async function sendPartnerApplicationEmail(data: PartnerFormData) {
             <!-- Header -->
             <div style="background: linear-gradient(135deg, #00A5B8 0%, #0891b2 100%); padding: 30px 20px; text-align: center;">
               <div style="width: 60px; height: 60px; background-color: white; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 15px;">
-                <span style="font-size: 24px; font-weight: bold; color: #00A5B8;">CARA</span>
+                <img src="cid:${logoCid}" alt="CARA Logo" style="width: 100%; height: 100%; object-fit: contain;">
               </div>
               <h1 style="color: white; margin: 0; font-size: 28px; font-weight: bold;">New Partnership Application</h1>
               <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 16px;">An organization wants to partner with us!</p>
@@ -491,6 +523,13 @@ export async function sendPartnerApplicationEmail(data: PartnerFormData) {
         </body>
         </html>
       `,
+      attachments: [
+        {
+          filename: 'logo.png',
+          path: logoPath,
+          cid: logoCid,
+        }
+      ],
     });
 
     // Send confirmation email to organization
@@ -511,7 +550,7 @@ export async function sendPartnerApplicationEmail(data: PartnerFormData) {
             <!-- Header -->
             <div style="background: linear-gradient(135deg, #00A5B8 0%, #0891b2 100%); padding: 30px 20px; text-align: center;">
               <div style="width: 60px; height: 60px; background-color: white; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 15px;">
-                <span style="font-size: 24px; font-weight: bold; color: #00A5B8;">CARA</span>
+                <img src="cid:${logoCid}" alt="CARA Logo" style="width: 100%; height: 100%; object-fit: contain;">
               </div>
               <h1 style="color: white; margin: 0; font-size: 28px; font-weight: bold;">Partnership Opportunity</h1>
               <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 16px;">Thank you for your interest</p>
@@ -557,6 +596,13 @@ export async function sendPartnerApplicationEmail(data: PartnerFormData) {
         </body>
         </html>
       `,
+      attachments: [
+        {
+          filename: 'logo.png',
+          path: logoPath,
+          cid: logoCid,
+        }
+      ],
     });
 
     return { success: true };
@@ -589,7 +635,7 @@ export async function sendProgramApplicationEmail(data: ProgramApplicationFormDa
             <!-- Header -->
             <div style="background: linear-gradient(135deg, #00A5B8 0%, #0891b2 100%); padding: 30px 20px; text-align: center;">
               <div style="width: 60px; height: 60px; background-color: white; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 15px;">
-                <span style="font-size: 24px; font-weight: bold; color: #00A5B8;">CARA</span>
+                <img src="cid:${logoCid}" alt="CARA Logo" style="width: 100%; height: 100%; object-fit: contain;">
               </div>
               <h1 style="color: white; margin: 0; font-size: 28px; font-weight: bold;">New Program Application</h1>
               <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 16px;">${data.programTitle}</p>
@@ -690,6 +736,13 @@ export async function sendProgramApplicationEmail(data: ProgramApplicationFormDa
         </body>
         </html>
       `,
+      attachments: [
+        {
+          filename: 'logo.png',
+          path: logoPath,
+          cid: logoCid,
+        }
+      ],
     });
 
     // Send confirmation email to applicant
@@ -710,7 +763,7 @@ export async function sendProgramApplicationEmail(data: ProgramApplicationFormDa
             <!-- Header -->
             <div style="background: linear-gradient(135deg, #00A5B8 0%, #0891b2 100%); padding: 30px 20px; text-align: center;">
               <div style="width: 60px; height: 60px; background-color: white; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 15px;">
-                <span style="font-size: 24px; font-weight: bold; color: #00A5B8;">CARA</span>
+                <img src="cid:${logoCid}" alt="CARA Logo" style="width: 100%; height: 100%; object-fit: contain;">
               </div>
               <h1 style="color: white; margin: 0; font-size: 28px; font-weight: bold;">Application Received!</h1>
               <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 16px;">${data.programTitle}</p>
@@ -765,6 +818,13 @@ export async function sendProgramApplicationEmail(data: ProgramApplicationFormDa
         </body>
         </html>
       `,
+      attachments: [
+        {
+          filename: 'logo.png',
+          path: logoPath,
+          cid: logoCid,
+        }
+      ],
     });
 
     return { success: true };
