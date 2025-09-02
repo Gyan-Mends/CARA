@@ -169,9 +169,9 @@ export const newsletterTemplates = {
     },
     
     impactStory: {
-        subject: "Impact Story: How CARA Changed Lives in Ghana",
-        title: "Impact Story",
-        summary: "Real stories from our community",
+        subject: "Impact Update: How CARA Changed Lives in Ghana",
+        title: "Impact Update",
+        summary: "Updates from our community",
         mainContent: `
             <h2 style="color: #1f2937; margin: 0 0 20px 0; font-size: 24px;">Transforming Lives in Ghana</h2>
             <p style="margin-bottom: 20px;">Meet Sarah, a single mother from Accra who completed our caregiver training program last year.</p>
@@ -180,10 +180,10 @@ export const newsletterTemplates = {
                 <p style="margin: 0; color: #6b7280;">"Before CARA, I was struggling to make ends meet. Now I have a stable job as a certified caregiver, and I can provide for my children while helping others in my community."</p>
             </div>
             
-            <p style="margin-bottom: 20px;">Sarah's story is just one of many. Through our programs, we've trained over 500 caregivers across Africa, creating sustainable employment opportunities and improving care quality.</p>
+            <p style="margin-bottom: 20px;">Sarah's experience is just one of many. Through our programs, we've trained over 500 caregivers across Africa, creating sustainable employment opportunities and improving care quality.</p>
         `,
         callToAction: {
-            text: "Read More Stories",
+            text: "Read More Updates",
             url: "https://yourwebsite.com/impact"
         }
     },

@@ -15,8 +15,8 @@ import {
 
 export const meta: MetaFunction = () => {
     return [
-        { title: "News & Stories - CARA" },
-        { name: "description", content: "Stay updated with the latest news, success stories, and insights from CARA's programs across Africa. Read about our impact in communities and the lives we're transforming." },
+        { title: "News - CARA" },
+        { name: "description", content: "Stay updated with the latest news and insights from CARA's programs across Africa. Read about our impact in communities and the lives we're transforming." },
     ];
 };
 
@@ -80,10 +80,10 @@ export default function Blog() {
                 <div className="container mx-auto px-6 relative z-10 pt-20">
                     <div className="text-center max-w-4xl mx-auto">
                         <h1 className="text-3xl lg:text-5xl font-heading font-bold text-white mb-6">
-                            Stories of <span className="text-[#FCB339]">Impact</span>
+                            Latest <span className="text-[#FCB339]">News</span>
                         </h1>
                         <p className="text-lg lg:text-xl text-white/90 leading-relaxed mb-8">
-                            Discover the latest updates, success stories, and insights from our work 
+                            Discover the latest updates and insights from our work 
                             building sustainable care systems across Africa.
                         </p>
                         
@@ -111,7 +111,7 @@ export default function Blog() {
                             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                             <input
                                 type="text"
-                                placeholder="Search stories..."
+                                placeholder="Search news..."
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00A5B8] focus:border-transparent transition-colors"
@@ -128,7 +128,7 @@ export default function Blog() {
                                         : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                                 }`}
                             >
-                                All Stories
+                                All News
                             </button>
                             {programCategories.map((category) => (
                                 <button
@@ -154,7 +154,7 @@ export default function Blog() {
                 <div className="container mx-auto px-6">
                     {filteredPosts.length === 0 ? (
                         <div className="text-center py-12">
-                            <p className="text-gray-500 text-lg">No stories found matching your criteria.</p>
+                            <p className="text-gray-500 text-lg">No news found matching your criteria.</p>
                             <button
                                 onClick={() => {
                                     setSelectedCategory("all");
@@ -170,11 +170,11 @@ export default function Blog() {
                             <div className="flex items-center justify-between mb-8">
                                 <h2 className="text-2xl font-heading font-bold text-gray-900">
                                     {selectedCategory === "all" 
-                                        ? "All Stories" 
-                                        : programCategories.find(cat => cat.key === selectedCategory)?.label || "Stories"}
+                                        ? "All News" 
+                                        : programCategories.find(cat => cat.key === selectedCategory)?.label || "News"}
                                 </h2>
                                 <span className="text-gray-500">
-                                    {filteredPosts.length} {filteredPosts.length === 1 ? 'story' : 'stories'}
+                                    {filteredPosts.length} {filteredPosts.length === 1 ? 'news item' : 'news items'}
                                 </span>
                             </div>
 

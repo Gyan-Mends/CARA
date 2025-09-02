@@ -19,8 +19,8 @@ export const meta: MetaFunction = (args) => {
     const data = args.data as LoaderData | undefined;
     if (!data?.post) {
         return [
-            { title: "Story Not Found - CARA" },
-            { name: "description", content: "The requested story could not be found." },
+            { title: "News Item Not Found - CARA" },
+            { name: "description", content: "The requested news item could not be found." },
         ];
     }
 
@@ -40,7 +40,7 @@ export async function loader({ params }: LoaderFunctionArgs): Promise<LoaderData
     const post = getBlogPostBySlug(slug);
 
     if (!post) {
-        throw new Response("Story Not Found", { status: 404 });
+        throw new Response("News Item Not Found", { status: 404 });
     }
 
     const relatedPosts = getRelatedBlogPosts(slug);
@@ -198,7 +198,7 @@ export default function BlogDetail() {
                                     <div className="bg-gray-50 p-6 rounded-lg">
                                         <div className="flex items-center gap-2 mb-4">
                                             <Share2 className="w-5 h-5 text-gray-600" />
-                                            <span className="font-semibold text-gray-900">Share Story</span>
+                                            <span className="font-semibold text-gray-900">Share News</span>
                                         </div>
                                         <div className="space-y-3">
                                             <a
@@ -231,10 +231,10 @@ export default function BlogDetail() {
                                         </div>
                                     </div>
 
-                                    {/* Related Stories */}
+                                    {/* Related News */}
                                     {relatedPosts && relatedPosts.length > 0 && (
                                         <div className="bg-white border border-gray-200 p-6 rounded-lg">
-                                            <h3 className="font-semibold text-gray-900 mb-4">Related Stories</h3>
+                                            <h3 className="font-semibold text-gray-900 mb-4">Related News</h3>
                                             <div className="space-y-4">
                                                 {relatedPosts.map((relatedPost, index) => {
                                                     const RelatedIcon = blogCategoryIconMap[relatedPost.iconKey];
@@ -276,7 +276,7 @@ export default function BlogDetail() {
                                     {/* Newsletter CTA */}
                                     <div className="bg-[#00A5B8] text-white p-6 rounded-lg">
                                         <h3 className="font-semibold mb-2">Stay Updated</h3>
-                                        <p className="text-white/90 text-sm mb-4">Get more stories like this delivered to your inbox.</p>
+                                        <p className="text-white/90 text-sm mb-4">Get more news like this delivered to your inbox.</p>
                                         <Link 
                                             to="/newsletter"
                                             className="inline-block bg-white text-[#00A5B8] px-4 py-2 rounded-full font-medium text-sm hover:bg-gray-100 transition-colors"

@@ -89,7 +89,7 @@ Since launching in early 2023, the Mothers First program has provided comprehens
 - **Increased exclusive breastfeeding rates by 70%** at 6 months postpartum
 - **Identified and supported 85% more cases** of postpartum depression early
 
-## Stories from the Field
+## From the Field
 
 ### Grace's Journey in Ghana
 *"When my baby was born, I felt overwhelmed and alone. The Mothers First caregiver, Akosua, became like family. She taught me how to care for my baby, helped me recover, and most importantly, believed in me when I didn't believe in myself."* - Grace, first-time mother from Accra
@@ -121,7 +121,7 @@ Every mother deserves dignified care during her most vulnerable time. Here's how
 
 - **Volunteer**: Join our caregiver training programs
 - **Donate**: $50 supports one mother through her full 40-day journey
-- **Advocate**: Share our stories and help us reach policy makers
+- **Advocate**: Share our impact and help us reach policy makers
 - **Partner**: Connect us with healthcare facilities in your community
 
 The success of Mothers First proves that with the right support, every mother can thrive. Together, we're not just changing individual lives – we're building a stronger, more caring Africa.
@@ -143,7 +143,7 @@ The success of Mothers First proves that with the right support, every mother ca
         title: "From Unemployment to Empowerment: How Caregiver Training Transforms Lives",
         excerpt: "Meet the women who turned their compassion into careers through CARA's comprehensive caregiver training program, creating economic opportunities while strengthening community care.",
         category: "success-stories",
-        categoryLabel: "Success Stories",
+        categoryLabel: "Impact",
         author: "Dr. Kwame Asante",
         publishedDate: "2024-01-08",
         readTime: "6 min read",
@@ -190,7 +190,7 @@ Our 3-month intensive program transforms participants through:
 - Eldercare best practices
 - Mental health first aid
 
-## Success Stories: Lives Transformed
+## Lives Transformed
 
 ### Mary's Journey: From Struggling to Thriving
 
@@ -310,7 +310,7 @@ Our caregiver training program proves that investing in women's skills creates r
         title: "Breaking Barriers: How Inclusive Education Changed Everything for Amadou",
         excerpt: "A young boy with cerebral palsy in rural Senegal becomes the first in his village to attend mainstream school, thanks to CARA's Inclusive Care program and dedicated teachers.",
         category: "success-stories",
-        categoryLabel: "Success Stories",
+        categoryLabel: "Impact",
         author: "Aisha Diop",
         publishedDate: "2024-01-02",
         readTime: "5 min read",
@@ -486,7 +486,7 @@ Now in his second year of school, Amadou has become an advocate:
 - **Volunteer**: Share teaching or therapy expertise
 - **Advocate**: Promote inclusive education in your community
 - **Partner**: Connect us with schools or organizations
-- **Spread awareness**: Share stories like Amadou's
+- **Spread awareness**: Share updates like Amadou's
 
 ## The Bigger Picture
 
@@ -561,7 +561,7 @@ CareBridge uses innovative technology to connect rural caregivers with urban exp
 - **Cost reduction**: 40% decrease in transport costs for families
 - **Response time**: Emergency consultations averaged 12 minutes vs. 4 hours previously
 
-## Real Stories: Technology Transforming Care
+## Technology Transforming Care
 
 ### Grace's Emergency: Life-Saving Connection
 Community Health Worker Grace Wanjiku faced her worst nightmare when 3-year-old Peter arrived at her clinic with severe breathing difficulties in rural Nakuru County.
@@ -845,7 +845,7 @@ Health economists project recognition will lead to:
 
 ## CHW Voices: Celebrating the Victory
 
-### Akosua's Story: From Volunteer to Professional
+### Akosua's Journey: From Volunteer to Professional
 *"For 12 years, I served my community as a volunteer CHW. People trusted me with their health, but I had no official recognition. Today, I'm a licensed healthcare provider with a steady income and professional status. This changes everything – for me, my family, and my community."* - Akosua Mensah, CHW, Ashanti Region
 
 ### Kofi's Leadership: Building the Future
@@ -998,8 +998,8 @@ const categories: { [key in BlogCategory]: { label: string; description: string;
         textColor: "text-blue-600"
     },
     "success-stories": {
-        label: "Success Stories", 
-        description: "Inspiring stories from communities and individuals we serve",
+        label: "Impact", 
+        description: "Inspiring impact from communities and individuals we serve",
         iconKey: "Heart",
         color: "bg-green-100",
         textColor: "text-green-600"

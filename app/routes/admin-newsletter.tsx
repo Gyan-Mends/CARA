@@ -126,7 +126,7 @@ export default function AdminNewsletter() {
                                 >
                                     <option value="">Choose a template...</option>
                                     <option value="programUpdate">Program Update</option>
-                                    <option value="impactStory">Impact Story</option>
+                                    <option value="impactStory">Impact Update</option>
                                     <option value="volunteerOpportunity">Volunteer Opportunity</option>
                                 </select>
                             </div>

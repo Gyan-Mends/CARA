@@ -534,7 +534,7 @@ export default function Home() {
                             to="/blog"
                             className="inline-flex items-center gap-2 bg-[#00A5B8] text-white px-8 py-4 rounded-full hover:bg-teal-600 transition-colors duration-300 font-medium"
                         >
-                            Read More Stories
+                            Read More News
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
