@@ -263,7 +263,7 @@ export default function ProgramDetail() {
                                     <h3 className="font-semibold mb-2">Ready to Join?</h3>
                                     <p className="text-white/90 text-sm mb-4">Take the next step in making a difference.</p>
                                     <Link 
-                                        to="/become-a-giver"
+                                        to={`/apply-program/${program.slug}`}
                                         className="inline-block bg-white text-[#00A5B8] px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors"
                                     >
                                         Apply Now
