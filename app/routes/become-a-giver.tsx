@@ -291,7 +291,7 @@ export default function BecomeAGiver() {
                                     <div>
                                         <label className="block text-sm text-gray-700 mb-4">Areas of Interest</label>
                                         <div className="grid grid-cols-2 gap-2">
-                                            {['Healthcare', 'Education', 'Community Development', 'Women Empowerment', 'Youth Programs', 'Environmental'].map(interest => (
+                                            {['Community based Healthcare', 'Special Education', 'Community Development', 'Women Empowerment', 'Youth Empowerment', 'Advocacy'].map(interest => (
                                                 <label key={interest} className="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
                                                     <input 
                                                         type="checkbox" 

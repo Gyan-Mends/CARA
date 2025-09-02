@@ -3,10 +3,10 @@ import { useLoaderData, useSearchParams, useActionData, useNavigation, Link } fr
 import { Heart, Users, Target, Award, CheckCircle, Clock, MapPin, ArrowLeft, User, Mail, Phone, Loader2, FileText, Calendar } from "lucide-react";
 import { useState, useEffect } from "react";
 import Navigation from "~/components/navigation";
-import { type ProgramDetail, getProgramByIdOrSlug, programIconMap } from "~/utils/programs";
+import { type ProgramDetail, getProgramByIdOrSlug, getPrograms, programIconMap } from "~/utils/programs";
 import { sendProgramApplicationEmail, type ProgramApplicationFormData } from "~/utils/email.server";
 
-type LoaderData = { program: ProgramDetail };
+type LoaderData = { program: ProgramDetail; relatedPrograms: ProgramDetail[] };
 
 export const meta: MetaFunction = (args) => {
     const data = args.data as LoaderData | undefined;
@@ -31,7 +31,10 @@ export async function loader({ params }: LoaderFunctionArgs): Promise<LoaderData
         throw new Response("Program Not Found", { status: 404 });
     }
 
-    return { program };
+    const allPrograms = getPrograms();
+    const relatedPrograms = allPrograms.filter(p => p.id !== program.id).slice(0, 3);
+
+    return { program, relatedPrograms };
 }
 
 export async function action({ request, params }: ActionFunctionArgs) {
@@ -104,7 +107,7 @@ export async function action({ request, params }: ActionFunctionArgs) {
 }
 
 export default function ApplyToProgram() {
-    const { program } = useLoaderData() as LoaderData;
+    const { program, relatedPrograms } = useLoaderData() as LoaderData;
     const [searchParams] = useSearchParams();
     const actionData = useActionData();
     const navigation = useNavigation();
@@ -408,18 +411,16 @@ export default function ApplyToProgram() {
                                                     <label className="block text-sm font-medium text-gray-700 mb-3">
                                                         When are you available for program activities?
                                                     </label>
-                                                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                                                        {['Weekday Mornings', 'Weekday Afternoons', 'Weekday Evenings', 'Weekend Mornings', 'Weekend Afternoons', 'Weekend Evenings'].map(time => (
-                                                            <label key={time} className="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
-                                                                <input 
-                                                                    type="checkbox" 
-                                                                    name="availability"
-                                                                    value={time}
-                                                                    className="mr-2 text-[#00A5B8] focus:ring-[#00A5B8]" 
-                                                                />
-                                                                <span className="text-sm text-gray-700">{time}</span>
-                                                            </label>
-                                                        ))}
+                                                    <div className="grid grid-cols-1 gap-3">
+                                                        <label className="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
+                                                            <input 
+                                                                type="checkbox" 
+                                                                name="availability"
+                                                                value="Open"
+                                                                className="mr-2 text-[#00A5B8] focus:ring-[#00A5B8]" 
+                                                            />
+                                                            <span className="text-sm text-gray-700">Open</span>
+                                                        </label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -456,6 +457,67 @@ export default function ApplyToProgram() {
                     </div>
                 </div>
             </section>
+
+            {/* Related Programs */}
+            {relatedPrograms.length > 0 && (
+                <section className="py-20 bg-white">
+                    <div className="container mx-auto px-6">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4">
+                                Explore Other Programs
+                            </h2>
+                            <p className="text-gray-600 max-w-2xl mx-auto">
+                                Discover other ways you can make a difference and expand your impact across communities.
+                            </p>
+                        </div>
+                        <div className="grid md:grid-cols-3 gap-8">
+                            {relatedPrograms.map((relatedProgram) => {
+                                const RelatedIcon = programIconMap[relatedProgram.iconKey];
+                                return (
+                                    <div key={relatedProgram.id} className="group">
+                                        <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200">
+                                            <div className="relative">
+                                                <img 
+                                                    src={relatedProgram.image} 
+                                                    alt={relatedProgram.title}
+                                                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                                                />
+                                                <div className="absolute top-4 left-4">
+                                                    <div className="flex items-center justify-center w-10 h-10 bg-[#00A5B8] text-white rounded-full">
+                                                        <RelatedIcon className="w-5 h-5" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="p-6">
+                                                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#00A5B8] transition-colors">
+                                                    {relatedProgram.title}
+                                                </h3>
+                                                <p className="text-gray-600 leading-relaxed mb-6 line-clamp-3">
+                                                    {relatedProgram.description}
+                                                </p>
+                                                <div className="flex gap-3">
+                                                    <Link 
+                                                        to={`/programs/${relatedProgram.slug}`}
+                                                        className="flex-1 bg-gray-100 text-gray-700 text-center py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors font-medium text-sm"
+                                                    >
+                                                        Learn More
+                                                    </Link>
+                                                    <Link 
+                                                        to={`/apply-program/${relatedProgram.slug}`}
+                                                        className="flex-1 bg-[#00A5B8] text-white text-center py-2 px-4 rounded-lg hover:bg-teal-600 transition-colors font-medium text-sm"
+                                                    >
+                                                        Apply Now
+                                                    </Link>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </section>
+            )}
         </div>
     );
 }

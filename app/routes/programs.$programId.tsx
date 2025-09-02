@@ -34,6 +34,12 @@ export async function loader({ params }: LoaderFunctionArgs): Promise<LoaderData
     return { program, relatedPrograms };
 }
 
+const coreValues = [
+    { value: "Empowerment", description: "Building local capacity", icon: Users },
+    { value: "Dignity", description: "Respectful care for all", icon: Heart },
+    { value: "Inclusion", description: "No one left behind", icon: BookOpen }
+];
+
 export default function ProgramDetail() {
     const { program, relatedPrograms } = useLoaderData() as LoaderData;
     const Icon = programIconMap[program.iconKey];
@@ -85,8 +91,21 @@ export default function ProgramDetail() {
                             {program.longDescription}
                         </p>
 
-                        {/* Key Stats */}
+                        {/* Core Values */}
                         <div className="grid md:grid-cols-3 gap-6">
+                            {coreValues.map((value, index) => (
+                                <div key={index} className="flex items-center gap-3 p-4 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30">
+                                    <value.icon className="w-6 h-6 text-[#FCB339] flex-shrink-0" />
+                                    <div className="text-left">
+                                        <div className="text-lg font-bold text-white">{value.value}</div>
+                                        <div className="text-sm text-white/80">{value.description}</div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Key Stats */}
+                        {/* <div className="grid md:grid-cols-3 gap-6">
                             <div className="flex items-center gap-3 p-4 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30">
                                 <Clock className="w-6 h-6 text-[#FCB339]" />
                                 <div>
@@ -108,7 +127,7 @@ export default function ProgramDetail() {
                                     <div className="text-white/80 text-sm">Locations</div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section>
@@ -156,7 +175,7 @@ export default function ProgramDetail() {
                             </div>
 
                             {/* Curriculum */}
-                            <div>
+                            {/* <div>
                                 <h2 className="text-2xl font-heading font-bold text-gray-900 mb-6">
                                     Curriculum & Content
                                 </h2>
@@ -177,10 +196,10 @@ export default function ProgramDetail() {
                                         </div>
                                     ))}
                                 </div>
-                            </div>
+                            </div> */}
 
                             {/* Impact Stories */}
-                            <div>
+                            {/* <div>
                                 <h2 className="text-2xl font-heading font-bold text-gray-900 mb-6">
                                     Impact & Success Stories
                                 </h2>
@@ -202,7 +221,7 @@ export default function ProgramDetail() {
                                         </div>
                                     ))}
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
 
                         {/* Sidebar */}
@@ -218,7 +237,7 @@ export default function ProgramDetail() {
                                 </div>
 
                                 {/* Quick Info */}
-                                <div className="bg-gray-50 p-6 rounded-lg">
+                                {/* <div className="bg-gray-50 p-6 rounded-lg">
                                     <h3 className="font-semibold text-gray-900 mb-4">Program Information</h3>
                                     <div className="space-y-4">
                                         <div className="flex items-center gap-3">
@@ -243,7 +262,7 @@ export default function ProgramDetail() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
 
                                 {/* Requirements */}
                                 <div className="bg-white border border-gray-200 p-6 rounded-lg">
@@ -308,7 +327,7 @@ export default function ProgramDetail() {
                                                 <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#00A5B8] transition-colors">
                                                     {relatedProgram.title}
                                                 </h3>
-                                                <p className="text-gray-600 leading-relaxed">
+                                                <p className="text-gray-600 leading-relaxed line-clamp-3">
                                                     {relatedProgram.description}
                                                 </p>
                                             </div>

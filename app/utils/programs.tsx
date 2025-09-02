@@ -3,7 +3,7 @@ import hero from "~/components/african-mother-little-girl-medium-shot_23-2148960
 import care from "~/components/scene-from-care-job-with-senior-patient-being-take-care_23-2151224145.jpg";
 import caregiverTraining from "~/components/images/african-woman-teaching-kids-class_23-2148892556.jpg";
 import businessPartnership from "~/components/business-partners-closing-contract_74855-1152.jpg";
-import womenEmpowerment from "~/components/black-businesswoman-shaking-hands-with-male-partner_74855-1085.jpg";
+import outreach from "~/components/images/OUT.jpeg";
 import gg from "~/components/images/gg.png";
 
 export const programIconMap = {
@@ -77,7 +77,7 @@ const programs: ProgramDetail[] = [
         ],
         impact: {
             number: "20+",
-            description: "families supported through trained caregivers",
+            description: "Providing families with comfort and dignity through the support of trained caregivers.",
             stories: [
                 "Mary, a program graduate, now supports 15 elderly community members and has trained 3 additional caregivers.",
                 "The program has reduced hospital readmissions by 30% in participating communities.",
@@ -134,7 +134,7 @@ const programs: ProgramDetail[] = [
         ],
         impact: {
             number: "95%",
-            description: "of mothers report improved confidence in newborn care",
+            description: "New mothers feel more assured and capable in newborn care.",
             stories: [
                 "Maternal complications reduced by 40% in participating communities.",
                 "Exclusive breastfeeding rates increased by 70% at 6 months.",
@@ -165,7 +165,7 @@ const programs: ProgramDetail[] = [
         description: "CARA's Inclusive Care programme empowers families and schools to provide dignified support for children and people with special needs. We strengthen caregiving at home while promoting inclusive education in classrooms, ensuring that every child has the opportunity to learn and thrive.",
         longDescription: "CARA's Inclusive Care programme empowers families and schools to provide dignified support for children and people with special needs. We strengthen caregiving at home while promoting inclusive education in classrooms, ensuring that every child has the opportunity to learn and thrive. Through comprehensive support systems, we create inclusive environments where all individuals are valued and supported.",
         iconKey: "Users",
-        image: gg,
+        image: caregiverTraining,
         heroImage: gg,
         duration: "12 months with ongoing support",
         participants: "20+ families and 10+ schools supported",
@@ -191,7 +191,7 @@ const programs: ProgramDetail[] = [
         ],
         impact: {
             number: "85%",
-            description: "of families report improved confidence in caring for children with special needs",
+            description: "Families report improved confidence in caring for children with special needs",
             stories: [
                 "School enrollment for children with disabilities increased by 60% in participating communities.",
                 "Family stress levels reduced by 45% after program participation.",
@@ -222,7 +222,7 @@ const programs: ProgramDetail[] = [
         description: "CareBridge is CARA's community outreach and linkage platform. It identifies households with unmet care needs and connects them to essential health, education, and social services. By bridging the gap between families and formal systems, CareBridge ensures that vulnerable individuals, from new mothers to children with special needs and the elderly, are not left behind.",
         longDescription: "CareBridge is CARA's community outreach and linkage platform. It identifies households with unmet care needs and connects them to essential health, education, and social services. By bridging the gap between families and formal systems, CareBridge ensures that vulnerable individuals, from new mothers to children with special needs and the elderly, are not left behind. Through systematic household mapping and comprehensive referral systems, we create pathways to care that reach every corner of the community.",
         iconKey: "Target",
-        image: businessPartnership,
+        image: outreach,
         heroImage: businessPartnership,
         duration: "Ongoing community engagement",
         participants: "100+ households assessed monthly",
@@ -248,7 +248,7 @@ const programs: ProgramDetail[] = [
         ],
         impact: {
             number: "80%",
-            description: "of referred families successfully access needed services",
+            description: "Referred families successfully access needed services",
             stories: [
                 "Over 500 families connected to essential services in the past year.",
                 "Emergency medical referrals reduced response time by 50%.",

@@ -11,6 +11,7 @@ import partnershipImage from "~/components/black-businesswoman-shaking-hands-wit
 import newmother from "~/components/images/ne.jpg"
 import specialcare from "~/components/images/special care.avif"
 import { getPrograms } from "~/utils/programs";
+import { getFeaturedBlogPosts, blogCategoryIconMap } from "~/utils/blog";
 import Navigation from "~/components/navigation";
 
 export async function action({ request }: ActionFunctionArgs) {
@@ -89,6 +90,7 @@ export default function Home() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const programs = getPrograms();
+    const featuredBlogPosts = getFeaturedBlogPosts();
 
     // Check both navigation state and local state
     const isSubmitting = navigation.state === "submitting" || isLocalSubmitting;
@@ -257,6 +259,64 @@ export default function Home() {
                 </div>
             </section>
 
+            {/* Announcement Banner */}
+            <section className="bg-gradient-to-r from-[#FCB339] to-orange-500 py-6">
+                <div className="container mx-auto px-6">
+                    <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+                        <div className="flex items-center gap-4 flex-1">
+                            <div className="bg-white/20 p-3 rounded-full">
+                                <span className="text-white text-lg font-bold">📢</span>
+                            </div>
+                            <div className="flex-1">
+                                <p className="text-white font-bold text-lg mb-1">
+                                    New Cohort Starting Soon!
+                                </p>
+                                <p className="text-white/90 text-sm lg:text-base">
+                                    Caregiver Training Program - Applications close January 31st
+                                </p>
+                                <p className="text-white/80 text-xs mt-1">
+                                    Join 500+ trained caregivers making a difference across Africa
+                                </p>
+                            </div>
+                        </div>
+                        
+                        {/* Flyer/Image Space - Ready for program flyers */}
+                        <div className="flex items-center gap-4">
+                            <div className="hidden sm:block bg-white/10 p-4 rounded-lg border border-white/20">
+                                <div className="w-16 h-12 bg-white/20 rounded flex items-center justify-center">
+                                    <span className="text-white text-xs font-medium">Flyer</span>
+                                </div>
+                            </div>
+                            
+                            <div className="flex flex-col sm:flex-row gap-3">
+                                <Link
+                                    to="/programs/caregiver-training"
+                                    className="bg-white text-[#FCB339] px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors text-center shadow-md"
+                                >
+                                    Apply Now
+                                </Link>
+                                <Link
+                                    to="/programs"
+                                    className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-[#FCB339] transition-colors text-center"
+                                >
+                                    View All Programs
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {/* Progress Bar for Application Deadline */}
+                    <div className="mt-4 bg-white/20 rounded-full h-2 overflow-hidden">
+                        <div className="bg-white h-full w-3/4 rounded-full transition-all duration-1000"></div>
+                    </div>
+                    <div className="flex justify-between text-white/80 text-xs mt-1">
+                        <span>Applications Opened</span>
+                        <span>25% spots remaining</span>
+                        <span>Jan 31st Deadline</span>
+                    </div>
+                </div>
+            </section>
+
             {/* About Section */}
             <section id="about" className="py-20 bg-gray-50">
                 <div className="container mx-auto px-6">
@@ -418,6 +478,86 @@ export default function Home() {
                             className="inline-flex items-center gap-2 bg-[#00A5B8] text-white px-8 py-4 rounded-full hover:bg-teal-600 transition-colors duration-300 font-medium"
                         >
                             View All Programs
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* Stories Section */}
+            <section className="py-20 bg-white">
+                <div className="container mx-auto px-6">
+                    {/* Section Header */}
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl lg:text-5xl font-heading font-bold text-gray-900 leading-tight mb-4">
+                            Stories of <span className="text-[#00A5B8]">Impact</span>
+                        </h2>
+                        <div className="w-12 h-1 bg-[#00A5B8] mx-auto mb-6"></div>
+                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                            Discover how CARA is transforming lives and building stronger communities across Africa through our programs and partnerships.
+                        </p>
+                    </div>
+
+                    {/* Featured Stories Grid */}
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                        {featuredBlogPosts.map((post, index) => {
+                            const Icon = blogCategoryIconMap[post.iconKey];
+                            return (
+                                <Link 
+                                    key={post.id}
+                                    to={`/blog/${post.slug}`}
+                                    className={`group ${index === 0 ? 'md:col-span-2 lg:col-span-2' : ''}`}
+                                >
+                                    <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200 h-full">
+                                        <div className="relative">
+                                            <img 
+                                                src={post.featuredImage} 
+                                                alt={post.alt || post.title}
+                                                className={`w-full object-cover group-hover:scale-105 transition-transform duration-300 ${
+                                                    index === 0 ? 'h-64' : 'h-48'
+                                                }`}
+                                            />
+                                            <div className="absolute top-4 left-4">
+                                                <div className={`flex items-center gap-2 px-3 py-1 ${post.tagColor} ${post.tagTextColor} rounded-full text-sm font-medium`}>
+                                                    <Icon className="w-4 h-4" />
+                                                    {post.categoryLabel}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className={`p-6 ${index === 0 ? 'lg:p-8' : ''}`}>
+                                            <h3 className={`font-bold text-gray-900 mb-3 group-hover:text-[#00A5B8] transition-colors line-clamp-2 ${
+                                                index === 0 ? 'text-2xl' : 'text-xl'
+                                            }`}>
+                                                {post.title}
+                                            </h3>
+                                            <p className="text-gray-600 leading-relaxed mb-4 line-clamp-3">
+                                                {post.excerpt}
+                                            </p>
+                                            <div className="flex items-center justify-between">
+                                                <div className="flex items-center gap-4 text-sm text-gray-500">
+                                                    <span>{post.author}</span>
+                                                    <span>{post.readTime}</span>
+                                                </div>
+                                                <svg className="w-5 h-5 text-[#00A5B8] group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Link>
+                            );
+                        })}
+                    </div>
+
+                    {/* View More Button */}
+                    <div className="text-center">
+                        <Link
+                            to="/blog"
+                            className="inline-flex items-center gap-2 bg-[#00A5B8] text-white px-8 py-4 rounded-full hover:bg-teal-600 transition-colors duration-300 font-medium"
+                        >
+                            Read More Stories
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>

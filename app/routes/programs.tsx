@@ -7,11 +7,18 @@ import { getPrograms, type ProgramDetail, programIconMap } from "~/utils/program
 export default function Programs() {
     const programs: ProgramDetail[] = getPrograms();
 
-    const stats = [
-        { number: "25+", label: "Active Programs", icon: BookOpen },
-        { number: "15+", label: "Lives Impacted", icon: Heart },
-        { number: "23+", label: "Communities Served", icon: MapPin },
-        { number: "15+", label: "Trained Caregivers", icon: Users }
+    // const stats = [
+    //     { number: "25+", label: "Active Programs", icon: BookOpen },
+    //     { number: "15+", label: "Lives Impacted", icon: Heart },
+    //     { number: "23+", label: "Communities Served", icon: MapPin },
+    //     { number: "15+", label: "Trained Caregivers", icon: Users }
+    // ];
+
+    const coreValues = [
+        { value: "Empowerment", description: "Building local capacity", icon: Users },
+        { value: "Dignity", description: "Respectful care for all", icon: Heart },
+        { value: "Inclusion", description: "No one left behind", icon: BookOpen },
+        { value: "Community", description: "Sustainable networks", icon: MapPin }
     ];
 
     return (
@@ -42,15 +49,15 @@ export default function Programs() {
                         
                         {/* Quick Stats */}
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                            {stats.map((stat, index) => (
+                            {coreValues.map((stat, index) => (
                                 <div key={index} className="flex items-center gap-3 p-4 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30">
                                     <stat.icon className="w-6 h-6 text-[#FCB339] flex-shrink-0" />
                                     <div className="text-left">
-                                        {/* <div className="text-xl font-bold text-white">{stat.number}</div> */}
-                                        <div className="text-sm text-white/80">{stat.label}</div>
+                                        <div className="text-lg font-bold text-white">{stat.value}</div>
+                                        <div className="text-sm text-white/80">{stat.description}</div>
                                     </div>
                                 </div>
-                            ))}
+                                ))}
                         </div>
                     </div>
                 </div>
@@ -92,7 +99,7 @@ export default function Programs() {
                                     {/* Impact Badge */}
                                     <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-lg border">
                                         <div className="text-center">
-                                            <div className="text-2xl font-bold text-[#00A5B8] mb-1">{program.impact.number}</div>
+                                            {/* <div className="text-2xl font-bold text-[#00A5B8] mb-1">{program.impact.number}</div> */}
                                             <div className="text-xs text-gray-600 max-w-24">{program.impact.description}</div>
                                         </div>
                                     </div>
@@ -110,7 +117,7 @@ export default function Programs() {
                                     </div>
 
                                     {/* Program Details */}
-                                    <div className="grid md:grid-cols-3 gap-4">
+                                    {/* <div className="grid md:grid-cols-3 gap-4">
                                         <div className="flex items-center gap-2">
                                             <Clock className="w-4 h-4 text-[#00A5B8]" />
                                             <div>
@@ -132,7 +139,7 @@ export default function Programs() {
                                                 <div className="text-xs text-gray-500">Locations</div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
 
                                     {/* Program Features */}
                                     <div>
