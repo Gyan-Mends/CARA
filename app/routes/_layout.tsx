@@ -26,20 +26,20 @@ export default function AppLayout() {
                                 </p>
                                 <div className="flex space-x-4">
                                     
-                                    <a href="https://twitter.com/caraafrica" className="w-10 h-10 bg-black rounded-full flex items-center justify-center hover:opacity-80 transition-opacity" title="Twitter">
-                                        <XIcon />
+                                    <a href="https://twitter.com/caraafrica" className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors" title="Twitter">
+                                        <XIcon className="w-5 h-5 text-white" />
                                     </a>
-                                    <a href="https://facebook.com/caraafrica" className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity" title="Facebook">
-                                        <FacebookIcon />
+                                    <a href="https://facebook.com/caraafrica" className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors" title="Facebook">
+                                        <FacebookIcon className="w-5 h-5 text-white" />
                                     </a>
-                                    <a href="https://instagram.com/caraafrica" className="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity" title="Instagram">
-                                    <InstagramIcon />
+                                    <a href="https://instagram.com/caraafrica" className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors" title="Instagram">
+                                    <InstagramIcon className="w-5 h-5 text-white" />
                                     </a>
-                                    <a href="https://linkedin.com/caraafrica" className="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:opacity-80 transition-opacity" title="LinkedIn">
-                                    <LinkedinIcon />
+                                    <a href="https://linkedin.com/caraafrica" className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors" title="LinkedIn">
+                                    <LinkedinIcon className="w-5 h-5 text-white" />
                                     </a>
-                                    <a href="https://youtube.com/caraafrica" className="w-10 h-10 bg-danger rounded-full flex items-center justify-center hover:opacity-80 transition-opacity" title="YouTube">
-                                    <YoutubeIcon />
+                                    <a href="https://youtube.com/caraafrica" className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors" title="YouTube">
+                                    <YoutubeIcon className="w-5 h-5 text-white" />
                                     </a>
                                    
                                 </div>
