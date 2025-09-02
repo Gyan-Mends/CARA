@@ -278,7 +278,7 @@ export default function Home() {
                             <X className="w-5 h-5 text-white" />
                         </button>
 
-                        <div className="p-8">
+                        <div className="lg:p-8">
                             <div className="flex flex-col lg:flex-row items-center gap-6">
 
                                 <img
@@ -471,7 +471,7 @@ export default function Home() {
                     {/* Section Header */}
                     <div className="text-center mb-16">
                         <h2 className="text-4xl lg:text-5xl font-heading font-bold text-gray-900 leading-tight mb-4">
-                            Stories of <span className="text-[#00A5B8]">Impact</span>
+                            Latest <span className="text-[#00A5B8]">News</span>
                         </h2>
                         <div className="w-12 h-1 bg-[#00A5B8] mx-auto mb-6"></div>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
