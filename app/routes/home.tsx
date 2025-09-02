@@ -388,12 +388,12 @@ export default function Home() {
                                         <p className="text-gray-600 leading-relaxed mb-4">
                                             {program.description}
                                         </p>
-                                        <div className="flex items-center justify-between text-sm text-gray-500">
+                                        {/* <div className="flex items-center justify-between text-sm text-gray-500">
                                             <span className={`${program.tagColor ?? ''} px-3 py-1 rounded-full ${program.tagTextColor ?? ''} font-medium`}>
                                                 {program.duration}
                                             </span>
                                             <span>{program.achievement}</span>
-                                        </div>
+                                        </div> */}
                                         <div className="mt-4">
                                             <Link
                                                 to={`/programs/${program.slug}`}
