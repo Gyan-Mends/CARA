@@ -46,7 +46,7 @@ export default function Programs() {
                                 <div key={index} className="flex items-center gap-3 p-4 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30">
                                     <stat.icon className="w-6 h-6 text-[#FCB339] flex-shrink-0" />
                                     <div className="text-left">
-                                        <div className="text-xl font-bold text-white">{stat.number}</div>
+                                        {/* <div className="text-xl font-bold text-white">{stat.number}</div> */}
                                         <div className="text-sm text-white/80">{stat.label}</div>
                                     </div>
                                 </div>
