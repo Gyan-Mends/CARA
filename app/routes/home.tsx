@@ -10,6 +10,7 @@ import teachingImage from "~/components/images/african-woman-teaching-kids-class
 import partnershipImage from "~/components/black-businesswoman-shaking-hands-with-male-partner_74855-1085.jpg"
 import newmother from "~/components/images/ne.jpg"
 import specialcare from "~/components/images/special care.avif"
+import bannerImage from "~/components/banners/banner1.jpg"
 import { getPrograms } from "~/utils/programs";
 import { getFeaturedBlogPosts, blogCategoryIconMap } from "~/utils/blog";
 import Navigation from "~/components/navigation";
@@ -206,8 +207,8 @@ export default function Home() {
                                                 <div
                                                     key={index}
                                                     className={`absolute inset-0 transition-all duration-700 ease-in-out ${index === currentImageIndex
-                                                            ? 'opacity-100 scale-100'
-                                                            : 'opacity-0 scale-105'
+                                                        ? 'opacity-100 scale-100'
+                                                        : 'opacity-0 scale-105'
                                                         }`}
                                                 >
                                                     <img
@@ -251,8 +252,8 @@ export default function Home() {
                                                 key={index}
                                                 onClick={() => goToImage(index)}
                                                 className={`w-3 h-3 rounded-full transition-all duration-200 ${index === currentImageIndex
-                                                        ? 'bg-[#00A5B8] scale-125'
-                                                        : 'bg-gray-300 hover:bg-gray-400'
+                                                    ? 'bg-[#00A5B8] scale-125'
+                                                    : 'bg-gray-300 hover:bg-gray-400'
                                                     }`}
                                                 aria-label={`Go to image ${index + 1}`}
                                             />
@@ -267,8 +268,8 @@ export default function Home() {
 
             {/* Announcement Modal */}
             {showModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-                    <div className="relative max-w-2xl mx-4 bg-gradient-to-r from-[#FCB339] to-orange-500 rounded-2xl shadow-2xl overflow-hidden">
+                <div className="fixed inset-0 mt-10 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+                    <div className="relative max-w-2xl mx-4 bg-gradient-to-r from-[#FCB339]/20 to-orange-500/20 rounded-2xl shadow-2xl overflow-hidden">
                         {/* Close Button */}
                         <button
                             onClick={() => setShowModal(false)}
@@ -279,61 +280,16 @@ export default function Home() {
 
                         <div className="p-8">
                             <div className="flex flex-col lg:flex-row items-center gap-6">
-                                <div className="flex items-center gap-4 flex-1">
-                                    <div className="bg-white/20 p-4 rounded-full">
-                                        <span className="text-white text-2xl">📢</span>
-                                    </div>
-                                    <div className="text-center lg:text-left">
-                                        <h3 className="text-white font-bold text-2xl mb-2">
-                                            New Cohort Starting Soon!
-                                        </h3>
-                                        <p className="text-white/90 text-lg mb-2">
-                                            Caregiver Training Program - Applications close January 31st
-                                        </p>
-                                        <p className="text-white/80 text-sm">
-                                            Join 500+ trained caregivers making a difference across Africa
-                                        </p>
-                                    </div>
-                                </div>
-                                
-                                {/* Flyer/Image Space */}
-                                <div className="flex items-center gap-4">
-                                    <div className="hidden sm:block bg-white/10 p-6 rounded-lg border border-white/20">
-                                        <div className="w-20 h-16 bg-white/20 rounded flex items-center justify-center">
-                                            <span className="text-white text-sm font-medium">Program Flyer</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div className="flex flex-col gap-3">
-                                        <Link
-                                            to="/programs/caregiver-training"
-                                            onClick={() => setShowModal(false)}
-                                            className="bg-white text-[#FCB339] px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors text-center shadow-lg"
-                                        >
-                                            Apply Now
-                                        </Link>
-                                        <Link
-                                            to="/programs"
-                                            onClick={() => setShowModal(false)}
-                                            className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-[#FCB339] transition-colors text-center"
-                                        >
-                                            View All Programs
-                                        </Link>
-                                    </div>
-                                </div>
+
+                                <img
+                                    src={bannerImage}
+                                    alt="Caregiver Training Program"
+                                    className=" h-[70vh] w-full  object-cover rounded"
+                                />
+
                             </div>
-                            
-                            {/* Progress Bar */}
-                            <div className="mt-6">
-                                <div className="bg-white/20 rounded-full h-3 overflow-hidden">
-                                    <div className="bg-white h-full w-3/4 rounded-full transition-all duration-1000"></div>
-                                </div>
-                                <div className="flex justify-between text-white/80 text-sm mt-2">
-                                    <span>Applications Opened</span>
-                                    <span>25% spots remaining</span>
-                                    <span>Jan 31st Deadline</span>
-                                </div>
-                            </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -370,7 +326,7 @@ export default function Home() {
                                                 <span className="border-b-2 border-teal-400 pb-1">Our Belief</span>
                                             </h3>
                                             <p className="text-gray-600 text-sm leading-relaxed">
-                                            We believe that health begins at home, and that every community can be trained, equipped, and supported to provide good care. As a nonprofit organization dedicated to community health and innovation in care, we work at the intersection of health, social protection, education, and inclusion. 
+                                                We believe that health begins at home, and that every community can be trained, equipped, and supported to provide good care. As a nonprofit organization dedicated to community health and innovation in care, we work at the intersection of health, social protection, education, and inclusion.
                                             </p>
                                         </div>
                                     </div>
@@ -389,7 +345,7 @@ export default function Home() {
                                                 <span className="border-b-2 border-teal-400 pb-1">Community Health</span>
                                             </h3>
                                             <p className="text-gray-600 text-sm leading-relaxed">
-                                            We define community health as the capacity of a local population to care for its vulnerable members, especially mothers, children, the elderly, and persons with special needs, through everyday, dignified, non-clinical support. 
+                                                We define community health as the capacity of a local population to care for its vulnerable members, especially mothers, children, the elderly, and persons with special needs, through everyday, dignified, non-clinical support.
                                             </p>
                                         </div>
                                     </div>
@@ -528,19 +484,18 @@ export default function Home() {
                         {featuredBlogPosts.map((post, index) => {
                             const Icon = blogCategoryIconMap[post.iconKey];
                             return (
-                                <Link 
+                                <Link
                                     key={post.id}
                                     to={`/blog/${post.slug}`}
                                     className={`group ${index === 0 ? '' : ''}`}
                                 >
                                     <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200 h-full">
                                         <div className="relative">
-                                            <img 
-                                                src={post.featuredImage} 
+                                            <img
+                                                src={post.featuredImage}
                                                 alt={post.alt || post.title}
-                                                className={`w-full object-cover group-hover:scale-105 transition-transform duration-300 ${
-                                                    index === 0 ? 'h-64' : 'h-48'
-                                                }`}
+                                                className={`w-full object-cover group-hover:scale-105 transition-transform duration-300 ${index === 0 ? 'h-64' : 'h-48'
+                                                    }`}
                                             />
                                             <div className="absolute top-4 left-4">
                                                 <div className={`flex items-center gap-2 px-3 py-1 ${post.tagColor} ${post.tagTextColor} rounded-full text-sm font-medium`}>
@@ -550,9 +505,8 @@ export default function Home() {
                                             </div>
                                         </div>
                                         <div className={`p-6 ${index === 0 ? 'lg:p-8' : ''}`}>
-                                            <h3 className={`font-bold text-gray-900 mb-3 group-hover:text-[#00A5B8] transition-colors line-clamp-2 ${
-                                                index === 0 ? 'text-2xl' : 'text-xl'
-                                            }`}>
+                                            <h3 className={`font-bold text-gray-900 mb-3 group-hover:text-[#00A5B8] transition-colors line-clamp-2 ${index === 0 ? 'text-2xl' : 'text-xl'
+                                                }`}>
                                                 {post.title}
                                             </h3>
                                             <p className="text-gray-600 leading-relaxed mb-4 line-clamp-3">
