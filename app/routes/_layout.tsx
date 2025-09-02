@@ -1,4 +1,6 @@
 import { Outlet, Link } from "react-router";
+import { InstagramIcon, LinkedinIcon,  TwitterIcon,  XIcon, YoutubeIcon } from "lucide-react";
+import { FacebookIcon } from "lucide-react";
 
 export default function AppLayout() {
 
@@ -23,18 +25,23 @@ export default function AppLayout() {
                                     Supporting families, uplifting caregivers, and strengthening communities.
                                 </p>
                                 <div className="flex space-x-4">
-                                    <a href="mailto:info@caraafrica.org" className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity" title="Email">
-                                        <span className="text-white text-lg">📧</span>
-                                    </a>
-                                    <a href="https://twitter.com/caraafrica" className="w-10 h-10 bg-[#FCB339] rounded-full flex items-center justify-center hover:opacity-80 transition-opacity" title="Twitter">
-                                        <span className="text-white text-lg">🐦</span>
+                                    
+                                    <a href="https://twitter.com/caraafrica" className="w-10 h-10 bg-black rounded-full flex items-center justify-center hover:opacity-80 transition-opacity" title="Twitter">
+                                        <XIcon />
                                     </a>
                                     <a href="https://facebook.com/caraafrica" className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity" title="Facebook">
-                                        <span className="text-white text-lg">📘</span>
+                                        <FacebookIcon />
                                     </a>
-                                    <a href="https://instagram.com/caraafrica" className="w-10 h-10 bg-[#FCB339] rounded-full flex items-center justify-center hover:opacity-80 transition-opacity" title="Instagram">
-                                        <span className="text-white text-lg">📱</span>
+                                    <a href="https://instagram.com/caraafrica" className="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity" title="Instagram">
+                                    <InstagramIcon />
                                     </a>
+                                    <a href="https://linkedin.com/caraafrica" className="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:opacity-80 transition-opacity" title="LinkedIn">
+                                    <LinkedinIcon />
+                                    </a>
+                                    <a href="https://youtube.com/caraafrica" className="w-10 h-10 bg-danger rounded-full flex items-center justify-center hover:opacity-80 transition-opacity" title="YouTube">
+                                    <YoutubeIcon />
+                                    </a>
+                                   
                                 </div>
                             </div>
 

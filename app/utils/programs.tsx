@@ -103,174 +103,174 @@ const programs: ProgramDetail[] = [
     },
     {
         id: "2",
-        slug: "community-based-support",
-        title: "Community-Based Support",
-        description: "We equip local caregivers to extend follow-up from health facilities to households, ensuring vulnerable families are linked to health, education, and social services.",
-        longDescription: "We equip local caregivers to extend follow-up from health facilities to households, ensuring vulnerable families are linked to health, education, and social services. Through comprehensive community outreach and support systems, we bridge the gap between formal healthcare and home-based care.",
-        iconKey: "Users",
-        image: caregiverTraining,
-        heroImage: caregiverTraining,
-        duration: "Ongoing",
-        participants: "30+ individuals reached monthly",
-        locations: "20 communities across Africa",
-        startDate: "Year-round programming",
-        cost: "Free community workshops",
+        slug: "mothers-first",
+        title: "Mothers First",
+        description: "Mothers First is CARA's flagship postpartum programme, focused on the first 40 days after childbirth. Trained caregivers provide home visits, maternal education, emotional support, and newborn surveillance to promote safe recovery and bonding.",
+        longDescription: "Mothers First is CARA's flagship postpartum programme, focused on the first 40 days after childbirth. Trained caregivers provide home visits, maternal education, emotional support, and newborn surveillance to promote safe recovery and bonding. This critical intervention period ensures mothers and newborns receive the care they need during the most vulnerable time.",
+        iconKey: "Heart",
+        image: care,
+        heroImage: care,
+        duration: "40 days postpartum",
+        participants: "50+ new mothers supported monthly",
+        locations: "15 communities across Africa",
+        startDate: "Ongoing enrollment",
+        cost: "Free for all participants",
         objectives: [
-            "Increase health literacy across all age groups",
-            "Promote preventive healthcare practices",
-            "Reduce preventable diseases and health complications",
-            "Build community capacity for health promotion"
+            "Support maternal recovery during the first 40 days postpartum",
+            "Promote safe newborn health and development",
+            "Strengthen mother-infant bonding",
+            "Prevent postpartum complications through early detection"
         ],
         curriculum: [
-            { module: "Preventive Healthcare", topics: ["Vaccination importance", "Regular health screenings", "Early disease detection", "Health risk assessment"] },
-            { module: "Nutrition and Wellness", topics: ["Balanced diet planning", "Food safety", "Child nutrition", "Managing malnutrition"] },
-            { module: "Maternal and Child Health", topics: ["Prenatal care", "Safe delivery practices", "Newborn care", "Child development"] },
-            { module: "Disease Prevention", topics: ["Hygiene practices", "Water sanitation", "Infectious disease prevention", "Chronic disease management"] }
+            { module: "Postpartum Recovery", topics: ["Physical recovery monitoring", "Warning signs recognition", "Emotional wellbeing", "Self-care practices"] },
+            { module: "Newborn Care", topics: ["Feeding support", "Growth monitoring", "Health surveillance", "Development milestones"] },
+            { module: "Mother-Baby Bonding", topics: ["Attachment promotion", "Communication techniques", "Stress management", "Family integration"] },
+            { module: "Health Education", topics: ["Nutrition guidance", "Hygiene practices", "Family planning", "Healthcare access"] }
         ],
         features: [
-            "Postpartum home visits and follow-up for new mothers and infants",
-            "Household mapping to identify unmet care needs in communities",
-            "Referral pathways connecting families to clinics, schools, and social protection services"
+            "Home visits during the first 40 days after childbirth",
+            "Support for maternal recovery, newborn health, and nutrition",
+            "Early surveillance to prevent complications and promote bonding"
         ],
         impact: {
-            number: "25%",
-            description: "improvement in community health knowledge",
+            number: "95%",
+            description: "of mothers report improved confidence in newborn care",
             stories: [
-                "Vaccination rates increased by 60% in participating communities.",
-                "Malnutrition cases decreased by 40% among children under 5.",
-                "Community members now lead their own health education sessions."
+                "Maternal complications reduced by 40% in participating communities.",
+                "Exclusive breastfeeding rates increased by 70% at 6 months.",
+                "Postpartum depression cases identified and supported early increased by 85%."
             ]
         },
         requirements: [
-            "Open to all community members",
-            "No educational prerequisites",
-            "Regular workshop attendance encouraged",
-            "Commitment to sharing knowledge with others"
+            "New mothers within first week postpartum",
+            "Willingness to receive home visits",
+            "Commitment to full 40-day program",
+            "Access to basic communication for emergency contact"
         ],
         nextSteps: [
-            "Register for upcoming workshops",
-            "Join community health committees",
-            "Become a peer educator",
-            "Access ongoing health resources"
+            "Enrollment during pregnancy or immediately postpartum",
+            "Initial assessment and care plan development",
+            "Regular home visits and support",
+            "Graduation and transition to ongoing community support"
         ],
-        tagColor: "bg-[#FCB339]/10",
-        tagTextColor: "text-[#FCB339]",
-        achievement: "15% health improvement",
+        tagColor: "bg-pink-100",
+        tagTextColor: "text-pink-600",
+        achievement: "95% maternal satisfaction",
         alt: "Scene from care job with senior patient being taken care of"
     },
     {
         id: "3",
-        slug: "inclusive-education-support",
-        title: "Inclusive Education Support",
-        description: "We empower schools by establishing inclusive units and training teachers and care aides to support children with special needs.",
-        longDescription: "We empower schools by establishing inclusive units and training teachers and care aides to support children with special needs. Through comprehensive training and support systems, we create educational environments where all children can thrive and reach their full potential.",
-        iconKey: "Target",
-        image: caregiverTraining,
+        slug: "inclusive-care",
+        title: "Inclusive Care",
+        description: "CARA's Inclusive Care programme empowers families and schools to provide dignified support for children and people with special needs. We strengthen caregiving at home while promoting inclusive education in classrooms, ensuring that every child has the opportunity to learn and thrive.",
+        longDescription: "CARA's Inclusive Care programme empowers families and schools to provide dignified support for children and people with special needs. We strengthen caregiving at home while promoting inclusive education in classrooms, ensuring that every child has the opportunity to learn and thrive. Through comprehensive support systems, we create inclusive environments where all individuals are valued and supported.",
+        iconKey: "Users",
+        image: gg,
         heroImage: gg,
-        duration: "6 months intensive + ongoing support",
-        participants: "15+ schools with inclusive units",
-        locations: "10 communities across Africa",
-        startDate: "Quarterly cohorts",
-        cost: "Free with scholarship opportunities",
+        duration: "12 months with ongoing support",
+        participants: "20+ families and 10+ schools supported",
+        locations: "12 communities across Africa",
+        startDate: "Monthly intake",
+        cost: "Free for all participants",
         objectives: [
-            "Establish inclusive education units in schools",
-            "Train teachers and aides in special needs support",
-            "Create accessible learning environments for all children",
-            "Build community support for inclusive education"
+            "Empower families to provide dignified support for children with special needs",
+            "Strengthen inclusive education in schools through SENCO units and teacher training",
+            "Create support networks linking families to essential services",
+            "Promote inclusive practices in communities"
         ],
         curriculum: [
-            { module: "Inclusive Education Foundations", topics: ["Understanding special needs", "Disability awareness and inclusion", "Individual education planning", "Classroom adaptation techniques"] },
-            { module: "Support Strategies", topics: ["Learning support methods", "Assistive technologies", "Behavioral management", "Communication aids"] },
-            { module: "Teacher and Aide Training", topics: ["Special needs identification", "Differentiated instruction", "Collaborative teaching", "Parent-teacher collaboration"] },
-            { module: "School Environment", topics: ["Accessible infrastructure", "Inclusive policies", "Peer support systems", "Community engagement"] }
+            { module: "Family Support", topics: ["Understanding special needs", "Home-based care strategies", "Advocacy skills", "Emotional support techniques"] },
+            { module: "School Integration", topics: ["SENCO unit establishment", "Teacher training programs", "Care aide development", "Classroom adaptations"] },
+            { module: "Service Linkages", topics: ["Healthcare connections", "Educational resources", "Social protection access", "Community networks"] },
+            { module: "Inclusive Practices", topics: ["Dignity-centered care", "Community awareness", "Stigma reduction", "Rights advocacy"] }
         ],
         features: [
-            "Creation of SENCO (Special Educational Needs Coordinator) units within schools",
-            "Training for teachers, school aides, and peer mentors on inclusive education",
-            "Collaboration with parents and communities to foster supportive learning environments"
+            "Training and guidance for parents of children with special needs",
+            "Support to schools through SENCO units, teacher training, and care aides",
+            "Linking families to health, education, and social protection services"
         ],
         impact: {
-            number: "15+",
-            description: "community projects led by youth participants",
+            number: "85%",
+            description: "of families report improved confidence in caring for children with special needs",
             stories: [
-                "Youth participants have started 50+ small businesses in their communities.",
-                "Program alumni now serve on local government committees and NGO boards.",
-                "Youth-led projects have reached over 5,000 community members."
+                "School enrollment for children with disabilities increased by 60% in participating communities.",
+                "Family stress levels reduced by 45% after program participation.",
+                "15 new SENCO units established, supporting over 300 children with special needs."
             ]
         },
         requirements: [
-            "Ages 16-25 years",
-            "Demonstrated community engagement",
-            "Basic educational background",
-            "Commitment to full program participation"
+            "Families with children or members with special needs",
+            "School staff interested in inclusive education",
+            "Commitment to full program participation",
+            "Willingness to advocate for inclusive practices"
         ],
         nextSteps: [
-            "Complete online application",
-            "Participate in selection interviews",
-            "Join orientation program",
-            "Begin mentorship matching"
+            "Initial assessment and needs identification",
+            "Enrollment in appropriate program tracks",
+            "Ongoing training and support sessions",
+            "Connection to long-term support networks"
         ],
-        tagColor: "bg-green-100",
-        tagTextColor: "text-green-600",
-        achievement: "10+ youth projects",
+        tagColor: "bg-blue-100",
+        tagTextColor: "text-blue-600",
+        achievement: "15+ SENCO units established",
         alt: "African mother with little girl"
     },
     {
         id: "4",
-        slug: "advocacy-and-awareness",
-        title: "Advocacy and Awareness",
-        description: "We engage caregivers and communities in campaigns that champion dignity, disability inclusion, and community health as a human right.",
-        longDescription: "We engage caregivers and communities in campaigns that champion dignity, disability inclusion, and community health as a human right. Through advocacy efforts and awareness campaigns, we work to change attitudes, influence policy, and create more inclusive communities for all.",
-        iconKey: "Award",
-        image: womenEmpowerment,
+        slug: "carebridge",
+        title: "CareBridge",
+        description: "CareBridge is CARA's community outreach and linkage platform. It identifies households with unmet care needs and connects them to essential health, education, and social services. By bridging the gap between families and formal systems, CareBridge ensures that vulnerable individuals, from new mothers to children with special needs and the elderly, are not left behind.",
+        longDescription: "CareBridge is CARA's community outreach and linkage platform. It identifies households with unmet care needs and connects them to essential health, education, and social services. By bridging the gap between families and formal systems, CareBridge ensures that vulnerable individuals, from new mothers to children with special needs and the elderly, are not left behind. Through systematic household mapping and comprehensive referral systems, we create pathways to care that reach every corner of the community.",
+        iconKey: "Target",
+        image: businessPartnership,
         heroImage: businessPartnership,
-        duration: "12 months with ongoing support",
-        participants: "50+ community advocates trained",
-        locations: "12 communities across Africa",
-        startDate: "Monthly intake",
-        cost: "Free with microfinance options",
+        duration: "Ongoing community engagement",
+        participants: "100+ households assessed monthly",
+        locations: "25 communities across Africa",
+        startDate: "Continuous enrollment",
+        cost: "Free community service",
         objectives: [
-            "Raise awareness on dignity, disability inclusion, and health rights",
-            "Advocate for policy changes supporting vulnerable populations",
-            "Build community capacity for advocacy and awareness",
-            "Champion inclusive practices and community health as human rights"
+            "Identify households with unmet care needs through systematic mapping",
+            "Connect vulnerable individuals to appropriate health, education, and social services",
+            "Ensure continuity of care from facilities to homes",
+            "Bridge gaps between families and formal support systems"
         ],
         curriculum: [
-            { module: "Advocacy Foundations", topics: ["Human rights principles", "Disability rights framework", "Community organizing", "Campaign development"] },
-            { module: "Awareness Campaigns", topics: ["Message development", "Media engagement", "Community outreach", "Storytelling techniques"] },
-            { module: "Policy Engagement", topics: ["Policy analysis", "Stakeholder mapping", "Government engagement", "Coalition building"] },
-            { module: "Community Mobilization", topics: ["Grassroots organizing", "Event planning", "Volunteer coordination", "Impact measurement"] }
+            { module: "Community Assessment", topics: ["Household mapping techniques", "Vulnerability identification", "Needs assessment tools", "Data collection methods"] },
+            { module: "Service Navigation", topics: ["Healthcare systems", "Educational resources", "Social protection programs", "NGO partnerships"] },
+            { module: "Referral Management", topics: ["Referral protocols", "Follow-up procedures", "Case management", "Documentation systems"] },
+            { module: "Community Engagement", topics: ["Outreach strategies", "Trust building", "Cultural sensitivity", "Communication skills"] }
         ],
         features: [
-            "Public awareness campaigns on disability inclusion, maternal health, and elder dignity",
-            "Policy dialogues to influence government and institutional support for care systems",
-            "Community forums and storytelling platforms that amplify caregiver and family voices"
+            "Mapping households with unmet care needs",
+            "Referrals to clinics, schools, and social protection services",
+            "Follow-up care to ensure continuity from facilities to homes"
         ],
         impact: {
-            number: "30%",
-            description: "of participants started income-generating activities",
+            number: "80%",
+            description: "of referred families successfully access needed services",
             stories: [
-                "Sarah increased her family income by 300% through her tailoring business.",
-                "Women participants now hold 40% of community leadership positions.",
-                "Average participant income increased from $50 to $150 per month."
+                "Over 500 families connected to essential services in the past year.",
+                "Emergency medical referrals reduced response time by 50%.",
+                "85% of referred children with special needs now enrolled in appropriate educational programs."
             ]
         },
         requirements: [
-            "Women aged 18 and above",
-            "Basic literacy skills preferred",
-            "Commitment to program completion",
-            "Willingness to support other women"
+            "No specific requirements - open to all community members",
+            "Households identified through community mapping",
+            "Willingness to engage with referral services",
+            "Consent for follow-up support"
         ],
         nextSteps: [
-            "Attend information sessions",
-            "Complete skills assessment",
-            "Join training cohorts",
-            "Access ongoing business support"
+            "Community assessment and household identification",
+            "Needs evaluation and service matching",
+            "Referral coordination and facilitation",
+            "Follow-up monitoring and ongoing support"
         ],
-        tagColor: "bg-purple-100",
-        tagTextColor: "text-purple-600",
-        achievement: "20% started businesses",
-        alt: "Black businesswoman shaking hands with male partner"
+        tagColor: "bg-orange-100",
+        tagTextColor: "text-orange-600",
+        achievement: "500+ families connected to services",
+        alt: "Business partners closing contract"
     }
 ];
 

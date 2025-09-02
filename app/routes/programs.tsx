@@ -20,7 +20,7 @@ export default function Programs() {
             <Navigation />
             
             {/* Page Header */}
-            <section className="py-12 mt-20 relative bg-gray-900 border-b border-gray-200 overflow-hidden h-[70vh] -mt-20">
+            <section className="py-12 lg:mt-20 mt-6 relative bg-gray-900 border-b border-gray-200 overflow-hidden lg:h-[70vh]  -mt-20">
                 {/* Background Image */}
                 <div className="absolute inset-0">
                     <img 
