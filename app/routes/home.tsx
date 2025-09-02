@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Twitter, Youtube, ChevronLeft, ChevronRight, Star, Settings, Loader2 } from "lucide-react";
+import { Facebook, Instagram, Twitter, Youtube, ChevronLeft, ChevronRight, Star, Settings, Loader2, X } from "lucide-react";
 import { useSearchParams, useActionData, useNavigation, Link } from "react-router";
 import { type ActionFunctionArgs } from "react-router";
 import { redirect } from "react-router";
@@ -88,6 +88,7 @@ export default function Home() {
     const showSuccessMessage = success === "true";
     const [isLocalSubmitting, setIsLocalSubmitting] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [showModal, setShowModal] = useState(false);
 
     const programs = getPrograms();
     const featuredBlogPosts = getFeaturedBlogPosts();
@@ -116,6 +117,11 @@ export default function Home() {
     useEffect(() => {
         const interval = setInterval(nextImage, 10000); // Change image every 5 seconds
         return () => clearInterval(interval);
+    }, []);
+
+    // Show modal on every page visit/refresh
+    useEffect(() => {
+        setTimeout(() => setShowModal(true), 2000); // Show after 2 seconds
     }, []);
 
     // Handle form submission state
@@ -259,63 +265,80 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Announcement Banner */}
-            <section className="bg-gradient-to-r from-[#FCB339] to-orange-500 py-6">
-                <div className="container mx-auto px-6">
-                    <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-                        <div className="flex items-center gap-4 flex-1">
-                            <div className="bg-white/20 p-3 rounded-full">
-                                <span className="text-white text-lg font-bold">📢</span>
-                            </div>
-                            <div className="flex-1">
-                                <p className="text-white font-bold text-lg mb-1">
-                                    New Cohort Starting Soon!
-                                </p>
-                                <p className="text-white/90 text-sm lg:text-base">
-                                    Caregiver Training Program - Applications close January 31st
-                                </p>
-                                <p className="text-white/80 text-xs mt-1">
-                                    Join 500+ trained caregivers making a difference across Africa
-                                </p>
-                            </div>
-                        </div>
-                        
-                        {/* Flyer/Image Space - Ready for program flyers */}
-                        <div className="flex items-center gap-4">
-                            <div className="hidden sm:block bg-white/10 p-4 rounded-lg border border-white/20">
-                                <div className="w-16 h-12 bg-white/20 rounded flex items-center justify-center">
-                                    <span className="text-white text-xs font-medium">Flyer</span>
+            {/* Announcement Modal */}
+            {showModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+                    <div className="relative max-w-2xl mx-4 bg-gradient-to-r from-[#FCB339] to-orange-500 rounded-2xl shadow-2xl overflow-hidden">
+                        {/* Close Button */}
+                        <button
+                            onClick={() => setShowModal(false)}
+                            className="absolute top-4 right-4 z-10 bg-white/20 hover:bg-white/30 rounded-full p-2 transition-colors"
+                        >
+                            <X className="w-5 h-5 text-white" />
+                        </button>
+
+                        <div className="p-8">
+                            <div className="flex flex-col lg:flex-row items-center gap-6">
+                                <div className="flex items-center gap-4 flex-1">
+                                    <div className="bg-white/20 p-4 rounded-full">
+                                        <span className="text-white text-2xl">📢</span>
+                                    </div>
+                                    <div className="text-center lg:text-left">
+                                        <h3 className="text-white font-bold text-2xl mb-2">
+                                            New Cohort Starting Soon!
+                                        </h3>
+                                        <p className="text-white/90 text-lg mb-2">
+                                            Caregiver Training Program - Applications close January 31st
+                                        </p>
+                                        <p className="text-white/80 text-sm">
+                                            Join 500+ trained caregivers making a difference across Africa
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                {/* Flyer/Image Space */}
+                                <div className="flex items-center gap-4">
+                                    <div className="hidden sm:block bg-white/10 p-6 rounded-lg border border-white/20">
+                                        <div className="w-20 h-16 bg-white/20 rounded flex items-center justify-center">
+                                            <span className="text-white text-sm font-medium">Program Flyer</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="flex flex-col gap-3">
+                                        <Link
+                                            to="/programs/caregiver-training"
+                                            onClick={() => setShowModal(false)}
+                                            className="bg-white text-[#FCB339] px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors text-center shadow-lg"
+                                        >
+                                            Apply Now
+                                        </Link>
+                                        <Link
+                                            to="/programs"
+                                            onClick={() => setShowModal(false)}
+                                            className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-[#FCB339] transition-colors text-center"
+                                        >
+                                            View All Programs
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                             
-                            <div className="flex flex-col sm:flex-row gap-3">
-                                <Link
-                                    to="/programs/caregiver-training"
-                                    className="bg-white text-[#FCB339] px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors text-center shadow-md"
-                                >
-                                    Apply Now
-                                </Link>
-                                <Link
-                                    to="/programs"
-                                    className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-[#FCB339] transition-colors text-center"
-                                >
-                                    View All Programs
-                                </Link>
+                            {/* Progress Bar */}
+                            <div className="mt-6">
+                                <div className="bg-white/20 rounded-full h-3 overflow-hidden">
+                                    <div className="bg-white h-full w-3/4 rounded-full transition-all duration-1000"></div>
+                                </div>
+                                <div className="flex justify-between text-white/80 text-sm mt-2">
+                                    <span>Applications Opened</span>
+                                    <span>25% spots remaining</span>
+                                    <span>Jan 31st Deadline</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    {/* Progress Bar for Application Deadline */}
-                    <div className="mt-4 bg-white/20 rounded-full h-2 overflow-hidden">
-                        <div className="bg-white h-full w-3/4 rounded-full transition-all duration-1000"></div>
-                    </div>
-                    <div className="flex justify-between text-white/80 text-xs mt-1">
-                        <span>Applications Opened</span>
-                        <span>25% spots remaining</span>
-                        <span>Jan 31st Deadline</span>
-                    </div>
                 </div>
-            </section>
+            )}
+
 
             {/* About Section */}
             <section id="about" className="py-20 bg-gray-50">
@@ -508,7 +531,7 @@ export default function Home() {
                                 <Link 
                                     key={post.id}
                                     to={`/blog/${post.slug}`}
-                                    className={`group ${index === 0 ? 'md:col-span-2 lg:col-span-2' : ''}`}
+                                    className={`group ${index === 0 ? '' : ''}`}
                                 >
                                     <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200 h-full">
                                         <div className="relative">
