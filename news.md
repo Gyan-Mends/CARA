@@ -1,0 +1,11 @@
+CARA to Lead Inclusive Education Conversations at Neurodiversity & EdTech Fair 2025
+Care Access for Resilient Africa (CARA), a nonprofit organization advancing inclusive care and health equity across Africa, will play a leading role at the 2025 Neurodiversity & EdTech Fair.
+The fair is scheduled for September 6, 2025, at the West African Genetic Medicine Centre, University of Ghana, with the theme: “Advancing Neurodiverse Learning Through Assistive Technology.”
+This one-day event will bring together parents, teachers, students, professionals, and organizations to explore how we can build inclusive learning environments where every learner thrives. Jointly organized by Fafanto Psych Organization and CARA, the fair will feature thought-provoking talks, practical workshops, live demonstrations of assistive technologies, and interactive exhibitions promoting inclusive education.
+CARA’s Role & Perspective
+Mrs. Joana D.A. Kyeremateng, a Public Health Professional and Disability Advocate, and Founder of CARA, will deliver a presentation on CARA’s mission to empower families, strengthen schools, and champion inclusive systems across Africa. She will co-facilitate a workshop titled “Understanding the Human Brain: How Your Child Thinks and Learns,” offering practical insights for parents and educators.
+Additionally, Mrs. Kyeremateng will launch the Inclusive Schools Action Project (ISAP), a pioneering initiative under CARA’s Inclusive Care Programme, developed in collaboration with Fafanto Psych Organization. ISAP is designed to support schools in establishing SENCO units and building responsive, inclusive support systems.
+Other notable speakers include: Prof. Evelyn Folako-Kissi, Dr. Erica Danfrokua Dickson, Dr. Gideon Mensah Anapey, and Mrs. Ethel Obeng-Treve.
+🌍 About CARA’s Inclusive Care Programme
+CARA’s Inclusive Care Programme supports families and schools to provide dignified care for children and individuals with special needs by training and guiding parents and caregivers, assisting schools to establish SENCO units, training teachers, deploying care aides, and linking families to essential health, education, and social protection services.
+This programme ensures that no child is left behind, promoting inclusion both at home and in the classroom.

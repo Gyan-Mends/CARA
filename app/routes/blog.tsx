@@ -192,7 +192,7 @@ export default function Blog() {
                                                     <img 
                                                         src={post.featuredImage} 
                                                         alt={post.alt || post.title}
-                                                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                                                        className="w-full h-[40vh] object-cover group-hover:scale-105 transition-transform duration-300"
                                                     />
                                                     <div className="absolute top-4 left-4">
                                                         <div className={`flex items-center gap-2 px-3 py-1 ${post.tagColor} ${post.tagTextColor} rounded-full text-xs font-medium`}>
