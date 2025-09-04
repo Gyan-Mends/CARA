@@ -8,7 +8,7 @@ import hero from "~/components/african-mother-little-girl-medium-shot_23-2148960
 import care from "~/components/scene-from-care-job-with-senior-patient-being-take-care_23-2151224145.jpg"
 import teachingImage from "~/components/images/african-woman-teaching-kids-class_23-2148892556.jpg"
 import partnershipImage from "~/components/black-businesswoman-shaking-hands-with-male-partner_74855-1085.jpg"
-import newmother from "~/components/images/ne.jpg"
+import newmother from "~/components/images/WhatsApp Image 2025-09-04 at 11.26.20_614ae46f.jpg"
 import specialcare from "~/components/images/special care.avif"
 import bannerImage from "~/components/banners/banner1.jpg"
 import { getPrograms } from "~/utils/programs";
