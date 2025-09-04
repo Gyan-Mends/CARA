@@ -21,13 +21,12 @@ export default function AppLayout() {
                                    <img src="/logo.png" alt="CARA Logo" className='w-60 h-22'    />
                                 </div>
                                 <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
-                                    Building Africa's care economy by making care visible, connected, and valued throughout all stages of life.
-                                    Supporting families, uplifting caregivers, and strengthening communities.
+                                Strengthening Africa’s care economy, where care is visible and valued. Together we support families, uplift caregivers, and build stronger communities.
                                 </p>
                                 <div className="flex space-x-4">
                                     
                                     <a href="https://twitter.com/caraafrica" className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors" title="Twitter">
-                                        <XIcon className="w-5 h-5 text-white" />
+                                        <TwitterIcon className="w-5 h-5 text-white" />
                                     </a>
                                     <a href="https://facebook.com/caraafrica" className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors" title="Facebook">
                                         <FacebookIcon className="w-5 h-5 text-white" />
