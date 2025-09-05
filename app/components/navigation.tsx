@@ -170,7 +170,7 @@ export default function Navigation() {
                                             className={`font-medium transition-colors duration-200 py-2 ${
                                                 isActive(item.to) 
                                                     ? 'text-[#FCB339]' 
-                                                    : 'text-white hover:text-orange-200'
+                                                    : 'text-black hover:text-orange-200'
                                             }`}
                                             onClick={() => setMobileMenuOpen(false)}
                                         >

@@ -25,19 +25,19 @@ export default function AppLayout() {
                                 </p>
                                 <div className="flex space-x-4">
 
-                                    <a href="https://twitter.com/caraafrica" className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors" title="Twitter">
+                                    <a href="https://x.com/CARAfricaOrg" className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors" title="Twitter">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M10.488 14.651L15.25 21h7l-7.858-10.478L20.93 3h-2.65l-5.117 5.886L8.75 3h-7l7.51 10.015L2.32 21h2.65zM16.25 19L5.75 5h2l10.5 14z"></path></svg>
                                     </a>
-                                    <a href="https://facebook.com/caraafrica" className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors" title="Facebook">
+                                    {/* <a href="https://facebook.com/caraafrica" className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors" title="Facebook">
                                         <FacebookIcon className="w-5 h-5 text-white" />
-                                    </a>
-                                    <a href="https://instagram.com/caraafrica" className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors" title="Instagram">
+                                    </a> */}
+                                    <a href="https://www.instagram.com/caraafricaorg/" className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors" title="Instagram">
                                         <InstagramIcon className="w-5 h-5 text-white" />
                                     </a>
-                                    <a href="https://linkedin.com/caraafrica" className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors" title="LinkedIn">
+                                    {/* <a href="https://linkedin.com/caraafrica" className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors" title="LinkedIn">
                                         <LinkedinIcon className="w-5 h-5 text-white" />
-                                    </a>
-                                    <a href="https://youtube.com/caraafrica" className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors" title="YouTube">
+                                    </a> */}
+                                    <a href="https://www.youtube.com/@caraafricaorg" className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors" title="YouTube">
                                         <YoutubeIcon className="w-5 h-5 text-white" />
                                     </a>
 

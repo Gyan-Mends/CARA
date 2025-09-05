@@ -1,6 +1,6 @@
 import { Heart, Users, Target, Award } from "lucide-react";
-import hero from "~/components/african-mother-little-girl-medium-shot_23-2148960557.jpg";
-import care from "~/components/scene-from-care-job-with-senior-patient-being-take-care_23-2151224145.jpg";
+import caregiver from "~/components/scene-from-care-job-with-senior-patient-being-take-care_23-2151224145.jpg";
+import care from "~/components/images/WhatsApp Image 2025-09-04 at 11.26.20_614ae46f.jpg";
 import caregiverTraining from "~/components/images/african-woman-teaching-kids-class_23-2148892556.jpg";
 import businessPartnership from "~/components/business-partners-closing-contract_74855-1152.jpg";
 import outreach from "~/components/images/OUT.jpeg";
@@ -51,7 +51,7 @@ const programs: ProgramDetail[] = [
         description: "We empower youth and women as caregivers through practical training for families, school aides, and volunteers, with a focus on newborn care, disability inclusion, and support for the elderly.",
         longDescription: "We empower youth and women as caregivers through practical training for families, school aides, and volunteers, with a focus on newborn care, disability inclusion, and support for the elderly. Through hands-on training and ongoing mentorship, we build a network of skilled caregivers who serve as the backbone of community health systems.",
         iconKey: "Heart",
-        image: care,
+        image: caregiver,
         heroImage: care,
         duration: "3 months",
         participants: "25+ caregivers trained",
