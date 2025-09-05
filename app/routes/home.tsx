@@ -17,7 +17,7 @@ import Navigation from "~/components/navigation";
 
 export async function action({ request }: ActionFunctionArgs) {
     const formData = await request.formData();
-
+    
     const contactData: ContactFormData = {
         name: formData.get("name") as string,
         email: formData.get("email") as string,
