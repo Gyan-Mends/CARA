@@ -266,34 +266,7 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Announcement Modal */}
-            {showModal && (
-                <div className="fixed inset-0 mt-10 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-                    <div className="relative max-w-2xl mx-4 bg-gradient-to-r from-[#FCB339]/20 to-orange-500/20 rounded-2xl shadow-2xl overflow-hidden">
-                        {/* Close Button */}
-                        <button
-                            onClick={() => setShowModal(false)}
-                            className="absolute top-4 right-4 z-10 bg-white/20 hover:bg-white/30 rounded-full p-2 transition-colors"
-                        >
-                            <X className="w-5 h-5 text-white" />
-                        </button>
-
-                        <div className="lg:p-8">
-                            <div className="flex flex-col lg:flex-row items-center gap-6">
-
-                                <img
-                                    src={bannerImage}
-                                    alt="Caregiver Training Program"
-                                    className=" h-[70vh] w-full  object-cover rounded"
-                                />
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-            )}
+           
 
 
             {/* About Section */}
