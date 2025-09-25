@@ -123,12 +123,12 @@ export default function Navigation() {
 
                         {/* Support Us Button */}
                         <div className="hidden lg:flex items-center">
-                            <Link 
+                            {/* <Link 
                                 to="/support-us"
                                 className="bg-[#FCB339] text-white px-6 py-2 rounded-full hover:bg-orange-100 transition-colors duration-300 font-medium"
                             >
                                 SUPPORT US
-                            </Link>
+                            </Link> */}
                         </div>
 
                         {/* Mobile Menu Button */}
