@@ -61,7 +61,7 @@ export default function AppLayout() {
                                 <h4 className="font-heading text-lg font-semibold mb-6 text-teal-500">Get Involved</h4>
                                 <ul className="space-y-3">
                                     <li><Link to="/become-a-giver" className="text-gray-300 hover:text-white transition-colors">Volunteer as Caregiver</Link></li>
-                                    <li><Link to="/support-us" className="text-gray-300 hover:text-white transition-colors">Support Our Work</Link></li>
+                                    {/* <li><Link to="/support-us" className="text-gray-300 hover:text-white transition-colors">Support Our Work</Link></li> */}
                                     <li><Link to="/partner-with-us" className="text-gray-300 hover:text-white transition-colors">Partner With Us</Link></li>
                                     <li><Link to="/programs" className="text-gray-300 hover:text-white transition-colors">Training Programs</Link></li>
                                 </ul>
