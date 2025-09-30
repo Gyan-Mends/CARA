@@ -331,103 +331,82 @@ export default function About() {
                         </div>
 
                         {/* Circular Values Layout */}
-                        <div className="relative min-h-[900px] lg:min-h-[800px] flex items-center justify-center">
+                        <div className="relative min-h-[850px] lg:min-h-[700px] max-w-5xl mx-auto flex items-center justify-center">
                             {/* Center Circle - CARA Logo/Text */}
                             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                                <div className="w-32 h-32 lg:w-40 lg:h-40 bg-gradient-to-br from-[#FCB339] to-[#00A5B8] rounded-full flex items-center justify-center shadow-2xl">
-                                    <span className="text-3xl lg:text-4xl font-bold text-white">CARA</span>
+                                <div className="w-28 h-28 lg:w-32 lg:h-32 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full flex items-center justify-center shadow-lg">
+                                    <span className="text-2xl lg:text-3xl font-bold text-white">CARA</span>
                                 </div>
                             </div>
 
                             {/* Dignity - Top */}
                             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 text-center group">
-                                <div className="relative">
-                                    <div className="absolute inset-0 bg-[#FCB339]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-                                    <div className="relative w-24 h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-[#FCB339] to-orange-500 rounded-full flex items-center justify-center shadow-xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                                        <Heart className="w-10 h-10 lg:w-12 lg:h-12 text-white" strokeWidth={1.5} />
-                                    </div>
+                                <div className="relative w-20 h-20 lg:w-24 lg:h-24 bg-gray-100 rounded-full flex items-center justify-center shadow-md mx-auto mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-200">
+                                    <Heart className="w-8 h-8 lg:w-10 lg:h-10 text-gray-700" strokeWidth={1.5} />
                                 </div>
-                                <h3 className="text-lg lg:text-xl font-bold font-heading text-gray-900 mb-2">Dignity</h3>
-                                <p className="text-sm text-gray-600 max-w-[180px]">Respecting the worth of every person in care</p>
-                                <ArrowRight className="w-6 h-6 text-[#FCB339] mx-auto mt-4 rotate-90" />
+                                <h3 className="text-base lg:text-lg font-bold font-heading text-gray-900 mb-1">Dignity</h3>
+                                <p className="text-xs text-gray-600 max-w-[150px]">Respecting every person in care</p>
+                                <ArrowRight className="w-5 h-5 text-gray-400 mx-auto mt-3 rotate-90" />
                             </div>
 
                             {/* Inclusion - Top Right */}
-                            <div className="absolute top-[10%] right-[5%] lg:right-[12%] text-center group">
-                                <div className="relative">
-                                    <div className="absolute inset-0 bg-[#00A5B8]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-                                    <div className="relative w-24 h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-[#00A5B8] to-teal-600 rounded-full flex items-center justify-center shadow-xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                                        <Users className="w-10 h-10 lg:w-12 lg:h-12 text-white" strokeWidth={1.5} />
-                                    </div>
+                            <div className="absolute top-[8%] right-[8%] lg:right-[15%] text-center group">
+                                <div className="relative w-20 h-20 lg:w-24 lg:h-24 bg-gray-100 rounded-full flex items-center justify-center shadow-md mx-auto mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-200">
+                                    <Users className="w-8 h-8 lg:w-10 lg:h-10 text-gray-700" strokeWidth={1.5} />
                                 </div>
-                                <h3 className="text-lg lg:text-xl font-bold font-heading text-gray-900 mb-2">Inclusion</h3>
-                                <p className="text-sm text-gray-600 max-w-[180px]">Ensuring no one is left behind</p>
-                                <ArrowRight className="w-6 h-6 text-[#00A5B8] mx-auto mt-4 rotate-[135deg]" />
+                                <h3 className="text-base lg:text-lg font-bold font-heading text-gray-900 mb-1">Inclusion</h3>
+                                <p className="text-xs text-gray-600 max-w-[150px]">No one left behind</p>
+                                <ArrowRight className="w-5 h-5 text-gray-400 mx-auto mt-3 rotate-[120deg]" />
                             </div>
 
                             {/* Empowerment - Right */}
-                            <div className="absolute top-1/2 right-0 lg:right-[5%] transform -translate-y-1/2 text-center group">
-                                <div className="relative">
-                                    <div className="absolute inset-0 bg-[#FCB339]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-                                    <div className="relative w-24 h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-[#FCB339] to-orange-500 rounded-full flex items-center justify-center shadow-xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                                        <HandHeart className="w-10 h-10 lg:w-12 lg:h-12 text-white" strokeWidth={1.5} />
-                                    </div>
+                            <div className="absolute top-[38%] right-[2%] lg:right-[8%] text-center group">
+                                <div className="relative w-20 h-20 lg:w-24 lg:h-24 bg-gray-100 rounded-full flex items-center justify-center shadow-md mx-auto mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-200">
+                                    <HandHeart className="w-8 h-8 lg:w-10 lg:h-10 text-gray-700" strokeWidth={1.5} />
                                 </div>
-                                <h3 className="text-lg lg:text-xl font-bold font-heading text-gray-900 mb-2">Empowerment</h3>
-                                <p className="text-sm text-gray-600 max-w-[180px]">Equipping communities to thrive</p>
-                                <ArrowRight className="w-6 h-6 text-[#FCB339] mx-auto mt-4 rotate-[135deg]" />
+                                <h3 className="text-base lg:text-lg font-bold font-heading text-gray-900 mb-1">Empowerment</h3>
+                                <p className="text-xs text-gray-600 max-w-[150px]">Communities to thrive</p>
+                                <ArrowRight className="w-5 h-5 text-gray-400 mx-auto mt-3 rotate-[150deg]" />
                             </div>
 
                             {/* Collaboration - Bottom Right */}
-                            <div className="absolute bottom-[15%] right-[8%] lg:right-[15%] text-center group">
-                                <ArrowRight className="w-6 h-6 text-[#00A5B8] mx-auto mb-4 rotate-[135deg]" />
-                                <div className="relative">
-                                    <div className="absolute inset-0 bg-[#00A5B8]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-                                    <div className="relative w-24 h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-[#00A5B8] to-teal-600 rounded-full flex items-center justify-center shadow-xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                                        <UserCheck className="w-10 h-10 lg:w-12 lg:h-12 text-white" strokeWidth={1.5} />
-                                    </div>
+                            <div className="absolute bottom-[12%] right-[12%] lg:right-[18%] text-center group">
+                                <ArrowRight className="w-5 h-5 text-gray-400 mx-auto mb-3 rotate-[150deg]" />
+                                <div className="relative w-20 h-20 lg:w-24 lg:h-24 bg-gray-100 rounded-full flex items-center justify-center shadow-md mx-auto mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-200">
+                                    <UserCheck className="w-8 h-8 lg:w-10 lg:h-10 text-gray-700" strokeWidth={1.5} />
                                 </div>
-                                <h3 className="text-lg lg:text-xl font-bold font-heading text-gray-900 mb-2">Collaboration</h3>
-                                <p className="text-sm text-gray-600 max-w-[180px]">Building partnerships across sectors</p>
+                                <h3 className="text-base lg:text-lg font-bold font-heading text-gray-900 mb-1">Collaboration</h3>
+                                <p className="text-xs text-gray-600 max-w-[150px]">Building partnerships</p>
                             </div>
 
                             {/* Innovation - Bottom */}
                             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-center group">
-                                <ArrowRight className="w-6 h-6 text-[#FCB339] mx-auto mb-4 rotate-90" />
-                                <div className="relative">
-                                    <div className="absolute inset-0 bg-[#FCB339]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-                                    <div className="relative w-24 h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-[#FCB339] to-orange-500 rounded-full flex items-center justify-center shadow-xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                                        <Lightbulb className="w-10 h-10 lg:w-12 lg:h-12 text-white" strokeWidth={1.5} />
-                                    </div>
+                                <ArrowRight className="w-5 h-5 text-gray-400 mx-auto mb-3 rotate-[180deg]" />
+                                <div className="relative w-20 h-20 lg:w-24 lg:h-24 bg-gray-100 rounded-full flex items-center justify-center shadow-md mx-auto mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-200">
+                                    <Lightbulb className="w-8 h-8 lg:w-10 lg:h-10 text-gray-700" strokeWidth={1.5} />
                                 </div>
-                                <h3 className="text-lg lg:text-xl font-bold font-heading text-gray-900 mb-2">Innovation</h3>
-                                <p className="text-sm text-gray-600 max-w-[180px]">Designing creative solutions</p>
+                                <h3 className="text-base lg:text-lg font-bold font-heading text-gray-900 mb-1">Innovation</h3>
+                                <p className="text-xs text-gray-600 max-w-[150px]">Creative solutions</p>
                             </div>
 
                             {/* Accountability - Bottom Left */}
-                            <div className="absolute bottom-[15%] left-[8%] lg:left-[15%] text-center group">
-                                <ArrowRight className="w-6 h-6 text-[#00A5B8] mx-auto mb-4 rotate-45" />
-                                <div className="relative">
-                                    <div className="absolute inset-0 bg-[#00A5B8]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-                                    <div className="relative w-24 h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-[#00A5B8] to-teal-600 rounded-full flex items-center justify-center shadow-xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                                        <Shield className="w-10 h-10 lg:w-12 lg:h-12 text-white" strokeWidth={1.5} />
-                                    </div>
+                            <div className="absolute bottom-[12%] left-[12%] lg:left-[18%] text-center group">
+                                <ArrowRight className="w-5 h-5 text-gray-400 mx-auto mb-3 rotate-[-150deg]" />
+                                <div className="relative w-20 h-20 lg:w-24 lg:h-24 bg-gray-100 rounded-full flex items-center justify-center shadow-md mx-auto mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-200">
+                                    <Shield className="w-8 h-8 lg:w-10 lg:h-10 text-gray-700" strokeWidth={1.5} />
                                 </div>
-                                <h3 className="text-lg lg:text-xl font-bold font-heading text-gray-900 mb-2">Accountability</h3>
-                                <p className="text-sm text-gray-600 max-w-[180px]">Upholding transparency and integrity</p>
+                                <h3 className="text-base lg:text-lg font-bold font-heading text-gray-900 mb-1">Accountability</h3>
+                                <p className="text-xs text-gray-600 max-w-[150px]">Transparency & integrity</p>
                             </div>
 
                             {/* Resilience - Left */}
-                            <div className="absolute top-1/2 left-0 lg:left-[5%] transform -translate-y-1/2 text-center group">
-                                <ArrowRight className="w-6 h-6 text-[#FCB339] mx-auto mb-4 rotate-45" />
-                                <div className="relative">
-                                    <div className="absolute inset-0 bg-[#FCB339]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-                                    <div className="relative w-24 h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-[#FCB339] to-orange-500 rounded-full flex items-center justify-center shadow-xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                                        <Target className="w-10 h-10 lg:w-12 lg:h-12 text-white" strokeWidth={1.5} />
-                                    </div>
+                            <div className="absolute top-[38%] left-[2%] lg:left-[8%] text-center group">
+                                <ArrowRight className="w-5 h-5 text-gray-400 mx-auto mb-3 rotate-[-120deg]" />
+                                <div className="relative w-20 h-20 lg:w-24 lg:h-24 bg-gray-100 rounded-full flex items-center justify-center shadow-md mx-auto mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-200">
+                                    <Target className="w-8 h-8 lg:w-10 lg:h-10 text-gray-700" strokeWidth={1.5} />
                                 </div>
-                                <h3 className="text-lg lg:text-xl font-bold font-heading text-gray-900 mb-2">Resilience</h3>
-                                <p className="text-sm text-gray-600 max-w-[180px]">Strengthening communities</p>
+                                <h3 className="text-base lg:text-lg font-bold font-heading text-gray-900 mb-1">Resilience</h3>
+                                <p className="text-xs text-gray-600 max-w-[150px]">Strengthening communities</p>
                             </div>
                         </div>
                     </div>
