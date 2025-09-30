@@ -1,4 +1,4 @@
-import { Star, Settings, Heart, Users, MapPin, Target, Shield, Lightbulb, HandHeart, UserCheck } from "lucide-react";
+import { Star, Settings, Heart, Users, MapPin, Target, Shield, Lightbulb, HandHeart, UserCheck, ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 import care from "~/components/scene-from-care-job-with-senior-patient-being-take-care_23-2151224145.jpg";
 import Navigation from "~/components/navigation";
@@ -37,18 +37,7 @@ export default function About() {
                             Advancing care access and community health across Africa by equipping caregivers, supporting families, and strengthening local systems of care.
                         </p>
 
-                        {/* Core Values */}
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                            {coreValues.map((stat, index) => (
-                                <div key={index} className="flex items-center gap-3 p-4 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30">
-                                    <stat.icon className="w-6 h-6 text-[#FCB339] flex-shrink-0" />
-                                    <div className="text-left">
-                                        <div className="text-lg font-bold text-white">{stat.value}</div>
-                                        <div className="text-sm text-white/80">{stat.description}</div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                       
                     </div>
                 </div>
             </section>
@@ -315,7 +304,7 @@ export default function About() {
             </section>
 
             {/* Core Values Section */}
-            <section className="py-24 bg-white">
+            <section className="py-24 bg-white overflow-hidden">
                 <div className="container mx-auto px-6">
                     <div className="max-w-7xl mx-auto">
                         {/* Section Header */}
@@ -327,132 +316,104 @@ export default function About() {
                             </p>
                         </div>
 
-                        {/* Values Grid */}
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                            {/* Dignity */}
-                            <div className="group relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100">
-                                <div className="flex flex-col items-center text-center space-y-6">
-                                    <div className="relative">
-                                        <div className="absolute inset-0 bg-[#FCB339]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-                                        <div className="relative w-20 h-20 bg-gradient-to-br from-[#FCB339] to-orange-500 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                                            <Heart className="w-10 h-10 text-white" strokeWidth={1.5} />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold font-heading text-gray-900 mb-3">Dignity</h3>
-                                        <p className="text-gray-600 leading-relaxed text-sm">
-                                            Respecting the worth of every person in care.
-                                        </p>
-                                    </div>
+                        {/* Circular Values Layout */}
+                        <div className="relative min-h-[900px] lg:min-h-[800px] flex items-center justify-center">
+                            {/* Center Circle - CARA Logo/Text */}
+                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                                <div className="w-32 h-32 lg:w-40 lg:h-40 bg-gradient-to-br from-[#FCB339] to-[#00A5B8] rounded-full flex items-center justify-center shadow-2xl">
+                                    <span className="text-3xl lg:text-4xl font-bold text-white">CARA</span>
                                 </div>
                             </div>
 
-                            {/* Inclusion */}
-                            <div className="group relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100">
-                                <div className="flex flex-col items-center text-center space-y-6">
-                                    <div className="relative">
-                                        <div className="absolute inset-0 bg-[#00A5B8]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-                                        <div className="relative w-20 h-20 bg-gradient-to-br from-[#00A5B8] to-teal-600 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                                            <Users className="w-10 h-10 text-white" strokeWidth={1.5} />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold font-heading text-gray-900 mb-3">Inclusion</h3>
-                                        <p className="text-gray-600 leading-relaxed text-sm">
-                                            Ensuring no one is left behind in systems of care.
-                                        </p>
+                            {/* Dignity - Top */}
+                            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 text-center group">
+                                <div className="relative">
+                                    <div className="absolute inset-0 bg-[#FCB339]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+                                    <div className="relative w-24 h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-[#FCB339] to-orange-500 rounded-full flex items-center justify-center shadow-xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        <Heart className="w-10 h-10 lg:w-12 lg:h-12 text-white" strokeWidth={1.5} />
                                     </div>
                                 </div>
+                                <h3 className="text-lg lg:text-xl font-bold font-heading text-gray-900 mb-2">Dignity</h3>
+                                <p className="text-sm text-gray-600 max-w-[180px]">Respecting the worth of every person in care</p>
+                                <ArrowRight className="w-6 h-6 text-[#FCB339] mx-auto mt-4 rotate-90" />
                             </div>
 
-                            {/* Empowerment */}
-                            <div className="group relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100">
-                                <div className="flex flex-col items-center text-center space-y-6">
-                                    <div className="relative">
-                                        <div className="absolute inset-0 bg-[#FCB339]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-                                        <div className="relative w-20 h-20 bg-gradient-to-br from-[#FCB339] to-orange-500 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                                            <HandHeart className="w-10 h-10 text-white" strokeWidth={1.5} />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold font-heading text-gray-900 mb-3">Empowerment</h3>
-                                        <p className="text-gray-600 leading-relaxed text-sm">
-                                            Equipping caregivers, families, and communities to thrive.
-                                        </p>
+                            {/* Inclusion - Top Right */}
+                            <div className="absolute top-[10%] right-[5%] lg:right-[12%] text-center group">
+                                <div className="relative">
+                                    <div className="absolute inset-0 bg-[#00A5B8]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+                                    <div className="relative w-24 h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-[#00A5B8] to-teal-600 rounded-full flex items-center justify-center shadow-xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        <Users className="w-10 h-10 lg:w-12 lg:h-12 text-white" strokeWidth={1.5} />
                                     </div>
                                 </div>
+                                <h3 className="text-lg lg:text-xl font-bold font-heading text-gray-900 mb-2">Inclusion</h3>
+                                <p className="text-sm text-gray-600 max-w-[180px]">Ensuring no one is left behind</p>
+                                <ArrowRight className="w-6 h-6 text-[#00A5B8] mx-auto mt-4 rotate-[135deg]" />
                             </div>
 
-                            {/* Collaboration */}
-                            <div className="group relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100">
-                                <div className="flex flex-col items-center text-center space-y-6">
-                                    <div className="relative">
-                                        <div className="absolute inset-0 bg-[#00A5B8]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-                                        <div className="relative w-20 h-20 bg-gradient-to-br from-[#00A5B8] to-teal-600 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                                            <UserCheck className="w-10 h-10 text-white" strokeWidth={1.5} />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold font-heading text-gray-900 mb-3">Collaboration</h3>
-                                        <p className="text-gray-600 leading-relaxed text-sm">
-                                            Building partnerships across sectors and stakeholders.
-                                        </p>
+                            {/* Empowerment - Right */}
+                            <div className="absolute top-1/2 right-0 lg:right-[5%] transform -translate-y-1/2 text-center group">
+                                <div className="relative">
+                                    <div className="absolute inset-0 bg-[#FCB339]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+                                    <div className="relative w-24 h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-[#FCB339] to-orange-500 rounded-full flex items-center justify-center shadow-xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        <HandHeart className="w-10 h-10 lg:w-12 lg:h-12 text-white" strokeWidth={1.5} />
                                     </div>
                                 </div>
+                                <h3 className="text-lg lg:text-xl font-bold font-heading text-gray-900 mb-2">Empowerment</h3>
+                                <p className="text-sm text-gray-600 max-w-[180px]">Equipping communities to thrive</p>
+                                <ArrowRight className="w-6 h-6 text-[#FCB339] mx-auto mt-4 rotate-[135deg]" />
                             </div>
 
-                            {/* Innovation */}
-                            <div className="group relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100">
-                                <div className="flex flex-col items-center text-center space-y-6">
-                                    <div className="relative">
-                                        <div className="absolute inset-0 bg-[#FCB339]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-                                        <div className="relative w-20 h-20 bg-gradient-to-br from-[#FCB339] to-orange-500 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                                            <Lightbulb className="w-10 h-10 text-white" strokeWidth={1.5} />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold font-heading text-gray-900 mb-3">Innovation</h3>
-                                        <p className="text-gray-600 leading-relaxed text-sm">
-                                            Designing creative, practical solutions for Africa's care economy.
-                                        </p>
+                            {/* Collaboration - Bottom Right */}
+                            <div className="absolute bottom-[15%] right-[8%] lg:right-[15%] text-center group">
+                                <ArrowRight className="w-6 h-6 text-[#00A5B8] mx-auto mb-4 rotate-[135deg]" />
+                                <div className="relative">
+                                    <div className="absolute inset-0 bg-[#00A5B8]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+                                    <div className="relative w-24 h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-[#00A5B8] to-teal-600 rounded-full flex items-center justify-center shadow-xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        <UserCheck className="w-10 h-10 lg:w-12 lg:h-12 text-white" strokeWidth={1.5} />
                                     </div>
                                 </div>
+                                <h3 className="text-lg lg:text-xl font-bold font-heading text-gray-900 mb-2">Collaboration</h3>
+                                <p className="text-sm text-gray-600 max-w-[180px]">Building partnerships across sectors</p>
                             </div>
 
-                            {/* Accountability */}
-                            <div className="group relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100">
-                                <div className="flex flex-col items-center text-center space-y-6">
-                                    <div className="relative">
-                                        <div className="absolute inset-0 bg-[#00A5B8]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-                                        <div className="relative w-20 h-20 bg-gradient-to-br from-[#00A5B8] to-teal-600 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                                            <Shield className="w-10 h-10 text-white" strokeWidth={1.5} />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold font-heading text-gray-900 mb-3">Accountability</h3>
-                                        <p className="text-gray-600 leading-relaxed text-sm">
-                                            Upholding transparency, integrity, and responsible stewardship.
-                                        </p>
+                            {/* Innovation - Bottom */}
+                            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-center group">
+                                <ArrowRight className="w-6 h-6 text-[#FCB339] mx-auto mb-4 rotate-90" />
+                                <div className="relative">
+                                    <div className="absolute inset-0 bg-[#FCB339]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+                                    <div className="relative w-24 h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-[#FCB339] to-orange-500 rounded-full flex items-center justify-center shadow-xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        <Lightbulb className="w-10 h-10 lg:w-12 lg:h-12 text-white" strokeWidth={1.5} />
                                     </div>
                                 </div>
+                                <h3 className="text-lg lg:text-xl font-bold font-heading text-gray-900 mb-2">Innovation</h3>
+                                <p className="text-sm text-gray-600 max-w-[180px]">Designing creative solutions</p>
                             </div>
 
-                            {/* Resilience */}
-                            <div className="group relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100">
-                                <div className="flex flex-col items-center text-center space-y-6">
-                                    <div className="relative">
-                                        <div className="absolute inset-0 bg-[#FCB339]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-                                        <div className="relative w-20 h-20 bg-gradient-to-br from-[#FCB339] to-orange-500 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                                            <Target className="w-10 h-10 text-white" strokeWidth={1.5} />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold font-heading text-gray-900 mb-3">Resilience</h3>
-                                        <p className="text-gray-600 leading-relaxed text-sm">
-                                            Strengthening communities to withstand and recover from life's vulnerable moments.
-                                        </p>
+                            {/* Accountability - Bottom Left */}
+                            <div className="absolute bottom-[15%] left-[8%] lg:left-[15%] text-center group">
+                                <ArrowRight className="w-6 h-6 text-[#00A5B8] mx-auto mb-4 rotate-45" />
+                                <div className="relative">
+                                    <div className="absolute inset-0 bg-[#00A5B8]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+                                    <div className="relative w-24 h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-[#00A5B8] to-teal-600 rounded-full flex items-center justify-center shadow-xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        <Shield className="w-10 h-10 lg:w-12 lg:h-12 text-white" strokeWidth={1.5} />
                                     </div>
                                 </div>
+                                <h3 className="text-lg lg:text-xl font-bold font-heading text-gray-900 mb-2">Accountability</h3>
+                                <p className="text-sm text-gray-600 max-w-[180px]">Upholding transparency and integrity</p>
+                            </div>
+
+                            {/* Resilience - Left */}
+                            <div className="absolute top-1/2 left-0 lg:left-[5%] transform -translate-y-1/2 text-center group">
+                                <ArrowRight className="w-6 h-6 text-[#FCB339] mx-auto mb-4 rotate-45" />
+                                <div className="relative">
+                                    <div className="absolute inset-0 bg-[#FCB339]/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+                                    <div className="relative w-24 h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-[#FCB339] to-orange-500 rounded-full flex items-center justify-center shadow-xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        <Target className="w-10 h-10 lg:w-12 lg:h-12 text-white" strokeWidth={1.5} />
+                                    </div>
+                                </div>
+                                <h3 className="text-lg lg:text-xl font-bold font-heading text-gray-900 mb-2">Resilience</h3>
+                                <p className="text-sm text-gray-600 max-w-[180px]">Strengthening communities</p>
                             </div>
                         </div>
                     </div>
