@@ -7,6 +7,7 @@ export default [
         route("/programs/:programId","routes/programs.$programId.tsx"),
         route("/apply-program/:programId","routes/apply-program.$programId.tsx"),
         route("/blog","routes/blog.tsx"),
+        route("/about","routes/about.tsx"),
         route("/blog/:slug","routes/blog.$slug.tsx"),
         route("/support-us","routes/support-us.tsx"),
         route("/become-a-giver","routes/become-a-giver.tsx"),

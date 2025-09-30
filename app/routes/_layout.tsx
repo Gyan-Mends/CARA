@@ -49,7 +49,7 @@ export default function AppLayout() {
                                 <h4 className="font-heading text-lg font-semibold mb-6 text-[#FCB339]">Quick Links</h4>
                                 <ul className="space-y-3">
                                     <li><Link to="/" className="text-gray-300 hover:text-white transition-colors">Home</Link></li>
-                                    <li><Link to="/#about" className="text-gray-300 hover:text-white transition-colors">About Us</Link></li>
+                                    <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">About Us</Link></li>
                                     <li><Link to="/programs" className="text-gray-300 hover:text-white transition-colors">Programs</Link></li>
                                     <li><Link to="/#get-involved" className="text-gray-300 hover:text-white transition-colors">Contact Us</Link></li>
 
