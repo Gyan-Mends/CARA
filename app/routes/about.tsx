@@ -137,12 +137,26 @@ export default function About() {
             </section>
 
             {/* Vision & Mission Section */}
-            <section className="py-20 bg-white">
-                <div className="container mx-auto px-6">
+            <section className="py-20 bg-gradient-to-br from-gray-50/50 via-white to-teal-50/10 relative overflow-hidden">
+                {/* Decorative Pattern Background */}
+                <div className="absolute inset-0 opacity-20">
+                    {/* Dot Pattern */}
+                    <div className="absolute inset-0" style={{
+                        backgroundImage: 'radial-gradient(circle, #FCB339 1px, transparent 1px)',
+                        backgroundSize: '40px 40px'
+                    }}></div>
+
+                    {/* Gradient Circles */}
+                    <div className="absolute top-10 right-10 w-64 h-64 bg-gradient-to-br from-[#FCB339]/5 to-transparent rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-tr from-[#00A5B8]/5 to-transparent rounded-full blur-3xl"></div>
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-teal-100/10 to-transparent rounded-full blur-3xl"></div>
+                </div>
+
+                <div className="container mx-auto px-6 relative z-10">
                     <div className="max-w-6xl mx-auto">
                         <div className="relative">
                             {/* Vertical Timeline Line */}
-                            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-[#FCB339] hidden md:block"></div>
+                            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-[#FCB339] via-[#00A5B8] to-[#FCB339] hidden md:block shadow-lg"></div>
 
                             {/* Vision - Left Side */}
                             <div className="relative mb-16 md:mb-32">
