@@ -330,7 +330,7 @@ export default function About() {
                             </p>
                         </div>
 
-                        <img src="images/CA.jpg" alt="Objectives" className="w-full  object-cover" />
+                        <img src="images/CA.jpg" alt="Objectives" className="w-full   object-cover" />
                     </div>
                 </div>
             </section>

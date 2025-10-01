@@ -1,10 +1,29 @@
-import { Form, useActionData, useNavigation, redirect } from "react-router";
-import { type ActionFunctionArgs } from "react-router";
+import { Form, useActionData, useNavigation, useLoaderData, redirect } from "react-router";
+import { type ActionFunctionArgs, type LoaderFunctionArgs } from "react-router";
 import { subscribeToNewsletter } from "~/utils/newsletter.server";
+import { verifyRecaptcha, getRecaptchaSiteKey } from "~/utils/recaptcha.server";
+import { Recaptcha } from "~/components/recaptcha";
+import { useRef, useEffect } from "react";
+import type { RecaptchaHandle } from "~/components/recaptcha";
+
+export async function loader({ request }: LoaderFunctionArgs) {
+    const siteKey = getRecaptchaSiteKey();
+    return { siteKey };
+}
 
 export async function action({ request }: ActionFunctionArgs) {
     const formData = await request.formData();
     const email = formData.get("email") as string;
+    const recaptchaToken = formData.get("g-recaptcha-response") as string;
+
+    // Verify reCAPTCHA
+    const recaptchaResult = await verifyRecaptcha(recaptchaToken);
+    if (!recaptchaResult.success) {
+        return {
+            error: recaptchaResult.error || "Please complete the reCAPTCHA verification",
+            success: false,
+        };
+    }
 
     // Basic validation
     if (!email) {
@@ -25,7 +44,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
     try {
         const result = await subscribeToNewsletter(email);
-        
+
         if (result.success) {
             // Return success message to display on the same page
             return {
@@ -49,8 +68,24 @@ export async function action({ request }: ActionFunctionArgs) {
 
 export default function Newsletter() {
     const actionData = useActionData();
+    const { siteKey } = useLoaderData<typeof loader>();
     const navigation = useNavigation();
     const isSubmitting = navigation.state === "submitting";
+    const recaptchaRef = useRef<RecaptchaHandle>(null);
+
+    // Reset reCAPTCHA after form submission fails
+    useEffect(() => {
+        if (actionData && !actionData.success && navigation.state === "idle") {
+            recaptchaRef.current?.reset();
+        }
+    }, [actionData, navigation.state]);
+
+    // Set site key globally for the component
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            (window as any).__RECAPTCHA_SITE_KEY__ = siteKey;
+        }
+    }, [siteKey]);
 
     return (
         <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -100,6 +135,8 @@ export default function Newsletter() {
                                     required
                                 />
                             </div>
+
+                            <Recaptcha ref={recaptchaRef} />
 
                             <button 
                                 type="submit"

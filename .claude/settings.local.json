@@ -10,7 +10,8 @@
       "Read(c:\\Users\\Nharnhar Qwadwo\\Desktop/**)",
       "Bash(npm run build:*)",
       "Read(C:\\Users\\Nharnhar Qwadwo\\Desktop/**)",
-      "Read(//c/Users/Nharnhar Qwadwo/Desktop/**)"
+      "Read(//c/Users/Nharnhar Qwadwo/Desktop/**)",
+      "Bash(npm install:*)"
     ],
     "deny": [],
     "ask": []

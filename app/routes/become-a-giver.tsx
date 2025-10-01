@@ -2,17 +2,35 @@ import { Heart, Users, BookOpen, Building2, Gift, Target, Globe, Handshake, Load
 import caraLogo from "~/components/images/Cara logo-01.png"
 import afr from "~/components/images/wmremove-transformed (1).jpeg"
 import gg from "~/components/images/wmremove-transformed.jpeg"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navigation from "~/components/navigation";
-import { useSearchParams, useActionData, useNavigation } from "react-router";
-import { type ActionFunctionArgs, redirect } from "react-router";
+import { useSearchParams, useActionData, useNavigation, useLoaderData } from "react-router";
+import { type ActionFunctionArgs, type LoaderFunctionArgs, redirect } from "react-router";
 import { sendGiverApplicationEmail, type GiverFormData } from "~/utils/email.server";
+import { verifyRecaptcha, getRecaptchaSiteKey } from "~/utils/recaptcha.server";
+import { Recaptcha } from "~/components/recaptcha";
+import type { RecaptchaHandle } from "~/components/recaptcha";
+
+export async function loader({ request }: LoaderFunctionArgs) {
+  const siteKey = getRecaptchaSiteKey();
+  return { siteKey };
+}
 
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
-  
+  const recaptchaToken = formData.get("g-recaptcha-response") as string;
+
+  // Verify reCAPTCHA
+  const recaptchaResult = await verifyRecaptcha(recaptchaToken);
+  if (!recaptchaResult.success) {
+    return {
+      error: recaptchaResult.error || "Please complete the reCAPTCHA verification",
+      success: false,
+    };
+  }
+
   const interests = formData.getAll("interests") as string[];
-  
+
   const giverData: GiverFormData = {
     firstName: formData.get("firstName") as string,
     lastName: formData.get("lastName") as string,
@@ -42,7 +60,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
   try {
     const result = await sendGiverApplicationEmail(giverData);
-    
+
     if (result.success) {
       return redirect("/become-a-giver?success=true");
     } else {
@@ -63,22 +81,38 @@ export async function action({ request }: ActionFunctionArgs) {
 export default function BecomeAGiver() {
     const [searchParams] = useSearchParams();
     const actionData = useActionData();
+    const { siteKey } = useLoaderData<typeof loader>();
     const navigation = useNavigation();
     const success = searchParams.get("success");
     const showSuccessMessage = success === "true";
     const [isLocalSubmitting, setIsLocalSubmitting] = useState(false);
-    
+    const recaptchaRef = useRef<RecaptchaHandle>(null);
+
     const isSubmitting = navigation.state === "submitting" || isLocalSubmitting;
-    
+
     const handleFormSubmit = () => {
         setIsLocalSubmitting(true);
     };
-    
+
     useEffect(() => {
         if (navigation.state === "idle") {
             setIsLocalSubmitting(false);
         }
     }, [navigation.state]);
+
+    // Reset reCAPTCHA after form submission fails
+    useEffect(() => {
+        if (actionData && !actionData.success && navigation.state === "idle") {
+            recaptchaRef.current?.reset();
+        }
+    }, [actionData, navigation.state]);
+
+    // Set site key globally for the component
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            (window as any).__RECAPTCHA_SITE_KEY__ = siteKey;
+        }
+    }, [siteKey]);
 
     return (
         <div className="min-h-screen bg-white">
@@ -315,6 +349,8 @@ export default function BecomeAGiver() {
                                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00A5B8] focus:border-transparent transition-colors resize-vertical"
                                         />
                                     </div>
+
+                                    <Recaptcha ref={recaptchaRef} />
 
                                     {/* Submit Button */}
                                     <button

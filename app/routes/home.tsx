@@ -1,9 +1,12 @@
 import { Facebook, Instagram, Twitter, Youtube, ChevronLeft, ChevronRight, Star, Settings, Loader2, X } from "lucide-react";
-import { useSearchParams, useActionData, useNavigation, Link } from "react-router";
-import { type ActionFunctionArgs } from "react-router";
+import { useSearchParams, useActionData, useNavigation, Link, useLoaderData } from "react-router";
+import { type ActionFunctionArgs, type LoaderFunctionArgs } from "react-router";
 import { redirect } from "react-router";
 import { sendContactEmail, type ContactFormData } from "~/utils/email.server";
-import { useEffect, useState } from "react";
+import { verifyRecaptcha, getRecaptchaSiteKey } from "~/utils/recaptcha.server";
+import { Recaptcha } from "~/components/recaptcha";
+import { useEffect, useState, useRef } from "react";
+import type { RecaptchaHandle } from "~/components/recaptcha";
 import hero from "~/components/african-mother-little-girl-medium-shot_23-2148960557.jpg"
 import care from "~/components/scene-from-care-job-with-senior-patient-being-take-care_23-2151224145.jpg"
 import teachingImage from "~/components/images/african-woman-teaching-kids-class_23-2148892556.jpg"
@@ -15,9 +18,24 @@ import { getPrograms } from "~/utils/programs";
 import { getFeaturedBlogPosts, blogCategoryIconMap } from "~/utils/blog";
 import Navigation from "~/components/navigation";
 
+export async function loader({ request }: LoaderFunctionArgs) {
+    const siteKey = getRecaptchaSiteKey();
+    return { siteKey };
+}
+
 export async function action({ request }: ActionFunctionArgs) {
     const formData = await request.formData();
-    
+    const recaptchaToken = formData.get("g-recaptcha-response") as string;
+
+    // Verify reCAPTCHA
+    const recaptchaResult = await verifyRecaptcha(recaptchaToken);
+    if (!recaptchaResult.success) {
+        return {
+            error: recaptchaResult.error || "Please complete the reCAPTCHA verification",
+            success: false,
+        };
+    }
+
     const contactData: ContactFormData = {
         name: formData.get("name") as string,
         email: formData.get("email") as string,
@@ -84,12 +102,14 @@ const carouselImages = [
 export default function Home() {
     const [searchParams] = useSearchParams();
     const actionData = useActionData();
+    const { siteKey } = useLoaderData<typeof loader>();
     const navigation = useNavigation();
     const success = searchParams.get("success");
     const showSuccessMessage = success === "true";
     const [isLocalSubmitting, setIsLocalSubmitting] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [showModal, setShowModal] = useState(false);
+    const recaptchaRef = useRef<RecaptchaHandle>(null);
 
     const programs = getPrograms();
     const featuredBlogPosts = getFeaturedBlogPosts();
@@ -146,6 +166,20 @@ export default function Home() {
             }
         }
     }, [showSuccessMessage]);
+
+    // Reset reCAPTCHA after form submission fails
+    useEffect(() => {
+        if (actionData && !actionData.success && navigation.state === "idle") {
+            recaptchaRef.current?.reset();
+        }
+    }, [actionData, navigation.state]);
+
+    // Set site key globally for the component
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            (window as any).__RECAPTCHA_SITE_KEY__ = siteKey;
+        }
+    }, [siteKey]);
     return (
         <div className="min-h-screen ">
             {/* Hero Section */}
@@ -628,6 +662,8 @@ export default function Home() {
                                         placeholder="Tell us how you'd like to get involved..."
                                     ></textarea>
                                 </div>
+
+                                <Recaptcha ref={recaptchaRef} />
 
                                 <button
                                     type="submit"

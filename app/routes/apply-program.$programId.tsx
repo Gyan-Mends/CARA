@@ -1,10 +1,13 @@
 import { type LoaderFunctionArgs, type MetaFunction, type ActionFunctionArgs, redirect } from "react-router";
 import { useLoaderData, useSearchParams, useActionData, useNavigation, Link } from "react-router";
 import { Heart, Users, Target, Award, CheckCircle, Clock, MapPin, ArrowLeft, User, Mail, Phone, Loader2, FileText, Calendar } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navigation from "~/components/navigation";
 import { type ProgramDetail, getProgramByIdOrSlug, getPrograms, programIconMap } from "~/utils/programs";
 import { sendProgramApplicationEmail, type ProgramApplicationFormData } from "~/utils/email.server";
+import { verifyRecaptcha, getRecaptchaSiteKey } from "~/utils/recaptcha.server";
+import { Recaptcha } from "~/components/recaptcha";
+import type { RecaptchaHandle } from "~/components/recaptcha";
 
 type LoaderData = { program: ProgramDetail; relatedPrograms: ProgramDetail[] };
 
@@ -23,7 +26,7 @@ export const meta: MetaFunction = (args) => {
     ];
 };
 
-export async function loader({ params }: LoaderFunctionArgs): Promise<LoaderData> {
+export async function loader({ params }: LoaderFunctionArgs): Promise<LoaderData & { siteKey: string }> {
     const programId = params.programId ?? "";
     const program = getProgramByIdOrSlug(programId);
 
@@ -33,24 +36,36 @@ export async function loader({ params }: LoaderFunctionArgs): Promise<LoaderData
 
     const allPrograms = getPrograms();
     const relatedPrograms = allPrograms.filter(p => p.id !== program.id).slice(0, 3);
+    const siteKey = getRecaptchaSiteKey();
 
-    return { program, relatedPrograms };
+    return { program, relatedPrograms, siteKey };
 }
 
 export async function action({ request, params }: ActionFunctionArgs) {
     const formData = await request.formData();
+    const recaptchaToken = formData.get("g-recaptcha-response") as string;
+
+    // Verify reCAPTCHA
+    const recaptchaResult = await verifyRecaptcha(recaptchaToken);
+    if (!recaptchaResult.success) {
+        return {
+            error: recaptchaResult.error || "Please complete the reCAPTCHA verification",
+            success: false,
+        };
+    }
+
     const programId = params.programId ?? "";
     const program = getProgramByIdOrSlug(programId);
-    
+
     if (!program) {
         return {
             error: "Program not found",
             success: false,
         };
     }
-    
+
     const availability = formData.getAll("availability") as string[];
-    
+
     const applicationData: ProgramApplicationFormData = {
         firstName: formData.get("firstName") as string,
         lastName: formData.get("lastName") as string,
@@ -68,8 +83,8 @@ export async function action({ request, params }: ActionFunctionArgs) {
     };
 
     // Basic validation
-    if (!applicationData.firstName || !applicationData.lastName || !applicationData.email || 
-        !applicationData.age || !applicationData.location || !applicationData.motivationReason || 
+    if (!applicationData.firstName || !applicationData.lastName || !applicationData.email ||
+        !applicationData.age || !applicationData.location || !applicationData.motivationReason ||
         !applicationData.expectations) {
         return {
             error: "All required fields must be filled",
@@ -88,7 +103,7 @@ export async function action({ request, params }: ActionFunctionArgs) {
 
     try {
         const result = await sendProgramApplicationEmail(applicationData);
-        
+
         if (result.success) {
             return redirect(`/apply-program/${program.slug}?success=true`);
         } else {
@@ -107,26 +122,41 @@ export async function action({ request, params }: ActionFunctionArgs) {
 }
 
 export default function ApplyToProgram() {
-    const { program, relatedPrograms } = useLoaderData() as LoaderData;
+    const { program, relatedPrograms, siteKey } = useLoaderData<typeof loader>();
     const [searchParams] = useSearchParams();
     const actionData = useActionData();
     const navigation = useNavigation();
     const success = searchParams.get("success");
     const showSuccessMessage = success === "true";
     const [isLocalSubmitting, setIsLocalSubmitting] = useState(false);
-    
+    const recaptchaRef = useRef<RecaptchaHandle>(null);
+
     const isSubmitting = navigation.state === "submitting" || isLocalSubmitting;
     const Icon = programIconMap[program.iconKey];
-    
+
     const handleFormSubmit = () => {
         setIsLocalSubmitting(true);
     };
-    
+
     useEffect(() => {
         if (navigation.state === "idle") {
             setIsLocalSubmitting(false);
         }
     }, [navigation.state]);
+
+    // Reset reCAPTCHA after form submission fails
+    useEffect(() => {
+        if (actionData && !actionData.success && navigation.state === "idle") {
+            recaptchaRef.current?.reset();
+        }
+    }, [actionData, navigation.state]);
+
+    // Set site key globally for the component
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            (window as any).__RECAPTCHA_SITE_KEY__ = siteKey;
+        }
+    }, [siteKey]);
 
     return (
         <div className="min-h-screen bg-white">
@@ -437,6 +467,8 @@ export default function ApplyToProgram() {
                                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00A5B8] focus:border-transparent transition-colors resize-vertical"
                                                 />
                                             </div>
+
+                                            <Recaptcha ref={recaptchaRef} />
 
                                             {/* Submit Button */}
                                             <div className="pt-4">
