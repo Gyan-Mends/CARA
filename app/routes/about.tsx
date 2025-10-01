@@ -28,7 +28,7 @@ export default function About() {
                     <div className="absolute inset-0 bg-gradient-to-r from-gray-900/85 via-gray-800/75 to-[#00A5B8]/85"></div>
                 </div>
 
-                <div className="container mx-auto px-6 relative z-10 pt-20">
+                <div className="container mx-auto px-6 relative z-10 pt-12">
                     <div className="text-center max-w-4xl mx-auto">
                         <h1 className="text-3xl lg:text-5xl font-heading font-bold text-white mb-6">
                             About <span className="text-[#FCB339]">CARA</span>
@@ -45,7 +45,7 @@ export default function About() {
             
 
             {/* About Content Section */}
-            <section id="about-content" className="py-20 bg-gray-50">
+            <section id="about-content" className="py-12 bg-gray-50">
                 <div className="container mx-auto px-6">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         {/* Right Content - Image with Feature Cards */}
@@ -137,7 +137,7 @@ export default function About() {
             </section>
 
             {/* Vision & Mission Section */}
-            <section className="py-20 bg-gradient-to-br from-gray-50/50 via-white to-teal-50/10 relative overflow-hidden">
+            <section className="py-12 bg-gradient-to-br from-gray-50/50 via-white to-teal-50/10 relative overflow-hidden">
                 {/* Decorative Pattern Background */}
                 <div className="absolute inset-0 opacity-20">
                     {/* Dot Pattern */}
@@ -159,7 +159,7 @@ export default function About() {
                             <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-[#FCB339] via-[#00A5B8] to-[#FCB339] hidden md:block shadow-lg"></div>
 
                             {/* Vision - Left Side */}
-                            <div className="relative mb-16 md:mb-32">
+                            <div className="relative mb-12 md:mb-0">
                                 <div className="md:grid md:grid-cols-2 md:gap-12 items-center">
                                     <div className=" md:pr-12">
                                         <div className="bg-white border border-gray-200 rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
@@ -209,11 +209,11 @@ export default function About() {
             </section>
 
             {/* Objectives Section */}
-            <section className="py-24 bg-gray-50">
+            <section className="py-12 bg-gray-50">
                 <div className="container mx-auto px-6">
                     <div className="max-w-7xl mx-auto">
                         {/* Section Header */}
-                        <div className="text-center mb-20">
+                        <div className="text-center mb-12">
                             <h2 className="text-4xl lg:text-5xl font-bold font-heading text-gray-900 mb-6">Our Objectives</h2>
                             <div className="w-24 h-1 bg-[#FCB339] mx-auto mb-8"></div>
                             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -222,13 +222,13 @@ export default function About() {
                         </div>
 
                         {/* Objectives Grid */}
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-24">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-8">
                             {/* Objective 1 */}
                             <div className="relative">
                                 <div className="absolute -top-8 -left-4 text-[140px] font-bold text-gray-100 leading-none select-none">
                                     01
                                 </div>
-                                <div className="relative pt-16">
+                                <div className="relative pt-10">
                                     <h3 className="text-2xl font-bold font-heading text-gray-900 mb-5">
                                         Caregiver Training
                                     </h3>
@@ -243,7 +243,7 @@ export default function About() {
                                 <div className="absolute -top-8 -left-4 text-[140px] font-bold text-gray-100 leading-none select-none">
                                     02
                                 </div>
-                                <div className="relative pt-16">
+                                <div className="relative pt-10">
                                     <h3 className="text-2xl font-bold font-heading text-gray-900 mb-5">
                                         Mothers First Programme
                                     </h3>
@@ -258,7 +258,7 @@ export default function About() {
                                 <div className="absolute -top-8 -left-4 text-[140px] font-bold text-gray-100 leading-none select-none">
                                     03
                                 </div>
-                                <div className="relative pt-16">
+                                <div className="relative pt-10">
                                     <h3 className="text-2xl font-bold font-heading text-gray-900 mb-5">
                                         Inclusive Care
                                     </h3>
@@ -273,7 +273,7 @@ export default function About() {
                                 <div className="absolute -top-8 -left-4 text-[140px] font-bold text-gray-100 leading-none select-none">
                                     04
                                 </div>
-                                <div className="relative pt-16">
+                                <div className="relative pt-10">
                                     <h3 className="text-2xl font-bold font-heading text-gray-900 mb-5">
                                         CareBridge Platform
                                     </h3>
@@ -288,7 +288,7 @@ export default function About() {
                                 <div className="absolute -top-8 -left-4 text-[140px] font-bold text-gray-100 leading-none select-none">
                                     05
                                 </div>
-                                <div className="relative pt-16">
+                                <div className="relative pt-10">
                                     <h3 className="text-2xl font-bold font-heading text-gray-900 mb-5">
                                         Policy Advocacy
                                     </h3>
@@ -303,7 +303,7 @@ export default function About() {
                                 <div className="absolute -top-8 -left-4 text-[140px] font-bold text-gray-100 leading-none select-none">
                                     06
                                 </div>
-                                <div className="relative pt-16">
+                                    <div className="relative pt-10">
                                     <h3 className="text-2xl font-bold font-heading text-gray-900 mb-5">
                                         Research & Partnerships
                                     </h3>
@@ -318,7 +318,7 @@ export default function About() {
             </section>
 
             {/* Core Values Section */}
-            <section className="pt-24 bg-white overflow-hidden">
+            <section className="pt-12 bg-white overflow-hidden">
                 <div className="container mx-auto px-6">
                     <div className="max-w-7xl mx-auto">
                         {/* Section Header */}
