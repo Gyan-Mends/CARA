@@ -318,11 +318,11 @@ export default function About() {
             </section>
 
             {/* Core Values Section */}
-            <section className="py-24 bg-white overflow-hidden">
+            <section className="pt-24 bg-white overflow-hidden">
                 <div className="container mx-auto px-6">
                     <div className="max-w-7xl mx-auto">
                         {/* Section Header */}
-                        <div className="text-center mb-20">
+                        <div className="text-center">
                             <h2 className="text-4xl lg:text-5xl font-bold font-heading text-gray-900 mb-6">Our Core Values</h2>
                             <div className="w-24 h-1 bg-[#FCB339] mx-auto mb-8"></div>
                             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -330,85 +330,7 @@ export default function About() {
                             </p>
                         </div>
 
-                        {/* Circular Values Layout */}
-                        <div className="relative min-h-[850px] lg:min-h-[700px] max-w-5xl mx-auto flex items-center justify-center">
-                            {/* Center Circle - CARA Logo/Text */}
-                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                                <div className="w-28 h-28 lg:w-32 lg:h-32 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full flex items-center justify-center shadow-lg">
-                                    <span className="text-2xl lg:text-3xl font-bold text-white">CARA</span>
-                                </div>
-                            </div>
-
-                            {/* Dignity - Top */}
-                            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 text-center group">
-                                <div className="relative w-20 h-20 lg:w-24 lg:h-24 bg-gray-100 rounded-full flex items-center justify-center shadow-md mx-auto mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-200">
-                                    <Heart className="w-8 h-8 lg:w-10 lg:h-10 text-gray-700" strokeWidth={1.5} />
-                                </div>
-                                <h3 className="text-base lg:text-lg font-bold font-heading text-gray-900 mb-1">Dignity</h3>
-                                <p className="text-xs text-gray-600 max-w-[150px]">Respecting every person in care</p>
-                                <ArrowRight className="w-5 h-5 text-gray-400 mx-auto mt-3 rotate-90" />
-                            </div>
-
-                            {/* Inclusion - Top Right */}
-                            <div className="absolute top-[8%] right-[8%] lg:right-[15%] text-center group">
-                                <div className="relative w-20 h-20 lg:w-24 lg:h-24 bg-gray-100 rounded-full flex items-center justify-center shadow-md mx-auto mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-200">
-                                    <Users className="w-8 h-8 lg:w-10 lg:h-10 text-gray-700" strokeWidth={1.5} />
-                                </div>
-                                <h3 className="text-base lg:text-lg font-bold font-heading text-gray-900 mb-1">Inclusion</h3>
-                                <p className="text-xs text-gray-600 max-w-[150px]">No one left behind</p>
-                                <ArrowRight className="w-5 h-5 text-gray-400 mx-auto mt-3 rotate-[120deg]" />
-                            </div>
-
-                            {/* Empowerment - Right */}
-                            <div className="absolute top-[38%] right-[2%] lg:right-[8%] text-center group">
-                                <div className="relative w-20 h-20 lg:w-24 lg:h-24 bg-gray-100 rounded-full flex items-center justify-center shadow-md mx-auto mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-200">
-                                    <HandHeart className="w-8 h-8 lg:w-10 lg:h-10 text-gray-700" strokeWidth={1.5} />
-                                </div>
-                                <h3 className="text-base lg:text-lg font-bold font-heading text-gray-900 mb-1">Empowerment</h3>
-                                <p className="text-xs text-gray-600 max-w-[150px]">Communities to thrive</p>
-                                <ArrowRight className="w-5 h-5 text-gray-400 mx-auto mt-3 rotate-[150deg]" />
-                            </div>
-
-                            {/* Collaboration - Bottom Right */}
-                            <div className="absolute bottom-[12%] right-[12%] lg:right-[18%] text-center group">
-                                <ArrowRight className="w-5 h-5 text-gray-400 mx-auto mb-3 rotate-[150deg]" />
-                                <div className="relative w-20 h-20 lg:w-24 lg:h-24 bg-gray-100 rounded-full flex items-center justify-center shadow-md mx-auto mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-200">
-                                    <UserCheck className="w-8 h-8 lg:w-10 lg:h-10 text-gray-700" strokeWidth={1.5} />
-                                </div>
-                                <h3 className="text-base lg:text-lg font-bold font-heading text-gray-900 mb-1">Collaboration</h3>
-                                <p className="text-xs text-gray-600 max-w-[150px]">Building partnerships</p>
-                            </div>
-
-                            {/* Innovation - Bottom */}
-                            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-center group">
-                                <ArrowRight className="w-5 h-5 text-gray-400 mx-auto mb-3 rotate-[180deg]" />
-                                <div className="relative w-20 h-20 lg:w-24 lg:h-24 bg-gray-100 rounded-full flex items-center justify-center shadow-md mx-auto mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-200">
-                                    <Lightbulb className="w-8 h-8 lg:w-10 lg:h-10 text-gray-700" strokeWidth={1.5} />
-                                </div>
-                                <h3 className="text-base lg:text-lg font-bold font-heading text-gray-900 mb-1">Innovation</h3>
-                                <p className="text-xs text-gray-600 max-w-[150px]">Creative solutions</p>
-                            </div>
-
-                            {/* Accountability - Bottom Left */}
-                            <div className="absolute bottom-[12%] left-[12%] lg:left-[18%] text-center group">
-                                <ArrowRight className="w-5 h-5 text-gray-400 mx-auto mb-3 rotate-[-150deg]" />
-                                <div className="relative w-20 h-20 lg:w-24 lg:h-24 bg-gray-100 rounded-full flex items-center justify-center shadow-md mx-auto mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-200">
-                                    <Shield className="w-8 h-8 lg:w-10 lg:h-10 text-gray-700" strokeWidth={1.5} />
-                                </div>
-                                <h3 className="text-base lg:text-lg font-bold font-heading text-gray-900 mb-1">Accountability</h3>
-                                <p className="text-xs text-gray-600 max-w-[150px]">Transparency & integrity</p>
-                            </div>
-
-                            {/* Resilience - Left */}
-                            <div className="absolute top-[38%] left-[2%] lg:left-[8%] text-center group">
-                                <ArrowRight className="w-5 h-5 text-gray-400 mx-auto mb-3 rotate-[-120deg]" />
-                                <div className="relative w-20 h-20 lg:w-24 lg:h-24 bg-gray-100 rounded-full flex items-center justify-center shadow-md mx-auto mb-3 group-hover:shadow-lg transition-all duration-300 border border-gray-200">
-                                    <Target className="w-8 h-8 lg:w-10 lg:h-10 text-gray-700" strokeWidth={1.5} />
-                                </div>
-                                <h3 className="text-base lg:text-lg font-bold font-heading text-gray-900 mb-1">Resilience</h3>
-                                <p className="text-xs text-gray-600 max-w-[150px]">Strengthening communities</p>
-                            </div>
-                        </div>
+                        <img src="images/CA.jpg" alt="Objectives" className="w-full  object-cover" />
                     </div>
                 </div>
             </section>
