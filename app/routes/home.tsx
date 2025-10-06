@@ -182,6 +182,52 @@ export default function Home() {
     }, [siteKey]);
     return (
         <div className="min-h-screen ">
+            {/* Banner Modal */}
+            {showModal && (
+                <div className="fixed inset-0 bg-black/80 z-[99999] flex items-center justify-center p-4">
+                    <div className="relative max-w-2xl w-full bg-white rounded-xl overflow-hidden shadow-2xl max-h-[70vh]">
+                        <button
+                            onClick={() => setShowModal(false)}
+                            className="absolute top-3 right-3 w-8 h-8 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition-all duration-200 z-10 shadow-lg"
+                        >
+                            <X className="w-5 h-5 text-gray-800" />
+                        </button>
+                        <div className="relative h-full">
+                            <img
+                                src="/images/image.png"
+                                alt="CARA Welcome Banner"
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
+                            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                                <h2 className="text-xl lg:text-2xl font-heading font-bold mb-2">
+                                    Welcome to CARA
+                                </h2>
+                                <p className="text-sm lg:text-base mb-4">
+                                    Building stronger communities through dignified care
+                                </p>
+                                <div className="flex flex-col sm:flex-row gap-2">
+                                    <Link
+                                        to="/become-a-giver"
+                                        onClick={() => setShowModal(false)}
+                                        className="bg-[#FCB339] text-white px-5 py-2 rounded-full hover:bg-orange-400 transition-colors duration-300 font-medium text-center text-sm"
+                                    >
+                                        BECOME A CARE GIVER
+                                    </Link>
+                                    <Link
+                                        to="/partner-with-us"
+                                        onClick={() => setShowModal(false)}
+                                        className="bg-white text-gray-900 px-5 py-2 rounded-full hover:bg-gray-100 transition-colors duration-300 font-medium text-center text-sm"
+                                    >
+                                        PARTNER WITH US
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {/* Hero Section */}
             <section id="hero" className="relative">
                 {/* Navigation */}
@@ -300,8 +346,41 @@ export default function Home() {
                 </div>
             </section>
 
-           
-
+            {/* Banner Section */}
+            <section className="relative py-20 overflow-hidden">
+                <div className="absolute inset-0">
+                    <img
+                        src={bannerImage}
+                        alt="CARA Banner"
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/80 to-[#00A5B8]/90"></div>
+                </div>
+                <div className="container mx-auto px-6 relative z-10">
+                    <div className="max-w-4xl mx-auto text-center text-white">
+                        <h2 className="text-3xl lg:text-5xl font-heading font-bold mb-6">
+                            Join Us in Building Stronger Communities
+                        </h2>
+                        <p className="text-lg lg:text-xl mb-8 leading-relaxed">
+                            Together, we can create a future where every vulnerable person receives the care and support they deserve.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Link
+                                to="/become-a-giver"
+                                className="bg-[#FCB339] text-white px-8 py-4 rounded-full hover:bg-orange-400 transition-colors duration-300 font-medium text-center"
+                            >
+                                BECOME A CARE GIVER
+                            </Link>
+                            <Link
+                                to="/partner-with-us"
+                                className="bg-white text-gray-900 px-8 py-4 rounded-full hover:bg-gray-100 transition-colors duration-300 font-medium text-center"
+                            >
+                                PARTNER WITH US
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             {/* About Section */}
             <section id="about" className="py-20 bg-gray-50">
