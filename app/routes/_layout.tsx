@@ -6,7 +6,7 @@ import type { MetaFunction } from "react-router";
 export const meta: MetaFunction = () => {
     const title = "CARA - Care Access for Resilient Africa";
     const description = "Strengthening Africa's care economy, where care is visible and valued. We support families, uplift caregivers through training programs, and build stronger communities across Africa.";
-    const url = "images/logo.png";
+    const url = "https://www.caraafrica.org";
     const image = `${url}/logo.png`;
 
     return [
