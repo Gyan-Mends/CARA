@@ -1,6 +1,50 @@
 import { Outlet, Link } from "react-router";
 import { InstagramIcon, LinkedinIcon, TwitterIcon, XIcon, YoutubeIcon } from "lucide-react";
 import { FacebookIcon } from "lucide-react";
+import type { MetaFunction } from "react-router";
+
+export const meta: MetaFunction = () => {
+    const title = "CARA - Care Access for Resilient Africa";
+    const description = "Strengthening Africa's care economy, where care is visible and valued. We support families, uplift caregivers through training programs, and build stronger communities across Africa.";
+    const url = "https://www.caraafrica.org";
+    const image = `${url}/logo.png`;
+
+    return [
+        { title },
+        { name: "description", content: description },
+
+        // Keywords for SEO
+        { name: "keywords", content: "CARA, Care Access for Resilient Africa, caregiver training, community support, Ghana, Africa care economy, caregiver programs, inclusive education, community health, advocacy, social impact" },
+
+        // Open Graph / Facebook
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: url },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:image", content: image },
+        { property: "og:site_name", content: "CARA Africa" },
+        { property: "og:locale", content: "en_US" },
+
+        // Twitter Card
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:site", content: "@CARAfricaOrg" },
+        { name: "twitter:creator", content: "@CARAfricaOrg" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: description },
+        { name: "twitter:image", content: image },
+
+        // Additional SEO
+        { name: "author", content: "Care Access for Resilient Africa (CARA)" },
+        { name: "robots", content: "index, follow" },
+        { name: "language", content: "English" },
+        { name: "geo.region", content: "GH" },
+        { name: "geo.placename", content: "Accra" },
+
+        // Mobile
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "theme-color", content: "#FCB339" },
+    ];
+};
 
 export default function AppLayout() {
 
