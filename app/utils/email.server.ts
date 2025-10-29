@@ -1,5 +1,4 @@
 import nodemailer from 'nodemailer';
-import path from 'path';
 
 // Create transporter using Gmail SMTP
 const transporter = nodemailer.createTransport({
@@ -12,8 +11,8 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const logoCid = 'caralogo';
-const logoPath = path.join(process.cwd(), 'public', 'logo.png');
+// Use hosted logo URL instead of file system path (for serverless compatibility)
+const logoUrl = process.env.LOGO_URL || 'https://your-domain.vercel.app/logo.png';
 
 export interface ContactFormData {
   name: string;
@@ -80,7 +79,7 @@ export async function sendContactEmail(data: ContactFormData) {
             <!-- Header -->
             <div style="background: linear-gradient(135deg, #00A5B8 0%, #0891b2 100%); padding: 30px 20px; text-align: center;">
               <div style="width: 60px; height: 60px; background-color: white; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 15px;">
-               <img src="cid:${logoCid}" alt="CARA Logo" style="width: 100%; height: 100%; object-fit: contain;">
+               <img src="${logoUrl}" alt="CARA Logo" style="width: 100%; height: 100%; object-fit: contain;">
               </div>
               <h1 style="color: white; margin: 0; font-size: 28px; font-weight: bold;">New Contact Form Submission</h1>
               <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 16px;">Care for Those Who Care. Dignity for All.</p>
@@ -125,13 +124,6 @@ export async function sendContactEmail(data: ContactFormData) {
         </body>
         </html>
       `,
-      attachments: [
-        {
-          filename: 'logo.png',
-          path: logoPath,
-          cid: logoCid,
-        }
-      ],
     });
 
     // Send confirmation email to the sender
@@ -214,13 +206,6 @@ export async function sendContactEmail(data: ContactFormData) {
         </body>
         </html>
       `,
-      attachments: [
-        {
-          filename: 'logo.png',
-          path: logoPath,
-          cid: logoCid,
-        }
-      ],
     });
 
     return { success: true };
@@ -319,13 +304,6 @@ export async function sendGiverApplicationEmail(data: GiverFormData) {
         </body>
         </html>
       `,
-      attachments: [
-        {
-          filename: 'logo.png',
-          path: logoPath,
-          cid: logoCid,
-        }
-      ],
     });
 
     // Send confirmation email to applicant
@@ -392,13 +370,6 @@ export async function sendGiverApplicationEmail(data: GiverFormData) {
         </body>
         </html>
       `,
-      attachments: [
-        {
-          filename: 'logo.png',
-          path: logoPath,
-          cid: logoCid,
-        }
-      ],
     });
 
     return { success: true };
@@ -523,13 +494,6 @@ export async function sendPartnerApplicationEmail(data: PartnerFormData) {
         </body>
         </html>
       `,
-      attachments: [
-        {
-          filename: 'logo.png',
-          path: logoPath,
-          cid: logoCid,
-        }
-      ],
     });
 
     // Send confirmation email to organization
@@ -596,13 +560,6 @@ export async function sendPartnerApplicationEmail(data: PartnerFormData) {
         </body>
         </html>
       `,
-      attachments: [
-        {
-          filename: 'logo.png',
-          path: logoPath,
-          cid: logoCid,
-        }
-      ],
     });
 
     return { success: true };
@@ -736,13 +693,6 @@ export async function sendProgramApplicationEmail(data: ProgramApplicationFormDa
         </body>
         </html>
       `,
-      attachments: [
-        {
-          filename: 'logo.png',
-          path: logoPath,
-          cid: logoCid,
-        }
-      ],
     });
 
     // Send confirmation email to applicant
@@ -818,13 +768,6 @@ export async function sendProgramApplicationEmail(data: ProgramApplicationFormDa
         </body>
         </html>
       `,
-      attachments: [
-        {
-          filename: 'logo.png',
-          path: logoPath,
-          cid: logoCid,
-        }
-      ],
     });
 
     return { success: true };

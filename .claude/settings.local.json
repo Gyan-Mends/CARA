@@ -11,7 +11,8 @@
       "Bash(npm run build:*)",
       "Read(C:\\Users\\Nharnhar Qwadwo\\Desktop/**)",
       "Read(//c/Users/Nharnhar Qwadwo/Desktop/**)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(rm:*)"
     ],
     "deny": [],
     "ask": []
