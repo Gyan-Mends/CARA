@@ -62,7 +62,7 @@ export default function AppLayout() {
                             {/* About CARA */}
                             <div className="lg:col-span-2">
                                 <div className="mb-6">
-                                    <img src="/logo.png" alt="CARA Logo" className='w-40 h-auto' />
+                                    <img src="/logo.png" alt="CARA Logo" className='w-60 h-22' />
                                 </div>
                                 <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
                                     Strengthening Africa’s care economy, where care is visible and valued. Together we support families, uplift caregivers, and build stronger communities.
