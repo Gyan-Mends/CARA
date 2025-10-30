@@ -140,9 +140,13 @@ export default function Home() {
         return () => clearInterval(interval);
     }, []);
 
-    // Show modal on every page visit/refresh
+    // Show modal on every page visit/refresh (client-side only)
     useEffect(() => {
-        setTimeout(() => setShowModal(true), 2000); // Show after 2 seconds
+        // Only run on client-side to avoid hydration issues
+        if (typeof window !== 'undefined') {
+            const timer = setTimeout(() => setShowModal(true), 2000); // Show after 2 seconds
+            return () => clearTimeout(timer);
+        }
     }, []);
 
     // Handle form submission state
