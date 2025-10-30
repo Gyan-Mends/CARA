@@ -14,10 +14,11 @@ export const Recaptcha = forwardRef<RecaptchaHandle, RecaptchaProps>(
     const [ReCAPTCHA, setReCAPTCHA] = useState<any>(null);
     const recaptchaRef = useRef<any>(null);
 
-    // Get site key from window object (passed from loader)
+    // Get site key from window object (passed from loader) or use default
+    // Site keys are public and safe to include in client code
     const siteKey = typeof window !== "undefined"
-      ? (window as any).__RECAPTCHA_SITE_KEY__
-      : "";
+      ? ((window as any).__RECAPTCHA_SITE_KEY__ || "6Ldfb9srAAAAANV2LXxG22IsQ-igw-pli0j1RQzg")
+      : "6Ldfb9srAAAAANV2LXxG22IsQ-igw-pli0j1RQzg";
 
     // Dynamically import ReCAPTCHA only on the client
     useEffect(() => {
@@ -38,7 +39,7 @@ export const Recaptcha = forwardRef<RecaptchaHandle, RecaptchaProps>(
     }));
 
     // Only render on client after ReCAPTCHA is loaded
-    if (typeof window === "undefined" || !ReCAPTCHA) {
+    if (typeof window === "undefined" || !ReCAPTCHA || !siteKey) {
       return (
         <div className="flex justify-center my-4">
           <div className="w-[304px] h-[78px] bg-gray-100 rounded flex items-center justify-center">
