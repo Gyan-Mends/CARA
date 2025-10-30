@@ -6,8 +6,8 @@ import type { MetaFunction } from "react-router";
 export const meta: MetaFunction = () => {
     const title = "CARA - Care Access for Resilient Africa";
     const description = "Strengthening Africa's care economy, where care is visible and valued. We support families, uplift caregivers through training programs, and build stronger communities across Africa.";
-    const url = "images/logo.png";
-    const image = `${url}/logo.png`;
+    const siteUrl = "https://caraafrica.org";
+    const image = `${siteUrl}/logo.png`;
 
     return [
         { title },
@@ -18,10 +18,12 @@ export const meta: MetaFunction = () => {
 
         // Open Graph / Facebook
         { property: "og:type", content: "website" },
-        { property: "og:url", content: url },
+        { property: "og:url", content: siteUrl },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:image", content: image },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
         { property: "og:site_name", content: "CARA Africa" },
         { property: "og:locale", content: "en_US" },
 

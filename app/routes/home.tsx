@@ -346,41 +346,7 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Banner Section */}
-            <section className="relative py-20 overflow-hidden">
-                <div className="absolute inset-0">
-                    <img
-                        src={bannerImage}
-                        alt="CARA Banner"
-                        className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/80 to-[#00A5B8]/90"></div>
-                </div>
-                <div className="container mx-auto px-6 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center text-white">
-                        <h2 className="text-3xl lg:text-5xl font-heading font-bold mb-6">
-                            Join Us in Building Stronger Communities
-                        </h2>
-                        <p className="text-lg lg:text-xl mb-8 leading-relaxed">
-                            Together, we can create a future where every vulnerable person receives the care and support they deserve.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link
-                                to="/become-a-giver"
-                                className="bg-[#FCB339] text-white px-8 py-4 rounded-full hover:bg-orange-400 transition-colors duration-300 font-medium text-center"
-                            >
-                                BECOME A CARE GIVER
-                            </Link>
-                            <Link
-                                to="/partner-with-us"
-                                className="bg-white text-gray-900 px-8 py-4 rounded-full hover:bg-gray-100 transition-colors duration-300 font-medium text-center"
-                            >
-                                PARTNER WITH US
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            
 
             {/* About Section */}
             <section id="about" className="py-20 bg-gray-50">
