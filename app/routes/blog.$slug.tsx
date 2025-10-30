@@ -77,19 +77,36 @@ export default function BlogDetail() {
                 if (paragraph.startsWith('*"') && paragraph.endsWith('"*')) {
                     return <blockquote key={index} className="border-l-4 border-[#00A5B8] pl-6 py-4 my-6 bg-gray-50 italic text-gray-700 text-lg">{paragraph.slice(2, -2)}</blockquote>;
                 }
+                // Handle images ![alt](src)
+                if (paragraph.startsWith('![')) {
+                    const match = paragraph.match(/!\[(.*?)\]\((.*?)\)/);
+                    if (match) {
+                        const alt = match[1];
+                        const src = match[2];
+                        return (
+                            <div key={index} className="my-8">
+                                <img
+                                    src={src}
+                                    alt={alt}
+                                    className="w-full rounded-lg shadow-lg"
+                                />
+                            </div>
+                        );
+                    }
+                }
                 if (paragraph.trim() === '') {
                     return null;
                 }
-                
+
                 // Handle bold and italic text
                 let processedParagraph = paragraph
                     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                     .replace(/\*(.*?)\*/g, '<em>$1</em>');
-                
+
                 return (
-                    <p 
-                        key={index} 
-                        className="text-gray-700 leading-relaxed mb-4" 
+                    <p
+                        key={index}
+                        className="text-gray-700 leading-relaxed mb-4"
                         dangerouslySetInnerHTML={{ __html: processedParagraph }}
                     />
                 );

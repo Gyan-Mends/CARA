@@ -52,6 +52,68 @@ export type BlogPost = BlogSummary & {
 
 const blogPosts: BlogPost[] = [
     {
+        id: "2",
+        slug: "un-international-day-of-care-and-support",
+        title: "UN International Day of Care and Support",
+        excerpt: "From classrooms to communities, care makes life possible. This year, CARA joined the Garden City Special School in Kumasi to honor caregivers and reaffirm that care is not charity — it's infrastructure.",
+        category: "advocacy",
+        categoryLabel: "Advocacy & Policy",
+        author: "CARA Communications Team",
+        publishedDate: "2025-10-29",
+        readTime: "4 min read",
+        featuredImage: "/images/cover.jpeg",
+        heroImage: "/images/cover.jpeg",
+        alt: "CARA team at Garden City Special School celebrating UN International Day of Care and Support",
+        iconKey: "Megaphone",
+        tagColor: "bg-yellow-100",
+        tagTextColor: "text-yellow-600",
+        featured: true,
+        content: `
+# UN International Day of Care and Support
+
+## Introduction
+
+On 29th October, the world observes the United Nations International Day of Care and Support, a global recognition of the vital role that care and support systems play in sustaining families, communities, and economies.
+
+Established by the UN in 2023, this day calls attention to the often-invisible labor that underpins society: the work of caregivers. It invites governments, institutions, and citizens to invest in care systems as essential infrastructure, not as acts of charity.
+
+## Why the Day Matters
+
+Every act of care, from a mother nurturing her newborn, to a teacher guiding a child, to a nurse supporting a patient, or a family caregiver assisting an elder, contributes to the resilience and wellbeing of our world.
+
+Yet across Africa, millions of caregivers, especially women and youth, provide this critical labor without recognition, fair pay, or social protection. The UN International Day of Care and Support is advocating for policy attention to caregivers' welfare, training, and career progression.
+
+## CARA's Reflection
+
+At Care Access for Resilient Africa (CARA), we join the world in celebrating the caregivers whose compassion and commitment make care visible every day.
+
+CARA's mission is to design systems that dignify care — connecting caregivers, communities, and innovators to strengthen Africa's care economy. Through our initiatives, we advocate for care to be recognized as a driver of social resilience and economic transformation.
+
+*"Care is not charity — it's infrastructure."*
+**— Joana Kyeremateng, Founder – CARA**
+
+## Spotlight: Garden City Special School, Kumasi
+
+As part of this year's commemoration, CARA visited the Garden City Special School in Asokore Mampong, Kumasi, a place where care is lived every day through dedication, patience, and love.
+
+![CARA team with caregivers and students](/images/inline.jpg)
+
+During the engagement, the Principal of the school shared a moving reflection:
+
+*"For my 24 years in special education, this is the first time I am hearing about the UN International Day of Care and Support. If there is truly a global day for care, then it must translate into tangible support for those who are actually providing care."*
+
+Her words echo the voices of countless caregivers across Ghana and beyond — those who carry the weight of society's care needs without adequate recognition, resources, or structural support.
+        `,
+        tags: ["CareEconomy", "UNDayofCare", "CARAfrica", "CareMatters", "Inclusion", "Resilience", "AfricaCares", "SocialImpact"],
+        relatedPrograms: ["inclusive-care"],
+        callToAction: {
+            title: "Support Our Caregivers",
+            description: "Help us provide training and resources to caregivers across Ghana",
+            buttonText: "Learn How to Help",
+            buttonLink: "/support-us"
+        }
+    },
+    {
         id: "1",
         slug: "cara-leads-neurodiversity-edtech-fair-2025",
         title: "CARA to Lead Inclusive Education Conversations at Neurodiversity & EdTech Fair 2025",
