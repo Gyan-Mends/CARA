@@ -22,8 +22,11 @@ export const meta: MetaFunction = () => {
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:image", content: image },
-        { property: "og:image:width", content: "1200" },
-        { property: "og:image:height", content: "630" },
+        { property: "og:image:secure_url", content: image },
+        { property: "og:image:type", content: "image/png" },
+        { property: "og:image:width", content: "1762" },
+        { property: "og:image:height", content: "792" },
+        { property: "og:image:alt", content: "CARA - Care Access for Resilient Africa Logo" },
         { property: "og:site_name", content: "CARA Africa" },
         { property: "og:locale", content: "en_US" },
 
@@ -34,6 +37,7 @@ export const meta: MetaFunction = () => {
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
         { name: "twitter:image", content: image },
+        { name: "twitter:image:alt", content: "CARA - Care Access for Resilient Africa Logo" },
 
         // Additional SEO
         { name: "author", content: "Care Access for Resilient Africa (CARA)" },
